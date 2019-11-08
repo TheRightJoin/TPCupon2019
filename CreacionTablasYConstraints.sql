@@ -1,3 +1,7 @@
+
+create procedure THE_RIGHT_JOIN.CREACION_TABLAS_CONSTRAINTS
+AS
+BEGIN
 CREATE TABLE THE_RIGHT_JOIN.Cliente
 (Cli_Dni numeric(18,0) PRIMARY KEY NOT NULL,
 Cli_Nombre nvarchar(255),
@@ -7,6 +11,9 @@ Cli_Direccion nvarchar(255),
 Cli_Ciudad nvarchar(255),
 Cli_Fecha_Nac datetime,
 Cli_Activo numeric(1,0))
+
+ALTER TABLE THE_RIGHT_JOIN.Cliente
+ADD Cli_Telefono numeric(18,0)
 
 ------------------------------------------------
 
@@ -191,3 +198,5 @@ PRIMARY KEY (Item_tipoFactura, Item_numFactura, Item_idItem)
 ALTER TABLE THE_RIGHT_JOIN.Item_Factura
 ADD CONSTRAINT FK_Item_Factura_CompraOferta
 FOREIGN KEY (Item_idCompraOferta) REFERENCES THE_RIGHT_JOIN.Compra_Oferta (CompraOferta_idCompra)
+
+END

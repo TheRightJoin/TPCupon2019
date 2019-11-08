@@ -1,23 +1,30 @@
 
 --TABLA USUARIOS
-select distinct Cli_Dni,Cli_Nombre,Cli_Apellido,Cli_Mail,Cli_Direccion,Cli_Ciudad,Cli_Telefono,Cli_Fecha_Nac
+--LISTO
+insert
+into THE_RIGHT_JOIN.Cliente select distinct Cli_Dni,Cli_Nombre,Cli_Apellido,Cli_Mail,Cli_Direccion,Cli_Ciudad,Cli_Fecha_Nac,NULL,Cli_Telefono
 from gd_esquema.Maestra
 
+
 --TABLA PROVEEDORES
-select distinct Provee_RS,Provee_Dom,Provee_Ciudad,Provee_Telefono,Provee_CUIT, 
-    (select idRubro from THE_RIGHT_JOIN.Rubro where THE_RIGHT_JOIN.Rubro.Rubro_Descripcion = Provee_Rubro)
- from gd_esquema.Maestra
+--LISTO
+insert into THE_RIGHT_JOIN.Proveedor select distinct Provee_RS,Provee_Dom,Provee_Ciudad,Provee_Telefono,Provee_CUIT, 
+    (select idRubro from THE_RIGHT_JOIN.Rubro R where R.Rubro_Descripcion = Provee_Rubro),NULL
+ from gd_esquema.Maestra WHERE Provee_CUIT IS NOT NULL
 
 --TABLA RUBROS
-select distinct Provee_Rubro from gd_esquema.Maestra
+--LISTO
+insert into THE_RIGHT_JOIN.Rubro select distinct Provee_Rubro from gd_esquema.Maestra WHERE Provee_Rubro IS NOT NULL
 
---TABLA CARGA_CREDITO (EN VEZ DE TRAER NOMBRE Y APELLIDO HAY Q HACER UN SUBSELECT Y TRAER EL IDCliente)
-select Cli_Dni,Carga_Credito,Carga_Fecha,Tipo_Pago_Desc
+--TABLA CARGA_CREDITO
+--LISTO
+insert into THE_RIGHT_JOIN.CargaCredito select Carga_Fecha,Cli_Dni,Carga_Credito,Tipo_Pago_Desc,NULL,NULL
 from gd_esquema.Maestra
 where Carga_Credito IS NOT NULL
 
---TABLA OFERTAS
-select distinct Oferta_Codigo,Oferta_Fecha,Oferta_Fecha_Venc,Oferta_Precio,Oferta_Precio_Ficticio,Provee_RS,Oferta_Cantidad
+--TABLA OFERTAS -- VER QUE ONDA LA FECHA ENTREGA Y TODO ESO
+select distinct Oferta_Precio,Oferta_Precio_Ficticio,Oferta_Fecha,Oferta_Fecha_Venc,Oferta_Cantidad,Oferta_Descripcion,
+Oferta_Codigo,Oferta_Entregado_Fecha,NULL,Provee_CUIT,Cli_Apellido
 from gd_esquema.Maestra
 where Oferta_Codigo IS NOT NULL
 
