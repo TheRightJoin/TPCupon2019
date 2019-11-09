@@ -45,7 +45,8 @@ Usuari_idUser int IDENTITY(1,1) PRIMARY KEY NOT NULL,
 Usuari_Username nvarchar(255),
 Usuari_Password nvarchar(255),
 Usuari_DNI numeric(18,0),
-Usuari_CUIT nvarchar(20))
+Usuari_CUIT nvarchar(20),
+Usuari_Habilitado numeric(1,0))
 
 ALTER TABLE THE_RIGHT_JOIN.Usuario
 ADD CONSTRAINT FK_Cliente
@@ -56,6 +57,7 @@ ALTER TABLE THE_RIGHT_JOIN.Usuario
 ADD CONSTRAINT FK_Proveedor
 FOREIGN KEY (Usuari_CUIT)
 REFERENCES THE_RIGHT_JOIN.Proveedor (Provee_CUIT)
+
 
 -----------------------------------------------------
 
@@ -172,7 +174,8 @@ CREATE TABLE THE_RIGHT_JOIN.Compra_Oferta(
 CompraOferta_idCompra INTEGER NOT NULL PRIMARY KEY IDENTITY(1,1),
 CompraOferta_dniClie numeric(18,0),
 CompraOferta_oferCodigo nvarchar(50),
-CompraOferta_Cantidad INTEGER)
+CompraOferta_Cantidad INTEGER,
+CompraOferta_Fecha date)
 
 ALTER TABLE THE_RIGHT_JOIN.Compra_Oferta
 ADD CONSTRAINT FK_CompraOferta_Cliente
