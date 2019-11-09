@@ -45,7 +45,8 @@ Usuari_idUser int IDENTITY(1,1) PRIMARY KEY NOT NULL,
 Usuari_Username nvarchar(255),
 Usuari_Password nvarchar(255),
 Usuari_DNI numeric(18,0),
-Usuari_CUIT nvarchar(20))
+Usuari_CUIT nvarchar(20),
+Usuari_Habilitado numeric(1,0))
 
 ALTER TABLE THE_RIGHT_JOIN.Usuario
 ADD CONSTRAINT FK_Cliente
@@ -56,6 +57,14 @@ ALTER TABLE THE_RIGHT_JOIN.Usuario
 ADD CONSTRAINT FK_Proveedor
 FOREIGN KEY (Usuari_CUIT)
 REFERENCES THE_RIGHT_JOIN.Proveedor (Provee_CUIT)
+
+
+-----------------------------------------------------
+
+CREATE TABLE THE_RIGHT_JOIN.Rol(
+id_Rol INTEGER NOT NULL PRIMARY KEY IDENTITY(1,1),
+rol_Name nvarchar(255),
+rol_habilitado numeric(1,0))
 
 ------------------------------------------------------
 
@@ -71,13 +80,11 @@ FOREIGN KEY (idUser) REFERENCES THE_RIGHT_JOIN.Usuario (Usuari_idUser)
 ALTER TABLE THE_RIGHT_JOIN.RolXUsuario
 ADD CONSTRAINT FK_Rol
 FOREIGN KEY (idRol) REFERENCES THE_RIGHT_JOIN.Rol (id_Rol)
+------------------------------------------------------
 
------------------------------------------------------
-
-CREATE TABLE THE_RIGHT_JOIN.Rol(
-id_Rol INTEGER NOT NULL PRIMARY KEY IDENTITY(1,1),
-rol_Name nvarchar(255),
-rol_habilitado numeric(1,0))
+CREATE TABLE THE_RIGHT_JOIN.Funcionalidad(
+idFunc INTEGER NOT NULL PRIMARY KEY IDENTITY(1,1),
+funcio_name nvarchar(255))
 
 ------------------------------------------------------
 
@@ -94,26 +101,6 @@ ALTER TABLE THE_RIGHT_JOIN.FuncXRol
 ADD CONSTRAINT FK_Func
 FOREIGN KEY (idFunc) REFERENCES THE_RIGHT_JOIN.Funcionalidad (idFunc)
 
-------------------------------------------------------
-
-CREATE TABLE THE_RIGHT_JOIN.Funcionalidad(
-idFunc INTEGER NOT NULL PRIMARY KEY IDENTITY(1,1),
-funcio_name nvarchar(255))
-
-------------------------------------------------------
-
-CREATE TABLE THE_RIGHT_JOIN.Cupon(
-idCupon INTEGER NOT NULL PRIMARY KEY,
-codOferta nvarchar(50) NOT NULL,
-cupon_dniCli numeric(18,0))
-
-ALTER TABLE THE_RIGHT_JOIN.Cupon
-ADD CONSTRAINT FK_CuponOferta
-FOREIGN KEY (codOferta) REFERENCES THE_RIGHT_JOIN.Oferta (Oferta_Codigo)
-
-ALTER TABLE THE_RIGHT_JOIN.Cupon
-ADD CONSTRAINT FK_CuponCliente
-FOREIGN KEY (cupon_dniCli) REFERENCES THE_RIGHT_JOIN.Cliente (Cli_Dni)
 
 ------------------------------------------------------
 
@@ -133,6 +120,21 @@ Oferta_CUIT nvarchar(20))
 ALTER TABLE THE_RIGHT_JOIN.Oferta
 ADD CONSTRAINT FK_ProveedorOferta
 FOREIGN KEY (Oferta_CUIT) REFERENCES THE_RIGHT_JOIN.Proveedor (Provee_CUIT)
+------------------------------------------------------
+
+CREATE TABLE THE_RIGHT_JOIN.Cupon(
+idCupon INTEGER NOT NULL PRIMARY KEY IDENTITY(1,1),
+codOferta nvarchar(50) NOT NULL,
+cupon_dniCli numeric(18,0))
+
+ALTER TABLE THE_RIGHT_JOIN.Cupon
+ADD CONSTRAINT FK_CuponOferta
+FOREIGN KEY (codOferta) REFERENCES THE_RIGHT_JOIN.Oferta (Oferta_Codigo)
+
+ALTER TABLE THE_RIGHT_JOIN.Cupon
+ADD CONSTRAINT FK_CuponCliente
+FOREIGN KEY (cupon_dniCli) REFERENCES THE_RIGHT_JOIN.Cliente (Cli_Dni)
+
 
 -------------------------------------------------------
 
@@ -172,7 +174,8 @@ CREATE TABLE THE_RIGHT_JOIN.Compra_Oferta(
 CompraOferta_idCompra INTEGER NOT NULL PRIMARY KEY IDENTITY(1,1),
 CompraOferta_dniClie numeric(18,0),
 CompraOferta_oferCodigo nvarchar(50),
-CompraOferta_Cantidad INTEGER)
+CompraOferta_Cantidad INTEGER,
+CompraOferta_Fecha date)
 
 ALTER TABLE THE_RIGHT_JOIN.Compra_Oferta
 ADD CONSTRAINT FK_CompraOferta_Cliente
@@ -198,5 +201,9 @@ PRIMARY KEY (Item_tipoFactura, Item_numFactura, Item_idItem)
 ALTER TABLE THE_RIGHT_JOIN.Item_Factura
 ADD CONSTRAINT FK_Item_Factura_CompraOferta
 FOREIGN KEY (Item_idCompraOferta) REFERENCES THE_RIGHT_JOIN.Compra_Oferta (CompraOferta_idCompra)
+
+ALTER TABLE THE_RIGHT_JOIN.Item_Factura
+ADD CONSTRAINT FK_Item_Factura_Factura
+FOREIGN KEY (Item_tipoFactura,Item_numFactura) REFERENCES THE_RIGHT_JOIN.Factura (Factura_tipoFactura,Factura_numFactura)
 
 END
