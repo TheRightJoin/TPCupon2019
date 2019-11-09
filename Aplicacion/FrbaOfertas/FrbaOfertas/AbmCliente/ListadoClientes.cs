@@ -21,13 +21,24 @@ namespace FrbaOfertas
 
         private void ListadoClientes_Load(object sender, EventArgs e)
         {
-            dgvClientes.DataSource = AdmClientes.obtenerClientes().Tables[0];
+            
 
         }
 
         private void btnSeleccionar_Click(object sender, EventArgs e)
         {
-            
+            String dni, nombre, apellido;
+            dni = txtDni.Text;
+            nombre = txtNombre.Text;
+            apellido = txtApellido.Text ;
+            if (dni == "" && nombre == "" && apellido == "")
+            {
+                dgvClientes.DataSource = AdmClientes.obtenerClientes().Tables[0];
+            }
+            else
+            {
+                dgvClientes.DataSource = AdmClientes.generadorQuerys(dni, nombre, apellido).Tables[0];
+            }
         }
     }
 }

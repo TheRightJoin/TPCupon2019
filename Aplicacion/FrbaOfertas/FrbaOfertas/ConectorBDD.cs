@@ -12,14 +12,14 @@ namespace FrbaOfertas
 {
     public static class ConectorBDD
     {
-        public static DataSet cargarDataSet(string query)
+        public static DataSet cargarDataSet(SqlConnection conn,SqlCommand cmd)
         {
             DataTable dt = new DataTable();
             DataSet ds = new DataSet();
-            string connString = ConfigurationManager.ConnectionStrings["THE_RIGHT_JOIN"].ConnectionString;
-            using (SqlConnection conn = new SqlConnection(connString))
+            //string connString = ConfigurationManager.ConnectionStrings["THE_RIGHT_JOIN"].ConnectionString;
+            using (conn)
             {
-                using (SqlCommand cmd = new SqlCommand(query, conn))
+                using (cmd)
                 {
                     //open connection
                     conn.Open();
