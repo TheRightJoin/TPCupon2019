@@ -24,5 +24,10 @@ namespace FrbaOfertas
             dgvClientes.DataSource = AdmClientes.obtenerClientes().Tables[0];
 
         }
+
+        private void btnSeleccionar_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }
