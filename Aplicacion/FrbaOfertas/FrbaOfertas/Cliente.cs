@@ -6,10 +6,28 @@ using System.Threading.Tasks;
 
 namespace FrbaOfertas
 {
-    class Cliente
+    public class Cliente
     {
-        Decimal dni,activo,telefono;
-        String nombre, apellido, mail, direccion, ciudad;
-        DateTime fechaNac; 
+        public Decimal dni{get;set;}
+        public Decimal activo{get;set;}
+        public Decimal telefono{get;set;}
+        public String nombre {get;set;}
+        public String apellido{get;set;}
+        public String mail{get;set;}
+        public String direccion{get;set;}
+        public String ciudad{get;set;}
+        public DateTime fechaNac { get; set; }
+
+        public Cliente(Decimal dni_, String nombre_, String apellido_, String mail_, String direccion_, String ciudad_, DateTime fechaNac_, Decimal telefono_)
+        {
+            dni = dni_;
+            nombre = nombre_;
+            apellido = apellido_;
+            mail = mail_;
+            direccion = direccion_;
+            ciudad = ciudad_;
+            fechaNac = fechaNac_;
+            telefono = telefono_;
+        }
     }
 }

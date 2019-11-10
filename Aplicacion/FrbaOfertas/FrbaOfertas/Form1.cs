@@ -23,5 +23,12 @@ namespace FrbaOfertas
             flc.Show();
             this.Hide();
         }
+
+        private void crearClienteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AltaCliente fac = new AltaCliente();
+            fac.Show();
+            this.Hide();
+        }
     }
 }

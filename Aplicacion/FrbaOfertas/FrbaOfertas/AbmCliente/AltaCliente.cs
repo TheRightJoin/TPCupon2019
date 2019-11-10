@@ -16,5 +16,33 @@ namespace FrbaOfertas
         {
             InitializeComponent();
         }
+
+
+        private void btnConfirmar_Click(object sender, EventArgs e)
+        {
+            String direccion = txtCalle.Text + " " + txtPiso.Text + " " + txtDepto.Text + " " + txtLocalidad.Text;
+            Cliente cli = new Cliente(Convert.ToDecimal(txtDni.Text),
+                txtNombre.Text, txtApellido.Text, txtMail.Text, direccion, txtCiudad.Text, dtpNacimiento.Value.Date, Convert.ToDecimal(txtTelefono.Text));
+            AdmClientes.altaCliente(cli);
+        }
+        private void txtDni_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //valido que ingrese solo numeros
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtTelefono_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //valido que ingrese solo numeros
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+        }
+
+        
     }
 }

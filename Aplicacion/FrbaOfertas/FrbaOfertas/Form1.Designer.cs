@@ -63,6 +63,7 @@
             this.crearClienteToolStripMenuItem.Name = "crearClienteToolStripMenuItem";
             this.crearClienteToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
             this.crearClienteToolStripMenuItem.Text = "Crear Cliente";
+            this.crearClienteToolStripMenuItem.Click += new System.EventHandler(this.crearClienteToolStripMenuItem_Click);
             // 
             // modificarClienteToolStripMenuItem
             // 
