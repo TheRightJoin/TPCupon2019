@@ -48,6 +48,30 @@ namespace FrbaOfertas
             }
         }
 
+        public static void modificarCliente(Cliente cli)
+        {
+            string connString = ConfigurationManager.ConnectionStrings["THE_RIGHT_JOIN"].ConnectionString;
+            SqlConnection conn = new SqlConnection(connString);
+            using (conn)
+            {
+                using (SqlCommand cmd = new SqlCommand("THE_RIGHT_JOIN.modificarCliente", conn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add("@dni", SqlDbType.Decimal).Value = cli.dni;
+                    cmd.Parameters.Add("@nombre", SqlDbType.VarChar).Value = cli.nombre;
+                    cmd.Parameters.Add("@apellido", SqlDbType.VarChar).Value = cli.apellido;
+                    cmd.Parameters.Add("@mail", SqlDbType.VarChar).Value = cli.mail;
+                    cmd.Parameters.Add("@direccion", SqlDbType.VarChar).Value = cli.direccion;
+                    cmd.Parameters.Add("@ciudad", SqlDbType.VarChar).Value = cli.ciudad;
+                    cmd.Parameters.Add("@fechaNac", SqlDbType.DateTime).Value = cli.fechaNac;
+                    cmd.Parameters.Add("@telefono", SqlDbType.Decimal).Value = cli.telefono;
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
+                }
+            }
+        }
+
         public static void bajaCliente(Decimal dni)
         {
             string connString = ConfigurationManager.ConnectionStrings["THE_RIGHT_JOIN"].ConnectionString;

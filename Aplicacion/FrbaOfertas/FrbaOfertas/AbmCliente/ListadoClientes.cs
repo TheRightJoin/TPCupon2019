@@ -62,5 +62,10 @@ namespace FrbaOfertas
                 dniSeleccionado = Convert.ToDecimal(selectedRow.Cells["Cli_Dni"].Value);
             }
         }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
