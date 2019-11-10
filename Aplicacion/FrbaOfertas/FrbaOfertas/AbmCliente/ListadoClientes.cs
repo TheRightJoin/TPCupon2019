@@ -37,7 +37,7 @@ namespace FrbaOfertas
             }
             else
             {
-                dgvClientes.DataSource = AdmClientes.generadorQuerys(dni, nombre, apellido).Tables[0];
+                dgvClientes.DataSource = AdmClientes.generarQuerys(dni, nombre, apellido).Tables[0];
             }
         }
     }

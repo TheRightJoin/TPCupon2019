@@ -23,7 +23,7 @@ namespace FrbaOfertas
 
         }
 
-        public static DataSet generadorQuerys(String dni, String nombre, String apellido)
+        public static DataSet generarQuerys(String dni, String nombre, String apellido)
         {
            
             string connString = ConfigurationManager.ConnectionStrings["THE_RIGHT_JOIN"].ConnectionString;
@@ -44,7 +44,37 @@ namespace FrbaOfertas
                 paramApellido.Value = apellido;
                 return ConectorBDD.cargarDataSet(conn, cmd);
             }
-
+            if (dni == "" && apellido == "")
+            {
+                String query = "select * from THE_RIGHT_JOIN.Cliente WHERE Cli_Nombre LIKE '%' + @nombre + '%'";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                SqlParameter paramNombre = cmd.Parameters.Add("@nombre", SqlDbType.VarChar);
+                paramNombre.Value = nombre;
+                return ConectorBDD.cargarDataSet(conn, cmd);
+            }
+            if (dni == "" && apellido != "" && nombre != "")
+            {
+                String query = "select * from THE_RIGHT_JOIN.Cliente WHERE Cli_Nombre LIKE '%' + @nombre + '%' AND Cli_Apellido LIKE '%' + @apellido + '%'";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                SqlParameter paramNombre = cmd.Parameters.Add("@nombre", SqlDbType.VarChar);
+                paramNombre.Value = nombre;
+                SqlParameter paramApellido = cmd.Parameters.Add("@apellido", SqlDbType.VarChar);
+                paramApellido.Value = apellido;
+                return ConectorBDD.cargarDataSet(conn, cmd);
+            }
+            if (dni != "" && apellido != "" && nombre != "")
+            {
+                String query = "select * from THE_RIGHT_JOIN.Cliente WHERE Cli_Nombre LIKE '%' + @nombre + '%' AND Cli_Apellido LIKE '%' + @apellido + '%' AND Cli_Dni = @dni";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                SqlParameter paramNombre = cmd.Parameters.Add("@nombre", SqlDbType.VarChar);
+                paramNombre.Value = nombre;
+                SqlParameter paramApellido = cmd.Parameters.Add("@apellido", SqlDbType.VarChar);
+                paramApellido.Value = apellido;
+                SqlParameter paramDni = cmd.Parameters.Add("@dni", SqlDbType.Decimal);
+                paramDni.Value = Convert.ToDecimal(dni);
+                return ConectorBDD.cargarDataSet(conn, cmd);
+            }
+            
             return null;
            
         }
