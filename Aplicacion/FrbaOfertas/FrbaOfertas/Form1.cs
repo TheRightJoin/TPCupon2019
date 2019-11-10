@@ -24,10 +24,17 @@ namespace FrbaOfertas
             this.Hide();
         }
 
+
         private void crearClienteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AltaCliente fac = new AltaCliente();
             fac.Show();
+        }
+
+        private void crearProveedorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AltaProveedor formAltaProveedor = new AltaProveedor();
+            formAltaProveedor.Show();
             this.Hide();
         }
     }
