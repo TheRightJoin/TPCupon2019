@@ -48,6 +48,23 @@ namespace FrbaOfertas
             }
         }
 
+        public static void bajaCliente(Decimal dni)
+        {
+            string connString = ConfigurationManager.ConnectionStrings["THE_RIGHT_JOIN"].ConnectionString;
+            SqlConnection conn = new SqlConnection(connString);
+            using (conn)
+            {
+                using (SqlCommand cmd = new SqlCommand("THE_RIGHT_JOIN.bajaCliente", conn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add("@dni", SqlDbType.Decimal).Value = dni;
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
+                }
+            }
+        }
+
         public static DataSet generarQuerys(String dni, String nombre, String apellido)
         {
            

@@ -56,6 +56,13 @@
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.txtCiudad = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.clientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.crearClienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.modificarClienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.eliminarClienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.verClientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnConfirmar
@@ -272,6 +279,7 @@
             this.btnLimpiar.TabIndex = 35;
             this.btnLimpiar.Text = "Limpiar";
             this.btnLimpiar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // txtCiudad
             // 
@@ -289,11 +297,57 @@
             this.label14.TabIndex = 28;
             this.label14.Text = "Ciudad";
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.clientesToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(775, 24);
+            this.menuStrip1.TabIndex = 36;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // clientesToolStripMenuItem
+            // 
+            this.clientesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.crearClienteToolStripMenuItem,
+            this.modificarClienteToolStripMenuItem,
+            this.eliminarClienteToolStripMenuItem,
+            this.verClientesToolStripMenuItem});
+            this.clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
+            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
+            this.clientesToolStripMenuItem.Text = "Clientes";
+            // 
+            // crearClienteToolStripMenuItem
+            // 
+            this.crearClienteToolStripMenuItem.Name = "crearClienteToolStripMenuItem";
+            this.crearClienteToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.crearClienteToolStripMenuItem.Text = "Crear Cliente";
+            // 
+            // modificarClienteToolStripMenuItem
+            // 
+            this.modificarClienteToolStripMenuItem.Name = "modificarClienteToolStripMenuItem";
+            this.modificarClienteToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.modificarClienteToolStripMenuItem.Text = "Modificar Cliente";
+            // 
+            // eliminarClienteToolStripMenuItem
+            // 
+            this.eliminarClienteToolStripMenuItem.Name = "eliminarClienteToolStripMenuItem";
+            this.eliminarClienteToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.eliminarClienteToolStripMenuItem.Text = "Eliminar Cliente";
+            // 
+            // verClientesToolStripMenuItem
+            // 
+            this.verClientesToolStripMenuItem.Name = "verClientesToolStripMenuItem";
+            this.verClientesToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.verClientesToolStripMenuItem.Text = "Ver Clientes";
+            // 
             // AltaCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(775, 448);
+            this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.dtpNacimiento);
@@ -324,6 +378,8 @@
             this.Controls.Add(this.txtNombre);
             this.Name = "AltaCliente";
             this.Text = "AltaCliente";
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -359,5 +415,11 @@
         private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.TextBox txtCiudad;
         private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem clientesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem crearClienteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem modificarClienteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem eliminarClienteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem verClientesToolStripMenuItem;
     }
 }

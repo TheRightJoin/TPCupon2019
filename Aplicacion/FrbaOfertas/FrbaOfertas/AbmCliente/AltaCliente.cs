@@ -24,6 +24,7 @@ namespace FrbaOfertas
             Cliente cli = new Cliente(Convert.ToDecimal(txtDni.Text),
                 txtNombre.Text, txtApellido.Text, txtMail.Text, direccion, txtCiudad.Text, dtpNacimiento.Value.Date, Convert.ToDecimal(txtTelefono.Text));
             AdmClientes.altaCliente(cli);
+            limpiarCampos();
         }
         private void txtDni_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -42,6 +43,27 @@ namespace FrbaOfertas
                 e.Handled = true;
             }
         }
+
+        private void limpiarCampos()
+        {
+            txtDni.Text = "";
+            txtNombre.Text = "";
+            txtApellido.Text = "";
+            txtMail.Text = "";
+            txtCalle.Text = "";
+            txtPiso.Text = "";
+            txtCiudad.Text = "";
+            txtLocalidad.Text = "";
+            txtTelefono.Text = "";
+            txtDepto.Text = "";
+            txtCodPost.Text = "";
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            limpiarCampos();
+        }
+
 
         
     }
