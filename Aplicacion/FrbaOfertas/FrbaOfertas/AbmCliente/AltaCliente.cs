@@ -22,7 +22,7 @@ namespace FrbaOfertas
         {
             String direccion = txtCalle.Text + " " + txtPiso.Text + " " + txtDepto.Text + " " + txtLocalidad.Text;
             Cliente cli = new Cliente(Convert.ToDecimal(txtDni.Text),
-                txtNombre.Text, txtApellido.Text, txtMail.Text, direccion, txtCiudad.Text, dtpNacimiento.Value.Date, Convert.ToDecimal(txtTelefono.Text));
+                txtNombre.Text, txtApellido.Text, txtMail.Text, direccion, txtCiudad.Text, dtpNacimiento.Value.Date, Convert.ToDecimal(txtTelefono.Text),txtCodPost.Text);
             AdmClientes.altaCliente(cli);
             limpiarCampos();
         }
@@ -64,14 +64,13 @@ namespace FrbaOfertas
             limpiarCampos();
         }
 
-        private void label11_Click(object sender, EventArgs e)
+
+
+        private void verClientesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void txtCodPost_TextChanged(object sender, EventArgs e)
-        {
-
+            formListadoClientes flc = new formListadoClientes();
+            flc.Show();
+            this.Hide();
         }
 
 

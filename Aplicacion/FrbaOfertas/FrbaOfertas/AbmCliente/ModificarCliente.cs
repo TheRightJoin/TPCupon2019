@@ -10,11 +10,24 @@ using System.Windows.Forms;
 
 namespace FrbaOfertas
 {
-    public partial class Form1 : Form
+    public partial class ModificarCliente : Form
     {
-        public Form1()
+        public ModificarCliente()
         {
             InitializeComponent();
+        }
+
+        private void ModificarCliente_Load(object sender, EventArgs e)
+        {
+            Decimal dniCliente = formListadoClientes.dniSeleccionado;
+            txtDni.Text = dniCliente.ToString();
+            Cliente cli = AdmClientes.obtenerCliente(dniCliente);
+            txtNombre.Text = cli.nombre;
+            txtApellido.Text = cli.apellido;
+            txtMail.Text = cli.mail;
+            txtCodPost.Text = cli.codPostal;
+            txtCiudad.Text = cli.ciudad;
+            txtTelefono.Text = cli.telefono.ToString();
         }
 
         private void verClientesToolStripMenuItem_Click(object sender, EventArgs e)
@@ -24,7 +37,6 @@ namespace FrbaOfertas
             this.Hide();
         }
 
-
         private void crearClienteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AltaCliente fac = new AltaCliente();
@@ -32,11 +44,9 @@ namespace FrbaOfertas
             this.Hide();
         }
 
-        private void crearProveedorToolStripMenuItem_Click(object sender, EventArgs e)
+        private void btnLimpiar_Click(object sender, EventArgs e)
         {
-            AltaProveedor formAltaProveedor = new AltaProveedor();
-            formAltaProveedor.Show();
-            this.Hide();
+
         }
     }
 }

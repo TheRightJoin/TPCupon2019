@@ -14,7 +14,7 @@ namespace FrbaOfertas
 {
     public partial class formListadoClientes : Form
     {
-        public Decimal dniSeleccionado;
+        public static Decimal dniSeleccionado;
         public formListadoClientes()
         {
             InitializeComponent();
@@ -65,7 +65,16 @@ namespace FrbaOfertas
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
+            ModificarCliente fmc = new ModificarCliente();
+            fmc.Show();
+            this.Hide();
+        }
 
+        private void crearClienteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AltaCliente fac = new AltaCliente();
+            fac.Show();
+            this.Hide();
         }
     }
 }
