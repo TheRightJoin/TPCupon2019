@@ -47,6 +47,8 @@
             this.modificarProveedorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eliminarProveedorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.verProveedoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.txtMail = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -65,7 +67,7 @@
             // 
             // txtDni
             // 
-            this.txtDni.Location = new System.Drawing.Point(516, 86);
+            this.txtDni.Location = new System.Drawing.Point(99, 49);
             this.txtDni.Name = "txtDni";
             this.txtDni.Size = new System.Drawing.Size(100, 20);
             this.txtDni.TabIndex = 1;
@@ -73,7 +75,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(449, 89);
+            this.label1.Location = new System.Drawing.Point(32, 52);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(54, 13);
             this.label1.TabIndex = 2;
@@ -209,6 +211,22 @@
             this.verProveedoresToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
             this.verProveedoresToolStripMenuItem.Text = "Ver Proveedores";
             // 
+            // txtMail
+            // 
+            this.txtMail.Location = new System.Drawing.Point(546, 86);
+            this.txtMail.Name = "txtMail";
+            this.txtMail.Size = new System.Drawing.Size(100, 20);
+            this.txtMail.TabIndex = 1;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(468, 89);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(54, 13);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "Filtrar Mail";
+            // 
             // formListadoClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -218,7 +236,9 @@
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnSeleccionar);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
+            this.Controls.Add(this.txtMail);
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtApellido);
@@ -256,5 +276,7 @@
         private System.Windows.Forms.ToolStripMenuItem modificarProveedorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem eliminarProveedorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem verProveedoresToolStripMenuItem;
+        private System.Windows.Forms.TextBox txtMail;
+        private System.Windows.Forms.Label label4;
     }
 }

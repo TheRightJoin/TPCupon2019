@@ -23,17 +23,18 @@ namespace FrbaOfertas
 
         private void btnSeleccionar_Click(object sender, EventArgs e)
         {
-            String dni, nombre, apellido;
+            String dni, nombre, apellido, mail;
             dni = txtDni.Text;
             nombre = txtNombre.Text;
             apellido = txtApellido.Text ;
+            mail = txtMail.Text;
             if (dni == "" && nombre == "" && apellido == "")
             {
                 dgvClientes.DataSource = AdmClientes.obtenerClientes().Tables[0];
             }
             else
             {
-                dgvClientes.DataSource = AdmClientes.generarQuerys(dni, nombre, apellido).Tables[0];
+                dgvClientes.DataSource = AdmClientes.generarQuerys(dni, nombre, apellido,mail).Tables[0];
             }
         }
 
