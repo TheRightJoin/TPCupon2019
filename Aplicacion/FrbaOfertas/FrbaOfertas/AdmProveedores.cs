@@ -11,10 +11,11 @@ namespace FrbaOfertas
 {
     public class AdmProveedores
     {
-        public void AltaProveedor(Proveedor miProveedor) {
-            
+        public void AltaProveedor(Proveedor miProveedor)
+        {
+
             string connString = ConfigurationManager.ConnectionStrings["THE_RIGHT_JOIN"].ConnectionString;
-            SqlConnection conn = new SqlConnection(connString); 
+            SqlConnection conn = new SqlConnection(connString);
 
             using (conn)
             {
@@ -61,7 +62,8 @@ namespace FrbaOfertas
             return provee;
         }
 
-        public static DataSet obtenerProveedores(){
+        public static DataSet obtenerProveedores()
+        {
             string connString = ConfigurationManager.ConnectionStrings["THE_RIGHT_JOIN"].ConnectionString;
             SqlConnection conn = new SqlConnection(connString);
             String query = "SELECT TOP 1000 [Provee_CUIT],[Provee_RS],[Rubro_Descripcion],[Provee_Dom],[Provee_Ciudad],[Provee_postal],[Provee_Telefono],[Provee_contacto],[Provee_email] FROM [GD2C2019].[THE_RIGHT_JOIN].[Proveedor] JOIN [GD2C2019].[THE_RIGHT_JOIN].[Rubro] ON ([Provee_Rubro] = [idRubro])";
@@ -76,7 +78,8 @@ namespace FrbaOfertas
 
 
             //--filtro por email
-            if (RS == "" && cuit == "") {
+            if (RS == "" && cuit == "")
+            {
                 String query = "select * from THE_RIGHT_JOIN.Proveedor JOIN THE_RIGHT_JOIN.Rubro ON (Provee_Rubro = idRubro) WHERE Provee_email LIKE '%' + @email+ '%'";
                 SqlCommand cmd = new SqlCommand(query, conn);
                 SqlParameter paramEmail = cmd.Parameters.Add("@email", SqlDbType.VarChar);
@@ -85,7 +88,8 @@ namespace FrbaOfertas
             }
 
             //--filtro por RS
-            if (email == "" && cuit == "") {
+            if (email == "" && cuit == "")
+            {
                 String query = "select * from THE_RIGHT_JOIN.Proveedor JOIN THE_RIGHT_JOIN.Rubro ON (Provee_Rubro = idRubro) WHERE Provee_RS LIKE '%' + @RS+ '%'";
                 SqlCommand cmd = new SqlCommand(query, conn);
                 SqlParameter paramRS = cmd.Parameters.Add("@RS", SqlDbType.VarChar);
@@ -94,7 +98,8 @@ namespace FrbaOfertas
             }
 
             //--filtro por CUIT
-            if (email == "" && RS == "") {
+            if (email == "" && RS == "")
+            {
                 String query = "select * from THE_RIGHT_JOIN.Proveedor JOIN THE_RIGHT_JOIN.Rubro ON (Provee_Rubro = idRubro) WHERE Provee_CUIT = @cuit";
                 SqlCommand cmd = new SqlCommand(query, conn);
                 SqlParameter paramcuit = cmd.Parameters.Add("@cuit", SqlDbType.VarChar);
@@ -115,7 +120,8 @@ namespace FrbaOfertas
             }
 
             //--filtro RS y cuit
-            if(cuit != "" && email == "" && RS != ""){
+            if (cuit != "" && email == "" && RS != "")
+            {
                 String query = "select * from THE_RIGHT_JOIN.Proveedor JOIN THE_RIGHT_JOIN.Rubro ON (Provee_Rubro = idRubro) WHERE Provee_CUIT = @cuit";
                 SqlCommand cmd = new SqlCommand(query, conn);
                 SqlParameter paramcuit = cmd.Parameters.Add("@cuit", SqlDbType.VarChar);
@@ -123,8 +129,9 @@ namespace FrbaOfertas
                 return ConectorBDD.cargarDataSet(conn, cmd);
             }
 
-           //--filtro por los 3
-            if (cuit != "" && email != "" && RS != "") {
+            //--filtro por los 3
+            if (cuit != "" && email != "" && RS != "")
+            {
                 String query = "select * from THE_RIGHT_JOIN.Proveedor JOIN THE_RIGHT_JOIN.Rubro ON (Provee_Rubro = idRubro) WHERE Provee_CUIT = @cuit";
                 SqlCommand cmd = new SqlCommand(query, conn);
                 SqlParameter paramcuit = cmd.Parameters.Add("@cuit", SqlDbType.VarChar);
@@ -135,7 +142,8 @@ namespace FrbaOfertas
         }
 
 
-        public static void bajaProveedor(string cuit) {
+        public static void bajaProveedor(string cuit)
+        {
             string connString = ConfigurationManager.ConnectionStrings["THE_RIGHT_JOIN"].ConnectionString;
             SqlConnection conn = new SqlConnection(connString);
             using (conn)
@@ -150,5 +158,32 @@ namespace FrbaOfertas
                 }
             }
         }
+
+
+        public static void modificarProveedor(Proveedor provee)
+        {
+            string connString = ConfigurationManager.ConnectionStrings["THE_RIGHT_JOIN"].ConnectionString;
+            SqlConnection conn = new SqlConnection(connString);
+            using (conn)
+            {
+                using (SqlCommand cmd = new SqlCommand("THE_RIGHT_JOIN.modificarProveedor", conn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add("@cuit", SqlDbType.VarChar).Value = provee.CUIT;
+                    cmd.Parameters.Add("@RS", SqlDbType.VarChar).Value = provee.razon_social;
+                    cmd.Parameters.Add("@email", SqlDbType.VarChar).Value = provee.email;
+                    cmd.Parameters.Add("@telefono", SqlDbType.Decimal).Value = provee.telefono;
+                    cmd.Parameters.Add("@direccion", SqlDbType.VarChar).Value = provee.direccion;
+                    cmd.Parameters.Add("@ciudad", SqlDbType.VarChar).Value = provee.ciudad;
+                    cmd.Parameters.Add("@rubro", SqlDbType.VarChar).Value = provee.rubro;
+                    cmd.Parameters.Add("@contacto", SqlDbType.VarChar).Value = provee.contacto;
+                    cmd.Parameters.Add("@postal", SqlDbType.VarChar).Value = provee.postal;
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
+                }
+            }
+        }
     }
+}
 

@@ -55,5 +55,10 @@ namespace FrbaOfertas.AbmProveedor
                 AdmProveedores.bajaProveedor(cuitSeleccionado);
             }
         }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
