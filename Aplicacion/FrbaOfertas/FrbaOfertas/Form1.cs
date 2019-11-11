@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using FrbaOfertas.AbmProveedor;
 
 namespace FrbaOfertas
 {
@@ -36,6 +37,13 @@ namespace FrbaOfertas
         {
             AltaProveedor formAltaProveedor = new AltaProveedor();
             formAltaProveedor.Show();
+            this.Hide();
+        }
+
+        private void verProveedoresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            VerProveedores formVerProveedores = new VerProveedores();
+            formVerProveedores.Show();
             this.Hide();
         }
     }

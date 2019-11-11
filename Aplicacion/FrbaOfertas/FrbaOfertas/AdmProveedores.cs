@@ -37,6 +37,16 @@ namespace FrbaOfertas
                 }
             }
         }
+
+        public static DataSet obtenerProveedores(){
+            string connString = ConfigurationManager.ConnectionStrings["THE_RIGHT_JOIN"].ConnectionString;
+            SqlConnection conn = new SqlConnection(connString);
+            String query = "SELECT TOP 1000 [Provee_CUIT],[Provee_RS],[Rubro_Descripcion],[Provee_Dom],[Provee_Ciudad],[Provee_postal],[Provee_Telefono],[Provee_contacto],[Provee_email] FROM [GD2C2019].[THE_RIGHT_JOIN].[Proveedor] JOIN [GD2C2019].[THE_RIGHT_JOIN].[Rubro] ON ([Provee_Rubro] = [idRubro])";
+            SqlCommand cmd = new SqlCommand(query, conn);
+            return ConectorBDD.cargarDataSet(conn, cmd);
+        }
+
+        public static void generarQuerys(string a, string b, string c){}
             
         }
     }

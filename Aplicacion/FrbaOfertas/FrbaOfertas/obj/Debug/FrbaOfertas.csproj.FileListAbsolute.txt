@@ -35,3 +35,4 @@ C:\Users\usuario\Desktop\GDD\TPCupon2019\Aplicacion\FrbaOfertas\FrbaOfertas\bin\
 C:\Users\usuario\Desktop\GDD\TPCupon2019\Aplicacion\FrbaOfertas\FrbaOfertas\bin\Debug\FrbaOfertas.pdb
 C:\Users\lucas\Desktop\UTN\Gestion2019\TPCupon2019\Aplicacion\FrbaOfertas\FrbaOfertas\obj\Debug\FrbaOfertas.AltaProveedor.resources
 C:\Users\lucas\Desktop\UTN\Gestion2019\TPCupon2019\Aplicacion\FrbaOfertas\FrbaOfertas\obj\Debug\FrbaOfertas.ModificarCliente.resources
+C:\Users\usuario\Desktop\GDD\TPCupon2019\Aplicacion\FrbaOfertas\FrbaOfertas\obj\Debug\FrbaOfertas.AbmProveedor.VerProveedores.resources
