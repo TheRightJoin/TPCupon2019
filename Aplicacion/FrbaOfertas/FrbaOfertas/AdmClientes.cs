@@ -23,6 +23,26 @@ namespace FrbaOfertas
 
         }
 
+        public static Cliente obtenerCliente(Decimal dniCliente)
+        {
+            string connString = ConfigurationManager.ConnectionStrings["THE_RIGHT_JOIN"].ConnectionString;
+            SqlConnection conn = new SqlConnection(connString);
+            String query = "select * from THE_RIGHT_JOIN.obtenerClienteDNI(@dni)";
+            SqlCommand cmd = new SqlCommand(query, conn);
+            cmd.Parameters.Add("@dni", SqlDbType.Decimal).Value = dniCliente;
+            DataSet ds = ConectorBDD.cargarDataSet(conn, cmd);
+            String nombre = ds.Tables[0].Rows[0]["Cli_Nombre"].ToString();
+            String apellido = ds.Tables[0].Rows[0]["Cli_Apellido"].ToString();
+            String mail = ds.Tables[0].Rows[0]["Cli_Mail"].ToString();
+            String direccion = ds.Tables[0].Rows[0]["Cli_Direccion"].ToString();
+            String ciudad = ds.Tables[0].Rows[0]["Cli_Ciudad"].ToString();
+            DateTime fechaNac = Convert.ToDateTime(ds.Tables[0].Rows[0]["Cli_Fecha_Nac"]);
+            Decimal telefono = Convert.ToDecimal(ds.Tables[0].Rows[0]["Cli_Telefono"]);
+            String codPostal = ds.Tables[0].Rows[0]["Cli_CodPostal"].ToString();
+            Cliente cli = new Cliente(dniCliente, nombre, apellido, mail, direccion, ciudad, fechaNac, telefono, codPostal);
+            return cli;
+        }
+
 
         public static void altaCliente(Cliente cli)
         {
@@ -41,6 +61,7 @@ namespace FrbaOfertas
                     cmd.Parameters.Add("@ciudad", SqlDbType.VarChar).Value = cli.ciudad;
                     cmd.Parameters.Add("@fechaNac", SqlDbType.DateTime).Value = cli.fechaNac;
                     cmd.Parameters.Add("@telefono", SqlDbType.Decimal).Value = cli.telefono;
+                    cmd.Parameters.Add("@codpost", SqlDbType.VarChar).Value = cli.codPostal;
                     conn.Open();
                     cmd.ExecuteNonQuery();
                     conn.Close();

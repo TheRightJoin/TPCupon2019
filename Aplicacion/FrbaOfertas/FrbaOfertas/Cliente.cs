@@ -16,9 +16,10 @@ namespace FrbaOfertas
         public String mail{get;set;}
         public String direccion{get;set;}
         public String ciudad{get;set;}
+        public String codPostal;
         public DateTime fechaNac { get; set; }
 
-        public Cliente(Decimal dni_, String nombre_, String apellido_, String mail_, String direccion_, String ciudad_, DateTime fechaNac_, Decimal telefono_)
+        public Cliente(Decimal dni_, String nombre_, String apellido_, String mail_, String direccion_, String ciudad_, DateTime fechaNac_, Decimal telefono_,String codPostal_)
         {
             dni = dni_;
             nombre = nombre_;
@@ -28,6 +29,7 @@ namespace FrbaOfertas
             ciudad = ciudad_;
             fechaNac = fechaNac_;
             telefono = telefono_;
+            codPostal = codPostal_;
         }
     }
 }
