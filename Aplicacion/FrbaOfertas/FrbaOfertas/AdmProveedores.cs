@@ -56,9 +56,9 @@ namespace FrbaOfertas
             String rubro = ds.Tables[0].Rows[0]["Rubro_Descripcion"].ToString();
             String contacto = ds.Tables[0].Rows[0]["Provee_contacto"].ToString();
             String postal = ds.Tables[0].Rows[0]["Provee_postal"].ToString();
- 
-           
-            Proveedor provee = new Proveedor(RS, email, telefono, direccion,null, null, null, ciudad, cuit, rubro, contacto,postal)
+
+
+            Proveedor provee = new Proveedor(RS, email, telefono, direccion, null, null, null, ciudad, cuit, rubro, contacto, postal);
             return provee;
         }
 
@@ -175,7 +175,7 @@ namespace FrbaOfertas
                     cmd.Parameters.Add("@telefono", SqlDbType.Decimal).Value = provee.telefono;
                     cmd.Parameters.Add("@direccion", SqlDbType.VarChar).Value = provee.direccion;
                     cmd.Parameters.Add("@ciudad", SqlDbType.VarChar).Value = provee.ciudad;
-                    cmd.Parameters.Add("@rubro", SqlDbType.VarChar).Value = provee.rubro;
+                    cmd.Parameters.Add("@rubro", SqlDbType.Decimal).Value = provee.rubro;
                     cmd.Parameters.Add("@contacto", SqlDbType.VarChar).Value = provee.contacto;
                     cmd.Parameters.Add("@postal", SqlDbType.VarChar).Value = provee.postal;
                     conn.Open();

@@ -58,7 +58,11 @@ namespace FrbaOfertas.AbmProveedor
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-
+            /*Deberia mandarte a una pantalla donde te aparezca para 
+             * modificar el proveedor.
+             * Hay que ver bien que pantalla hacemos, asi hacemos todos
+             * la misma*/
         }
+
     }
 }

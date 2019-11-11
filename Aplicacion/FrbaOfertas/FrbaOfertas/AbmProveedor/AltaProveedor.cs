@@ -22,7 +22,9 @@ namespace FrbaOfertas
 
         private void AltaProveedor_Load(object sender, EventArgs e)
         {
-
+            comboBox1.DataSource = AdmRubro.obtenerRubros().Tables[0];
+            comboBox1.DisplayMember = "Rubro_Descripcion";
+            comboBox1.ValueMember = "idRubro";
         }
 
         private void button1_Click(object sender, EventArgs e)

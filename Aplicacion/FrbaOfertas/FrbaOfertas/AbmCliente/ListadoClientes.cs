@@ -60,7 +60,7 @@ namespace FrbaOfertas
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-           // ModificarCliente fmc = new ModificarCliente();
+            //ModificarCliente fmc = new ModificarCliente();
             //fmc.Show();
             //this.Hide();
         }

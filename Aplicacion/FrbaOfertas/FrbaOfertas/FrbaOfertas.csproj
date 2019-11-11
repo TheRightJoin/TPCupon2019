@@ -71,6 +71,7 @@
       <DependentUpon>AltaProveedor.cs</DependentUpon>
     </Compile>
     <Compile Include="AdmProveedores.cs" />
+    <Compile Include="AdmRubro.cs" />
     <Compile Include="Cliente.cs" />
     <Compile Include="ComprarOferta\Form1.cs">
       <SubType>Form</SubType>
