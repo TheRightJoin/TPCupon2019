@@ -20,11 +20,14 @@ namespace FrbaOfertas
 
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
-            String direccion = txtCalle.Text + " " + txtPiso.Text + " " + txtDepto.Text + " " + txtLocalidad.Text;
             Cliente cli = new Cliente(Convert.ToDecimal(txtDni.Text),
-                txtNombre.Text, txtApellido.Text, txtMail.Text, direccion, txtCiudad.Text, dtpNacimiento.Value.Date, Convert.ToDecimal(txtTelefono.Text),txtCodPost.Text);
+                txtNombre.Text, txtApellido.Text, txtMail.Text, txtDireccion.Text, txtCiudad.Text, dtpNacimiento.Value.Date, Convert.ToDecimal(txtTelefono.Text),txtCodPost.Text,txtLocalidad.Text);
             AdmClientes.altaCliente(cli);
             limpiarCampos();
+            MessageBox.Show("Cliente creado correctamente");
+            formListadoClientes flc = new formListadoClientes();
+            flc.Show();
+            this.Hide();
         }
         private void txtDni_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -50,12 +53,10 @@ namespace FrbaOfertas
             txtNombre.Text = "";
             txtApellido.Text = "";
             txtMail.Text = "";
-            txtCalle.Text = "";
-            txtPiso.Text = "";
+            txtDireccion.Text = "";
             txtCiudad.Text = "";
             txtLocalidad.Text = "";
             txtTelefono.Text = "";
-            txtDepto.Text = "";
             txtCodPost.Text = "";
         }
 

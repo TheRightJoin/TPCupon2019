@@ -12,6 +12,7 @@ namespace FrbaOfertas
 {
     public partial class ModificarCliente : Form
     {
+        public Decimal dniCliente;
         public ModificarCliente()
         {
             InitializeComponent();
@@ -19,7 +20,7 @@ namespace FrbaOfertas
 
         private void ModificarCliente_Load(object sender, EventArgs e)
         {
-            Decimal dniCliente = formListadoClientes.dniSeleccionado;
+            dniCliente = formListadoClientes.dniSeleccionado;
             txtDni.Text = dniCliente.ToString();
             Cliente cli = AdmClientes.obtenerCliente(dniCliente);
             txtNombre.Text = cli.nombre;
@@ -28,6 +29,8 @@ namespace FrbaOfertas
             txtCodPost.Text = cli.codPostal;
             txtCiudad.Text = cli.ciudad;
             txtTelefono.Text = cli.telefono.ToString();
+            txtDireccion.Text = cli.direccion;
+            txtLocalidad.Text = cli.localidad;
         }
 
         private void verClientesToolStripMenuItem_Click(object sender, EventArgs e)
@@ -44,9 +47,38 @@ namespace FrbaOfertas
             this.Hide();
         }
 
-        private void btnLimpiar_Click(object sender, EventArgs e)
-        {
 
+        private void btnConfirmar_Click(object sender, EventArgs e)
+        {
+            Cliente cli = new Cliente(dniCliente,
+                txtNombre.Text, txtApellido.Text, txtMail.Text, txtDireccion.Text, txtCiudad.Text, dtpNacimiento.Value.Date, Convert.ToDecimal(txtTelefono.Text), txtCodPost.Text, txtLocalidad.Text);
+            AdmClientes.modificarCliente(cli);
+            limpiarCampos();
+            MessageBox.Show("Cliente modificado correctamente");
+            formListadoClientes flc = new formListadoClientes();
+            flc.Show();
+            this.Hide();
+        }
+        private void limpiarCampos()
+        {
+            txtDni.Text = "";
+            txtNombre.Text = "";
+            txtApellido.Text = "";
+            txtMail.Text = "";
+            txtDireccion.Text = "";
+            txtCiudad.Text = "";
+            txtLocalidad.Text = "";
+            txtTelefono.Text = "";
+            txtCodPost.Text = "";
+        }
+
+        private void txtTelefono_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //valido que ingrese solo numeros
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

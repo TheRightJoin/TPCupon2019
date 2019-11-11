@@ -39,7 +39,8 @@ namespace FrbaOfertas
             DateTime fechaNac = Convert.ToDateTime(ds.Tables[0].Rows[0]["Cli_Fecha_Nac"]);
             Decimal telefono = Convert.ToDecimal(ds.Tables[0].Rows[0]["Cli_Telefono"]);
             String codPostal = ds.Tables[0].Rows[0]["Cli_CodPostal"].ToString();
-            Cliente cli = new Cliente(dniCliente, nombre, apellido, mail, direccion, ciudad, fechaNac, telefono, codPostal);
+            String localidad = ds.Tables[0].Rows[0]["Cli_Localidad"].ToString();
+            Cliente cli = new Cliente(dniCliente, nombre, apellido, mail, direccion, ciudad, fechaNac, telefono, codPostal,localidad);
             return cli;
         }
 
@@ -62,6 +63,7 @@ namespace FrbaOfertas
                     cmd.Parameters.Add("@fechaNac", SqlDbType.DateTime).Value = cli.fechaNac;
                     cmd.Parameters.Add("@telefono", SqlDbType.Decimal).Value = cli.telefono;
                     cmd.Parameters.Add("@codpost", SqlDbType.VarChar).Value = cli.codPostal;
+                    cmd.Parameters.Add("@localidad", SqlDbType.VarChar).Value = cli.localidad;
                     conn.Open();
                     cmd.ExecuteNonQuery();
                     conn.Close();
@@ -86,6 +88,8 @@ namespace FrbaOfertas
                     cmd.Parameters.Add("@ciudad", SqlDbType.VarChar).Value = cli.ciudad;
                     cmd.Parameters.Add("@fechaNac", SqlDbType.DateTime).Value = cli.fechaNac;
                     cmd.Parameters.Add("@telefono", SqlDbType.Decimal).Value = cli.telefono;
+                    cmd.Parameters.Add("@codpost", SqlDbType.VarChar).Value = cli.codPostal;
+                    cmd.Parameters.Add("@localidad", SqlDbType.VarChar).Value = cli.localidad;
                     conn.Open();
                     cmd.ExecuteNonQuery();
                     conn.Close();
@@ -111,10 +115,35 @@ namespace FrbaOfertas
         }
 
         public static DataSet generarQuerys(String dni, String nombre, String apellido)
-        {
-           
+        {           
             string connString = ConfigurationManager.ConnectionStrings["THE_RIGHT_JOIN"].ConnectionString;
-            SqlConnection conn = new SqlConnection(connString); 
+            SqlConnection conn = new SqlConnection(connString);
+            String query = "SELECT [Cli_Dni],[Cli_Nombre],[Cli_Apellido],[Cli_Mail],[Cli_Direccion],[Cli_Ciudad],[Cli_Fecha_Nac],[Cli_Telefono],[Cli_CodPostal],[Cli_Localidad]";
+            query += " FROM [GD2C2019].[THE_RIGHT_JOIN].[Cliente]";
+            query += " WHERE Cli_Apellido LIKE '%' + @apellido + '%'";
+            query += " AND Cli_Nombre LIKE '%' + @nombre + '%'";
+            if (dni == "")
+            {
+                SqlCommand cmd = new SqlCommand(query, conn);
+                SqlParameter paramNombre = cmd.Parameters.Add("@nombre", SqlDbType.VarChar);
+                paramNombre.Value = nombre;
+                SqlParameter paramApellido = cmd.Parameters.Add("@apellido", SqlDbType.VarChar);
+                paramApellido.Value = apellido;
+                return ConectorBDD.cargarDataSet(conn, cmd);
+            }
+            else {
+                query += " AND Cli_Dni = @dni";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                SqlParameter paramNombre = cmd.Parameters.Add("@nombre", SqlDbType.VarChar);
+                paramNombre.Value = nombre;
+                SqlParameter paramApellido = cmd.Parameters.Add("@apellido", SqlDbType.VarChar);
+                paramApellido.Value = apellido;
+                SqlParameter paramDni = cmd.Parameters.Add("@dni", SqlDbType.Decimal);
+                paramDni.Value = Convert.ToDecimal(dni);
+                return ConectorBDD.cargarDataSet(conn, cmd);
+            }
+
+            /*
             if (nombre == "" && apellido == "")
             {
                 String query = "select * from THE_RIGHT_JOIN.Cliente WHERE Cli_Dni = @dni";
@@ -160,7 +189,7 @@ namespace FrbaOfertas
                 SqlParameter paramDni = cmd.Parameters.Add("@dni", SqlDbType.Decimal);
                 paramDni.Value = Convert.ToDecimal(dni);
                 return ConectorBDD.cargarDataSet(conn, cmd);
-            }
+            }*/
             
             return null;
            

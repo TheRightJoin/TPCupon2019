@@ -60,9 +60,9 @@ namespace FrbaOfertas
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            //ModificarCliente fmc = new ModificarCliente();
-            //fmc.Show();
-            //this.Hide();
+            ModificarCliente fmc = new ModificarCliente();
+            fmc.Show();
+            this.Hide();
         }
 
         private void crearClienteToolStripMenuItem_Click(object sender, EventArgs e)
