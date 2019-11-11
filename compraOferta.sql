@@ -18,7 +18,8 @@ if(@saldo >= @precio)
 begin
 	if(@disponibilidad >= @cantidad)
 	begin
-		if((select Oferta_Disponible from THE_RIGHT_JOIN.Oferta where Oferta_Codigo = @codOferta) = 1)
+		if((select Oferta_Disponible from THE_RIGHT_JOIN.Oferta where Oferta_Codigo = @codOferta) = 1 and
+		(select Oferta_Fecha_Ven from THE_RIGHT_JOIN.Oferta where Oferta_Codigo = @codOferta) < @fecha)
 		begin
 			update THE_RIGHT_JOIN.Oferta set Oferta_Cantidad = Oferta_Cantidad - @cantidad
 			insert into THE_RIGHT_JOIN.Compra_Oferta values (@dni,@codOferta,@cantidad,@fecha)
