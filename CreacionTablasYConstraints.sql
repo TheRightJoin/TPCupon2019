@@ -10,10 +10,12 @@ Cli_Mail nvarchar(255),
 Cli_Direccion nvarchar(255),
 Cli_Ciudad nvarchar(255),
 Cli_Fecha_Nac datetime,
-Cli_Activo numeric(1,0))
+Cli_Activo numeric(1,0),
+Cli_Telefono numeric(18,0),
+Cli_CodPostal nvarchar(255),
+Cli_Localidad nvarchar(255),
+Cli_Saldo numeric(18,2))
 
-ALTER TABLE THE_RIGHT_JOIN.Cliente
-ADD Cli_Telefono numeric(18,0)
 
 ------------------------------------------------
 
