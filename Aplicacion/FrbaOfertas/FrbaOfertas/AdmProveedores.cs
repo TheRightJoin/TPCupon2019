@@ -46,7 +46,70 @@ namespace FrbaOfertas
             return ConectorBDD.cargarDataSet(conn, cmd);
         }
 
-        public static void generarQuerys(string a, string b, string c){}
+        public static DataSet generarQuerys(string RS, string cuit, string email)
+        {
+            string connString = ConfigurationManager.ConnectionStrings["THE_RIGHT_JOIN"].ConnectionString;
+            SqlConnection conn = new SqlConnection(connString);
+
+
+            //--filtro por email
+            if (RS == "" && cuit == "") {
+                String query = "select * from THE_RIGHT_JOIN.Proveedor JOIN THE_RIGHT_JOIN.Rubro ON (Provee_Rubro = idRubro) WHERE Provee_email LIKE '%' + @email+ '%'";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                SqlParameter paramEmail = cmd.Parameters.Add("@email", SqlDbType.VarChar);
+                paramEmail.Value = email;
+                return ConectorBDD.cargarDataSet(conn, cmd);
+            }
+
+            //--filtro por RS
+            if (email == "" && cuit == "") {
+                String query = "select * from THE_RIGHT_JOIN.Proveedor JOIN THE_RIGHT_JOIN.Rubro ON (Provee_Rubro = idRubro) WHERE Provee_RS LIKE '%' + @RS+ '%'";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                SqlParameter paramRS = cmd.Parameters.Add("@RS", SqlDbType.VarChar);
+                paramRS.Value = RS;
+                return ConectorBDD.cargarDataSet(conn, cmd);
+            }
+
+            //--filtro por CUIT
+            if (email == "" && RS == "") {
+                String query = "select * from THE_RIGHT_JOIN.Proveedor JOIN THE_RIGHT_JOIN.Rubro ON (Provee_Rubro = idRubro) WHERE Provee_CUIT = @cuit";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                SqlParameter paramcuit = cmd.Parameters.Add("@cuit", SqlDbType.VarChar);
+                paramcuit.Value = cuit;
+                return ConectorBDD.cargarDataSet(conn, cmd);
+            }
+
+            //--filtro por RS y email
+            if (cuit == "" && email != "" && RS != "")
+            {
+                String query = "select * from THE_RIGHT_JOIN.Proveedor JOIN THE_RIGHT_JOIN.Rubro ON (Provee_Rubro = idRubro) WHERE Provee_RS LIKE '%' + @RS+ '%' AND Provee_email LIKE '%' + @email+ '%' ";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                SqlParameter paramEmail = cmd.Parameters.Add("@email", SqlDbType.VarChar);
+                paramEmail.Value = email;
+                SqlParameter paramRS = cmd.Parameters.Add("@RS", SqlDbType.VarChar);
+                paramRS.Value = RS;
+                return ConectorBDD.cargarDataSet(conn, cmd);
+            }
+
+            //--filtro RS y cuit
+            if(cuit != "" && email == "" && RS != ""){
+                String query = "select * from THE_RIGHT_JOIN.Proveedor JOIN THE_RIGHT_JOIN.Rubro ON (Provee_Rubro = idRubro) WHERE Provee_CUIT = @cuit";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                SqlParameter paramcuit = cmd.Parameters.Add("@cuit", SqlDbType.VarChar);
+                paramcuit.Value = cuit;
+                return ConectorBDD.cargarDataSet(conn, cmd);
+            }
+
+           //--filtro por los 3
+            if (cuit != "" && email != "" && RS != "") {
+                String query = "select * from THE_RIGHT_JOIN.Proveedor JOIN THE_RIGHT_JOIN.Rubro ON (Provee_Rubro = idRubro) WHERE Provee_CUIT = @cuit";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                SqlParameter paramcuit = cmd.Parameters.Add("@cuit", SqlDbType.VarChar);
+                paramcuit.Value = cuit;
+                return ConectorBDD.cargarDataSet(conn, cmd);
+            }
+            return null;
+        }
             
         }
     }

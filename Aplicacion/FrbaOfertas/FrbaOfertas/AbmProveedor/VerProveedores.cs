@@ -28,7 +28,7 @@ namespace FrbaOfertas.AbmProveedor
                 dgvProveedores.DataSource = AdmProveedores.obtenerProveedores().Tables[0];
             }
             else {
-               // dgvProveedores.DataSource = AdmProveedores.generarQuerys(RS, cuit, email).Tables[0];
+                dgvProveedores.DataSource = AdmProveedores.generarQuerys(RS, cuit, email).Tables[0];
             }
 
         }
