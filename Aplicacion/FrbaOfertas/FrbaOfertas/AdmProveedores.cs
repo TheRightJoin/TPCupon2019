@@ -38,6 +38,29 @@ namespace FrbaOfertas
             }
         }
 
+        public static Proveedor obtenerProveedor(String cuit)
+        {
+            string connString = ConfigurationManager.ConnectionStrings["THE_RIGHT_JOIN"].ConnectionString;
+            SqlConnection conn = new SqlConnection(connString);
+            String query = "select * from THE_RIGHT_JOIN.Proveedor JOIN Rubro ON (Provee_Rubro = idRubro) WHERE Provee_CUIT = @cuit";
+            SqlCommand cmd = new SqlCommand(query, conn);
+            cmd.Parameters.Add("@cuit", SqlDbType.VarChar).Value = cuit;
+            DataSet ds = ConectorBDD.cargarDataSet(conn, cmd);
+
+            String RS = ds.Tables[0].Rows[0]["Provee_RS"].ToString();
+            String email = ds.Tables[0].Rows[0]["Provee_email"].ToString();
+            Decimal telefono = Convert.ToDecimal(ds.Tables[0].Rows[0]["Provee_Telefono"]);
+            String direccion = ds.Tables[0].Rows[0]["Provee_Dom"].ToString();
+            String ciudad = ds.Tables[0].Rows[0]["Provee_Ciudad"].ToString();
+            String rubro = ds.Tables[0].Rows[0]["Rubro_Descripcion"].ToString();
+            String contacto = ds.Tables[0].Rows[0]["Provee_contacto"].ToString();
+            String postal = ds.Tables[0].Rows[0]["Provee_postal"].ToString();
+ 
+           
+            Proveedor provee = new Proveedor(RS, email, telefono, direccion,null, null, null, ciudad, cuit, rubro, contacto,postal)
+            return provee;
+        }
+
         public static DataSet obtenerProveedores(){
             string connString = ConfigurationManager.ConnectionStrings["THE_RIGHT_JOIN"].ConnectionString;
             SqlConnection conn = new SqlConnection(connString);
@@ -110,7 +133,22 @@ namespace FrbaOfertas
             }
             return null;
         }
-            
+
+
+        public static void bajaProveedor(string cuit) {
+            string connString = ConfigurationManager.ConnectionStrings["THE_RIGHT_JOIN"].ConnectionString;
+            SqlConnection conn = new SqlConnection(connString);
+            using (conn)
+            {
+                using (SqlCommand cmd = new SqlCommand("THE_RIGHT_JOIN.bajaProveedor", conn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add("@cuit", SqlDbType.VarChar).Value = cuit;
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
+                }
+            }
         }
     }
 

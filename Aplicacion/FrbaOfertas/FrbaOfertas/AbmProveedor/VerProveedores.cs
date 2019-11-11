@@ -12,6 +12,8 @@ namespace FrbaOfertas.AbmProveedor
 {
     public partial class VerProveedores : Form
     {
+        public static string cuitSeleccionado;
+
         public VerProveedores()
         {
             InitializeComponent();
@@ -33,9 +35,25 @@ namespace FrbaOfertas.AbmProveedor
 
         }
 
-        private void VerProveedores_Load(object sender, EventArgs e)
-        {
 
+        private void dgvProveedores_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dgvProveedores.SelectedCells.Count > 0)
+            {
+                int selectedrowindex = dgvProveedores.SelectedCells[0].RowIndex;
+                DataGridViewRow selectedRow = dgvProveedores.Rows[selectedrowindex];
+                cuitSeleccionado = (selectedRow.Cells["Provee_CUIT"].Value).ToString();
+            }
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Esta seguro que desea eliminar el Proveedor de CUIT " + cuitSeleccionado + "?", "Warning",
+            MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (result == DialogResult.Yes)
+            {
+                AdmProveedores.bajaProveedor(cuitSeleccionado);
+            }
         }
     }
 }

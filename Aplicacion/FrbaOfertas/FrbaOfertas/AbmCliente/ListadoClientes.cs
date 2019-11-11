@@ -20,11 +20,6 @@ namespace FrbaOfertas
             InitializeComponent();
         }
 
-        private void ListadoClientes_Load(object sender, EventArgs e)
-        {
-            
-
-        }
 
         private void btnSeleccionar_Click(object sender, EventArgs e)
         {

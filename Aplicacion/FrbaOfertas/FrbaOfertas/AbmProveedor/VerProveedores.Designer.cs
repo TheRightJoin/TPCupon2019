@@ -116,6 +116,7 @@
             this.btnEliminar.TabIndex = 8;
             this.btnEliminar.Text = "Eliminar Proveedor";
             this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnModificar
             // 
@@ -143,7 +144,6 @@
             this.Controls.Add(this.label1);
             this.Name = "VerProveedores";
             this.Text = "VerProveedores";
-            this.Load += new System.EventHandler(this.VerProveedores_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProveedores)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
