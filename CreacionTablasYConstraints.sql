@@ -127,7 +127,8 @@ FOREIGN KEY (Oferta_CUIT) REFERENCES THE_RIGHT_JOIN.Proveedor (Provee_CUIT)
 CREATE TABLE THE_RIGHT_JOIN.Cupon(
 idCupon INTEGER NOT NULL PRIMARY KEY IDENTITY(1,1),
 codOferta nvarchar(50) NOT NULL,
-cupon_dniCli numeric(18,0))
+cupon_dniCli numeric(18,0),
+cupon_FechaCanje date)
 
 ALTER TABLE THE_RIGHT_JOIN.Cupon
 ADD CONSTRAINT FK_CuponOferta
