@@ -18,6 +18,7 @@ namespace FrbaOfertas
             string connString = ConfigurationManager.ConnectionStrings["THE_RIGHT_JOIN"].ConnectionString;
             SqlConnection conn = new SqlConnection(connString); 
             String query = "SELECT TOP 1000 [Cli_Dni],[Cli_Nombre],[Cli_Apellido],[Cli_Mail],[Cli_Direccion],[Cli_Ciudad],[Cli_Fecha_Nac],[Cli_Telefono] FROM [GD2C2019].[THE_RIGHT_JOIN].[Cliente]";
+            query += "WHERE Cli_Activo IS NULL OR Cli_Activo = 1";
             SqlCommand cmd = new SqlCommand(query, conn);
             return ConectorBDD.cargarDataSet(conn,cmd);
 
@@ -120,7 +121,8 @@ namespace FrbaOfertas
             SqlConnection conn = new SqlConnection(connString);
             String query = "SELECT [Cli_Dni],[Cli_Nombre],[Cli_Apellido],[Cli_Mail],[Cli_Direccion],[Cli_Ciudad],[Cli_Fecha_Nac],[Cli_Telefono],[Cli_CodPostal],[Cli_Localidad]";
             query += " FROM [GD2C2019].[THE_RIGHT_JOIN].[Cliente]";
-            query += " WHERE Cli_Apellido LIKE '%' + @apellido + '%'";
+            query += " WHERE (Cli_Activo IS NULL OR Cli_Activo = 1)";
+            query += " AND Cli_Apellido LIKE '%' + @apellido + '%'";
             query += " AND Cli_Nombre LIKE '%' + @nombre + '%'";
             if (dni == "")
             {

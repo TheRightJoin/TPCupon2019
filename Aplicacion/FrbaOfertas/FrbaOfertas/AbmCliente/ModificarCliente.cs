@@ -50,8 +50,13 @@ namespace FrbaOfertas
 
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
+            Decimal telefono = 0;
+            if (txtTelefono.Text != "")
+            {
+                telefono = Convert.ToDecimal(txtTelefono.Text);
+            }
             Cliente cli = new Cliente(dniCliente,
-                txtNombre.Text, txtApellido.Text, txtMail.Text, txtDireccion.Text, txtCiudad.Text, dtpNacimiento.Value.Date, Convert.ToDecimal(txtTelefono.Text), txtCodPost.Text, txtLocalidad.Text);
+                txtNombre.Text, txtApellido.Text, txtMail.Text, txtDireccion.Text, txtCiudad.Text, dtpNacimiento.Value.Date, telefono, txtCodPost.Text, txtLocalidad.Text);
             AdmClientes.modificarCliente(cli);
             limpiarCampos();
             MessageBox.Show("Cliente modificado correctamente");

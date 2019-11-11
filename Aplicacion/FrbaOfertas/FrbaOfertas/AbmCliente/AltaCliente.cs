@@ -20,14 +20,26 @@ namespace FrbaOfertas
 
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
-            Cliente cli = new Cliente(Convert.ToDecimal(txtDni.Text),
-                txtNombre.Text, txtApellido.Text, txtMail.Text, txtDireccion.Text, txtCiudad.Text, dtpNacimiento.Value.Date, Convert.ToDecimal(txtTelefono.Text),txtCodPost.Text,txtLocalidad.Text);
-            AdmClientes.altaCliente(cli);
-            limpiarCampos();
-            MessageBox.Show("Cliente creado correctamente");
-            formListadoClientes flc = new formListadoClientes();
-            flc.Show();
-            this.Hide();
+            Decimal telefono = 0;
+            if (txtTelefono.Text != "")
+            {
+                telefono = Convert.ToDecimal(txtTelefono.Text);
+            }
+            if (txtDni.Text != "")
+            {
+                Cliente cli = new Cliente(Convert.ToDecimal(txtDni.Text),
+                txtNombre.Text, txtApellido.Text, txtMail.Text, txtDireccion.Text, txtCiudad.Text, dtpNacimiento.Value.Date, telefono, txtCodPost.Text, txtLocalidad.Text);
+                AdmClientes.altaCliente(cli);
+                limpiarCampos();
+                MessageBox.Show("Cliente creado correctamente", "OK", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                formListadoClientes flc = new formListadoClientes();
+                flc.Show();
+                this.Hide();
+            }
+            else {
+                MessageBox.Show("El DNI no puede ser vacio", "Warning",MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            
         }
         private void txtDni_KeyPress(object sender, KeyPressEventArgs e)
         {

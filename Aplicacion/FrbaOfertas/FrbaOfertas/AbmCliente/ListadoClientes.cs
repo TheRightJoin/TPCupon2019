@@ -44,7 +44,9 @@ namespace FrbaOfertas
             if (result == DialogResult.Yes)
             {
                 AdmClientes.bajaCliente(dniSeleccionado);
+                dgvClientes.DataSource = AdmClientes.obtenerClientes().Tables[0];
             }
+            
                       
         }
 
