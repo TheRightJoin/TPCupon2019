@@ -49,6 +49,7 @@
             this.verProveedoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.txtMail = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.cargarCreditoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -147,7 +148,8 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.clientesToolStripMenuItem,
-            this.proveedorToolStripMenuItem});
+            this.proveedorToolStripMenuItem,
+            this.cargarCreditoToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(901, 24);
@@ -227,6 +229,13 @@
             this.label4.TabIndex = 2;
             this.label4.Text = "Filtrar Mail";
             // 
+            // cargarCreditoToolStripMenuItem
+            // 
+            this.cargarCreditoToolStripMenuItem.Name = "cargarCreditoToolStripMenuItem";
+            this.cargarCreditoToolStripMenuItem.Size = new System.Drawing.Size(96, 20);
+            this.cargarCreditoToolStripMenuItem.Text = "Cargar Credito";
+            this.cargarCreditoToolStripMenuItem.Click += new System.EventHandler(this.cargarCreditoToolStripMenuItem_Click);
+            // 
             // formListadoClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -278,5 +287,6 @@
         private System.Windows.Forms.ToolStripMenuItem verProveedoresToolStripMenuItem;
         private System.Windows.Forms.TextBox txtMail;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ToolStripMenuItem cargarCreditoToolStripMenuItem;
     }
 }

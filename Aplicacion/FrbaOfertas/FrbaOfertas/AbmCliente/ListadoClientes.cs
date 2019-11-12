@@ -74,5 +74,12 @@ namespace FrbaOfertas
             fac.Show();
             this.Hide();
         }
+
+        private void cargarCreditoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CargaCredito fcc = new CargaCredito();
+            fcc.Show();
+            this.Hide();
+        }
     }
 }

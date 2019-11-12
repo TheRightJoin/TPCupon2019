@@ -10,5 +10,5 @@ create procedure THE_RIGHT_JOIN.altaCliente
 @codpost nvarchar(255) = NULL,
 @localidad nvarchar(255) = NULL
 AS
-INSERT INTO THE_RIGHT_JOIN.Cliente (Cli_Dni,Cli_Nombre,Cli_Apellido,Cli_Mail,Cli_Direccion,Cli_Ciudad,Cli_Fecha_Nac,Cli_Telefono,Cli_CodPostal,Cli_Localidad,Cli_Activo)
-VALUES (@dni,@nombre,@apellido,@mail,@direccion,@ciudad,@fechaNac,@telefono,@codpost,@localidad,1)
+INSERT INTO THE_RIGHT_JOIN.Cliente (Cli_Dni,Cli_Nombre,Cli_Apellido,Cli_Mail,Cli_Direccion,Cli_Ciudad,Cli_Fecha_Nac,Cli_Telefono,Cli_CodPostal,Cli_Localidad,Cli_Activo,Cli_Saldo)
+VALUES (@dni,@nombre,@apellido,@mail,@direccion,@ciudad,@fechaNac,@telefono,@codpost,@localidad,1,200)
