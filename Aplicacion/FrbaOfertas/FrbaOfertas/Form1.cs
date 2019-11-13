@@ -53,5 +53,13 @@ namespace FrbaOfertas
             fcc.Show();
             this.Hide();
         }
+
+        private void publicarOfertaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PublicarOferta fpo = new PublicarOferta();
+            fpo.Show();
+            this.Hide();
+        }
+
     }
 }
