@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using FrbaOfertas.AbmProveedor;
-
+using System.Configuration;
 namespace FrbaOfertas
 {
     public partial class Form1 : Form
@@ -59,6 +59,11 @@ namespace FrbaOfertas
             PublicarOferta fpo = new PublicarOferta();
             fpo.Show();
             this.Hide();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            DateTime value = Convert.ToDateTime(ConfigurationManager.AppSettings["DateFormat"]);
         }
 
     }

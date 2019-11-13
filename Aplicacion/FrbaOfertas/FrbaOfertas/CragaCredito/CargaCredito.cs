@@ -44,6 +44,7 @@ namespace FrbaOfertas
                 using (SqlCommand cmd = new SqlCommand("THE_RIGHT_JOIN.cargarCredito", conn))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add("@fecha",SqlDbType.DateTime).Value = Convert.ToDateTime(ConfigurationManager.AppSettings["Fecha"]);
                     cmd.Parameters.Add("@dniCliente", SqlDbType.Decimal).Value = dni;
                     cmd.Parameters.Add("@tipo", SqlDbType.VarChar).Value = tipo;
                     cmd.Parameters.Add("@monto", SqlDbType.Decimal).Value = monto;
@@ -61,7 +62,6 @@ namespace FrbaOfertas
 
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
-            //FALTA OBTENER LA FECHA DEL ARCHIVO DE CONFIGURACION
             //FALTA OBTENER EL DNI DEL CLIENTE DEL LOGIN
             if (txtDni.Text != "" && txtMonto.Text != "" && txtCodigo.Text != "" && txtNumero.Text != "" && cmbTipo.Text != "")
             {

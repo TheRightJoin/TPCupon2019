@@ -134,7 +134,7 @@
             // publicarOfertaToolStripMenuItem
             // 
             this.publicarOfertaToolStripMenuItem.Name = "publicarOfertaToolStripMenuItem";
-            this.publicarOfertaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.publicarOfertaToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
             this.publicarOfertaToolStripMenuItem.Text = "Crear Oferta";
             this.publicarOfertaToolStripMenuItem.Click += new System.EventHandler(this.publicarOfertaToolStripMenuItem_Click);
             // 
@@ -147,6 +147,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
