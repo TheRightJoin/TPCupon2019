@@ -14,3 +14,4 @@ C:\Users\lucas\Desktop\UTN\Gestion2019\TPCupon2019\Aplicacion\FrbaOfertas\FrbaOf
 C:\Users\lucas\Desktop\UTN\Gestion2019\TPCupon2019\Aplicacion\FrbaOfertas\FrbaOfertas\obj\Debug\FrbaOfertas.ModificarCliente.resources
 C:\Users\lucas\Desktop\UTN\Gestion2019\TPCupon2019\Aplicacion\FrbaOfertas\FrbaOfertas\obj\Debug\FrbaOfertas.CargaCredito.resources
 C:\Users\lucas\Desktop\UTN\Gestion2019\TPCupon2019\Aplicacion\FrbaOfertas\FrbaOfertas\obj\Debug\FrbaOfertas.PublicarOferta.resources
+C:\Users\lucas\Desktop\UTN\Gestion2019\TPCupon2019\Aplicacion\FrbaOfertas\FrbaOfertas\obj\Debug\FrbaOfertas.ListadoOfertas.resources

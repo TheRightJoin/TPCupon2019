@@ -8,13 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace FrbaOfertas.ComprarOferta
+namespace FrbaOfertas
 {
-    public partial class Form1 : Form
+    public partial class ListadoOfertas : Form
     {
-        public Form1()
+        public ListadoOfertas()
         {
             InitializeComponent();
+        }
+
+        private void ListadoOfertas_Load(object sender, EventArgs e)
+        {
+            dgvOfertas.DataSource = AdmOfertas.obtenerOfertasDisponibles().Tables[0];
         }
     }
 }

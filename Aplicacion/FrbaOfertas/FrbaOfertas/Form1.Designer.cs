@@ -40,6 +40,7 @@
             this.cargarCreditoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ofertasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.publicarOfertaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.comprarOfertaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,7 +50,8 @@
             this.clientesToolStripMenuItem,
             this.proveedorToolStripMenuItem,
             this.cargarCreditoToolStripMenuItem,
-            this.ofertasToolStripMenuItem});
+            this.ofertasToolStripMenuItem,
+            this.comprarOfertaToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(546, 24);
@@ -138,6 +140,13 @@
             this.publicarOfertaToolStripMenuItem.Text = "Crear Oferta";
             this.publicarOfertaToolStripMenuItem.Click += new System.EventHandler(this.publicarOfertaToolStripMenuItem_Click);
             // 
+            // comprarOfertaToolStripMenuItem
+            // 
+            this.comprarOfertaToolStripMenuItem.Name = "comprarOfertaToolStripMenuItem";
+            this.comprarOfertaToolStripMenuItem.Size = new System.Drawing.Size(107, 20);
+            this.comprarOfertaToolStripMenuItem.Text = "Comprar Ofertas";
+            this.comprarOfertaToolStripMenuItem.Click += new System.EventHandler(this.comprarOfertaToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -169,6 +178,7 @@
         private System.Windows.Forms.ToolStripMenuItem cargarCreditoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ofertasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem publicarOfertaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem comprarOfertaToolStripMenuItem;
     }
 }
 

@@ -66,5 +66,13 @@ namespace FrbaOfertas
             DateTime value = Convert.ToDateTime(ConfigurationManager.AppSettings["DateFormat"]);
         }
 
+        private void comprarOfertaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ListadoOfertas flo = new ListadoOfertas();
+            flo.Show();
+            this.Hide();
+
+        }
+
     }
 }

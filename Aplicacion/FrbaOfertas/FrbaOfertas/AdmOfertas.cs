@@ -39,5 +39,16 @@ namespace FrbaOfertas
             }
             return filas;
         }
+
+        public static DataSet obtenerOfertasDisponibles()
+        {
+            string connString = ConfigurationManager.ConnectionStrings["THE_RIGHT_JOIN"].ConnectionString;
+            SqlConnection conn = new SqlConnection(connString);
+            String query = "select * from THE_RIGHT_JOIN.traerOfertasDisponibles(@fecha)";
+            SqlCommand cmd = new SqlCommand(query, conn);
+            cmd.Parameters.Add("@fecha", SqlDbType.DateTime).Value = Convert.ToDateTime(ConfigurationManager.AppSettings["Fecha"]);
+            return ConectorBDD.cargarDataSet(conn, cmd);
+
+        }
     }
 }
