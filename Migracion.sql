@@ -57,3 +57,49 @@ group by Factura_Nro,Factura_Fecha,Provee_CUIT
 insert into THE_RIGHT_JOIN.Item_Factura select 'A',Factura_Nro,CompraOferta_idCompra,CompraOferta_Cantidad*Oferta_Precio as monto from gd_esquema.Maestra,THE_RIGHT_JOIN.Compra_Oferta
 where Factura_Nro IS NOT NULL and Cli_Dni = CompraOferta_dniClie and Oferta_Codigo = CompraOferta_oferCodigo and Oferta_Fecha_Compra = CompraOferta_Fecha
 end
+
+--USUARIOS
+--LA FUNCION DE ABAJO LA NECESITAMOS PARA LIMPIAR LOS CARACTERES ESPECIALES
+CREATE FUNCTION THE_RIGHT_JOIN.LimpiarCaracteres ( @Cadena VARCHAR(MAX) )
+RETURNS VARCHAR(MAX)
+AS 
+BEGIN
+-- ============================================================
+-- Author:		
+-- Create date: <06 Jul 2018>
+-- Description:	--				 y caracteres especiales>
+-- Retorno:		
+-- ============================================================
+ --Reemplazamos las vocales acentuadas y caracteres especiales
+ -- ·ÈÌÛ˙‡ËÏÚ˘„ı‚ÍÓÙ˚‰ÎÔˆ¸Ò—Á« ¡…Õ”⁄¿»Ã“Ÿ√’¬ Œ‘€ƒÀœ÷‹ 
+    RETURN 	
+	REPLACE(REPLACE( /*vocales √’*/
+	REPLACE(REPLACE(REPLACE(REPLACE(REPLACE( /*vocales ƒÀœ÷‹*/
+	REPLACE(REPLACE(REPLACE(REPLACE(REPLACE( /*vocales ¬ Œ‘€*/
+	REPLACE(REPLACE(REPLACE(REPLACE(REPLACE( /*vocales ¿»Ã“Ÿ*/
+	REPLACE(REPLACE(REPLACE(REPLACE(REPLACE( /*vocales ¡…Õ”⁄*/
+	REPLACE(REPLACE(REPLACE(REPLACE(REPLACE( /*vocales Ò—Á«  incluido espacio en blanco*/
+	REPLACE(REPLACE(REPLACE(REPLACE(REPLACE( /*vocales ‰ÎÔˆ¸*/
+	REPLACE(REPLACE(REPLACE(REPLACE(REPLACE( /*vocales ‚ÍÓÙ˚*/
+	REPLACE(REPLACE(REPLACE(REPLACE(REPLACE( /*vocales ‡ËÏÚ˘*/
+	REPLACE(REPLACE(REPLACE(REPLACE(REPLACE( /*vocales ·ÈÌÛ˙*/ @Cadena, '·', 'a'), 'È','e'), 'Ì', 'i'), 'Û', 'o'), '˙','u')		
+			,'‡','a'),'Ë','e'),'Ï','i'),'Ú','o'),'˘','u')
+			,'‚','a'),'Í','e'),'Ó','i'),'Ù','o'),'˚','u')
+			,'‰','a'),'Î','e'),'Ô','i'),'ˆ','o'),'¸','u')
+			,'Ò','n'),'—','N'),'Á','c'),'«','C'),' ','')
+			,'¡','A'),'…','E'),'Õ','I'),'”','O'),'⁄','U') 
+			,'¿','A'),'»','E'),'Ã','I'),'“','O'),'Ÿ','U') 
+			,'¬','A'),' ','E'),'Œ','I'),'‘','O'),'€','U')
+			,'ƒ','A'),'À','E'),'œ','I'),'÷','O'),'‹','U') 
+			,'√','A'),'’','O')  
+END
+
+insert into THE_RIGHT_JOIN.Usuario 
+select THE_RIGHT_JOIN.LimpiarCaracteres( LOWER( REPLACE( Cli_Nombre+Cli_Apellido,' ', '')))
+,HASHBYTES('SHA2_256','password') 
+,Cli_Dni,NULL,1 
+from THE_RIGHT_JOIN.Cliente
+
+insert into THE_RIGHT_JOIN.Usuario
+select Provee_CUIT, HASHBYTES('SHA2_256','password'), NULL, Provee_CUIT,1
+ from THE_RIGHT_JOIN.Proveedor
