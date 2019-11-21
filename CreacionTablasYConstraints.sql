@@ -116,7 +116,8 @@ Oferta_Descripcion nvarchar(255),
 Oferta_Codigo nvarchar(50) NOT NULL PRIMARY KEY,
 Oferta_Entregado_Fecha datetime,
 Oferta_Disponible numeric(1,0),
-Oferta_CUIT nvarchar(20))
+Oferta_CUIT nvarchar(20),
+Oferta_CantxCli numeric(18,0))
 
 
 ALTER TABLE THE_RIGHT_JOIN.Oferta

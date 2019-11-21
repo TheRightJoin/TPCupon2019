@@ -29,9 +29,10 @@ where Carga_Credito IS NOT NULL
 --TABLA OFERTAS
 --LISTO
 insert into THE_RIGHT_JOIN.Oferta select distinct Oferta_Precio,Oferta_Precio_Ficticio,Oferta_Fecha,Oferta_Fecha_Venc,Oferta_Cantidad,Oferta_Descripcion,
-Oferta_Codigo,NULL,NULL,Provee_CUIT
+Oferta_Codigo,NULL,NULL,Provee_CUIT,Oferta_Cantidad
 from gd_esquema.Maestra
 where Oferta_Codigo IS NOT NULL
+
 
 --TABLA Compra_Oferta
 --LISTO
