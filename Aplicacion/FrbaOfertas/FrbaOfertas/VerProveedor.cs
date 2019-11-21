@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FrbaOfertas
 {
-   public class Proveedor
+   public class VerProveedor
     {
         public string razon_social { get; set; }
         public string email { get; set; }
@@ -19,7 +19,7 @@ namespace FrbaOfertas
         public string postal { get; set; }
         public int activo { get; set; }
 
-        public Proveedor(string a, string b, decimal c, string d, string e, string f, string g,
+        public VerProveedor(string a, string b, decimal c, string d, string e, string f, string g,
                                          string h, string i, string j, string k, string m)
         {
            razon_social = a;

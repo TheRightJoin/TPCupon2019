@@ -74,5 +74,13 @@ namespace FrbaOfertas
 
         }
 
+        private void resgristroDeUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RegistroDeUsuario rg = new RegistroDeUsuario();
+            rg.Show();
+            this.Hide();
+            
+        }
+
     }
 }

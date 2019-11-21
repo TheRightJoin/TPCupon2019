@@ -11,7 +11,7 @@ namespace FrbaOfertas
 {
     public class AdmProveedores
     {
-        public void AltaProveedor(Proveedor miProveedor)
+        public static void AltaProveedor(AltaProveedor miProveedor)
         {
 
             string connString = ConfigurationManager.ConnectionStrings["THE_RIGHT_JOIN"].ConnectionString;
@@ -39,7 +39,7 @@ namespace FrbaOfertas
             }
         }
 
-        public static Proveedor obtenerProveedor(String cuit)
+        public static VerProveedor obtenerProveedor(String cuit)
         {
             string connString = ConfigurationManager.ConnectionStrings["THE_RIGHT_JOIN"].ConnectionString;
             SqlConnection conn = new SqlConnection(connString);
@@ -58,7 +58,7 @@ namespace FrbaOfertas
             String postal = ds.Tables[0].Rows[0]["Provee_postal"].ToString();
 
 
-            Proveedor provee = new Proveedor(RS, email, telefono, direccion, null, null, null, ciudad, cuit, rubro, contacto, postal);
+            VerProveedor provee = new VerProveedor(RS, email, telefono, direccion, null, null, null, ciudad, cuit, rubro, contacto, postal);
             return provee;
         }
 
@@ -160,7 +160,7 @@ namespace FrbaOfertas
         }
 
 
-        public static void modificarProveedor(Proveedor provee)
+        public static void modificarProveedor(VerProveedor provee)
         {
             string connString = ConfigurationManager.ConnectionStrings["THE_RIGHT_JOIN"].ConnectionString;
             SqlConnection conn = new SqlConnection(connString);

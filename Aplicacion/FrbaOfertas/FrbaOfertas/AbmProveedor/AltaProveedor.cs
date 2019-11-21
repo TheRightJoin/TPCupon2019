@@ -29,11 +29,11 @@ namespace FrbaOfertas
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Proveedor miProveedor = new Proveedor(textBox1.Text, textBox2.Text, Convert.ToDecimal(textBox3.Text), textBox4.Text, textBox5.Text,
-                                                  textBox6.Text, textBox7.Text, textBox9.Text, textBox10.Text, comboBox1.Text,
+            AltaProveedor miProveedor = new AltaProveedor(textBox1.Text, textBox2.Text, Convert.ToDecimal(textBox3.Text), textBox4.Text, textBox5.Text,
+                                                  textBox6.Text, textBox7.Text, textBox9.Text, textBox10.Text, comboBox1.SelectedIndex,
                                                   textBox12.Text, textBox8.Text);
            
-            adm.AltaProveedor(miProveedor);
+            AdmProveedores.AltaProveedor(miProveedor);
         }
 
     }
