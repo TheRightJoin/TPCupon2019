@@ -15,7 +15,7 @@ namespace FrbaOfertas
         {
             string connString = ConfigurationManager.ConnectionStrings["THE_RIGHT_JOIN"].ConnectionString;
             SqlConnection conn = new SqlConnection(connString);
-            String query = "SELECT * FROM THE_RIGHT_JOIN.Rubro";
+            String query = "SELECT [idRubro],[Rubro_Descripcion] FROM THE_RIGHT_JOIN.Rubro";
             SqlCommand cmd = new SqlCommand(query, conn);
             return ConectorBDD.cargarDataSet(conn, cmd);
         }

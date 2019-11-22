@@ -27,6 +27,20 @@ namespace FrbaOfertas
             cbxRubro.ValueMember = "idRubro";
         }
 
+        private void limpiarcampos() {
+            txtCalle.Text = "";
+            txtCiudad.Text = "";
+            txtContacto.Text = "";
+            txtCUIT.Text = "";
+            txtDepto.Text = "";
+            txtEmail.Text = "";
+            txtLocalidad.Text = "";
+            txtPiso.Text = "";
+            txtPostal.Text = "";
+            txtRS.Text = "";
+            txtTelefono.Text = "";
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             String direccionTotal = txtCalle.Text + "; " + txtPiso.Text + "; " + txtDepto.Text + "; " + txtLocalidad.Text;
@@ -37,12 +51,15 @@ namespace FrbaOfertas
                                                   txtCiudad.Text, 
                                                   txtCUIT.Text,
                                                   cbxRubro.Text,
-                                                  cbxRubro.SelectedIndex,
+                                                  Convert.ToInt32(cbxRubro.SelectedValue),
                                                   txtContacto.Text, 
                                                   txtPostal.Text);
            
             AdmProveedores.AltaProveedor(miProveedor);
+            limpiarcampos();
         }
+
+
 
     }
 }
