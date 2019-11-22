@@ -34,8 +34,6 @@
             this.verClientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.proveedorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.crearProveedorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.modificarProveedorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.eliminarProveedorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.verProveedoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cargarCreditoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ofertasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -88,8 +86,6 @@
             // 
             this.proveedorToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.crearProveedorToolStripMenuItem,
-            this.modificarProveedorToolStripMenuItem,
-            this.eliminarProveedorToolStripMenuItem,
             this.verProveedoresToolStripMenuItem});
             this.proveedorToolStripMenuItem.Name = "proveedorToolStripMenuItem";
             this.proveedorToolStripMenuItem.Size = new System.Drawing.Size(106, 29);
@@ -98,26 +94,14 @@
             // crearProveedorToolStripMenuItem
             // 
             this.crearProveedorToolStripMenuItem.Name = "crearProveedorToolStripMenuItem";
-            this.crearProveedorToolStripMenuItem.Size = new System.Drawing.Size(246, 30);
+            this.crearProveedorToolStripMenuItem.Size = new System.Drawing.Size(213, 30);
             this.crearProveedorToolStripMenuItem.Text = "Crear Proveedor";
             this.crearProveedorToolStripMenuItem.Click += new System.EventHandler(this.crearProveedorToolStripMenuItem_Click);
-            // 
-            // modificarProveedorToolStripMenuItem
-            // 
-            this.modificarProveedorToolStripMenuItem.Name = "modificarProveedorToolStripMenuItem";
-            this.modificarProveedorToolStripMenuItem.Size = new System.Drawing.Size(246, 30);
-            this.modificarProveedorToolStripMenuItem.Text = "Modificar Proveedor";
-            // 
-            // eliminarProveedorToolStripMenuItem
-            // 
-            this.eliminarProveedorToolStripMenuItem.Name = "eliminarProveedorToolStripMenuItem";
-            this.eliminarProveedorToolStripMenuItem.Size = new System.Drawing.Size(246, 30);
-            this.eliminarProveedorToolStripMenuItem.Text = "Eliminar Proveedor";
             // 
             // verProveedoresToolStripMenuItem
             // 
             this.verProveedoresToolStripMenuItem.Name = "verProveedoresToolStripMenuItem";
-            this.verProveedoresToolStripMenuItem.Size = new System.Drawing.Size(246, 30);
+            this.verProveedoresToolStripMenuItem.Size = new System.Drawing.Size(213, 30);
             this.verProveedoresToolStripMenuItem.Text = "Ver Proveedores";
             this.verProveedoresToolStripMenuItem.Click += new System.EventHandler(this.verProveedoresToolStripMenuItem_Click);
             // 
@@ -183,8 +167,6 @@
         private System.Windows.Forms.ToolStripMenuItem verClientesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem proveedorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem crearProveedorToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem modificarProveedorToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem eliminarProveedorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem verProveedoresToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cargarCreditoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ofertasToolStripMenuItem;

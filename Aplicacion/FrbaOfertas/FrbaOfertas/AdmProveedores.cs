@@ -11,7 +11,7 @@ namespace FrbaOfertas
 {
     public class AdmProveedores
     {
-        public static void AltaProveedor(AltaProveedor miProveedor)
+        public static void AltaProveedor(AltaProveedores miProveedor)
         {
 
             string connString = ConfigurationManager.ConnectionStrings["THE_RIGHT_JOIN"].ConnectionString;
@@ -43,7 +43,7 @@ namespace FrbaOfertas
         {
             string connString = ConfigurationManager.ConnectionStrings["THE_RIGHT_JOIN"].ConnectionString;
             SqlConnection conn = new SqlConnection(connString);
-            String query = "select * from THE_RIGHT_JOIN.Proveedor JOIN Rubro ON (Provee_Rubro = idRubro) WHERE Provee_CUIT = @cuit";
+            String query = "select * from THE_RIGHT_JOIN.obtenerUnProveedor(@cuit)";
             SqlCommand cmd = new SqlCommand(query, conn);
             cmd.Parameters.Add("@cuit", SqlDbType.VarChar).Value = cuit;
             DataSet ds = ConectorBDD.cargarDataSet(conn, cmd);

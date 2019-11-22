@@ -81,9 +81,7 @@
     <Compile Include="AdmRol.cs" />
     <Compile Include="AdmRubro.cs" />
     <Compile Include="AdmUsuario.cs" />
-    <Compile Include="AltaProveedor.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="AltaProveedores.cs" />
     <Compile Include="CragaCredito\CargaCredito.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -132,6 +130,12 @@
     <Compile Include="ComprarOferta\ListadoOfertas.Designer.cs">
       <DependentUpon>ListadoOfertas.cs</DependentUpon>
     </Compile>
+    <Compile Include="AbmProveedor\ModificarProveedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AbmProveedor\ModificarProveedor.Designer.cs">
+      <DependentUpon>ModificarProveedor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Oferta.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -175,6 +179,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AbmCliente\ListadoClientes.resx">
       <DependentUpon>ListadoClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AbmProveedor\ModificarProveedor.resx">
+      <DependentUpon>ModificarProveedor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -202,7 +202,7 @@ namespace FrbaOfertas
                     break;
                 case "Proveedor":
                     miUser = new Usuario(txtUsuario.Text, txtContrasenia.Text, Convert.ToDecimal(null), txtCUIT.Text);
-                    AltaProveedor miProvee = new AltaProveedor(txtRS.Text,
+                    AltaProveedores miProvee = new AltaProveedores(txtRS.Text,
                                                        txtEmailP.Text,
                                                        Convert.ToDecimal(txtTelefonoP.Text),
                                                        txtCalleP.Text,

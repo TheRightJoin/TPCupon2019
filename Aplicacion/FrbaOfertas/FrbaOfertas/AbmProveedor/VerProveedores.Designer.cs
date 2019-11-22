@@ -97,6 +97,7 @@
             this.dgvProveedores.RowTemplate.Height = 28;
             this.dgvProveedores.Size = new System.Drawing.Size(1345, 397);
             this.dgvProveedores.TabIndex = 6;
+            this.dgvProveedores.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProveedores_CellContentClick);
             // 
             // btnSeleccionar
             // 

@@ -12,7 +12,7 @@ namespace FrbaOfertas.AbmProveedor
 {
     public partial class VerProveedores : Form
     {
-        public static string cuitSeleccionado;
+        public static String cuitSeleccionado;
 
         public VerProveedores()
         {
@@ -58,10 +58,20 @@ namespace FrbaOfertas.AbmProveedor
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            /*Deberia mandarte a una pantalla donde te aparezca para 
-             * modificar el proveedor.
-             * Hay que ver bien que pantalla hacemos, asi hacemos todos
-             * la misma*/
+            
+            ModificarProveedor mp = new ModificarProveedor();
+            this.Hide();
+            mp.Show();
+        }
+
+        private void dgvProveedores_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvProveedores.SelectedCells.Count > 0)
+            {
+                int selectedrowindex = dgvProveedores.SelectedCells[0].RowIndex;
+                DataGridViewRow selectedRow = dgvProveedores.Rows[selectedrowindex];
+                cuitSeleccionado = (selectedRow.Cells["Provee_CUIT"].Value).ToString();
+            }
         }
 
     }

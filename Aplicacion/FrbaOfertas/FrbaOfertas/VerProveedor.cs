@@ -25,7 +25,7 @@ namespace FrbaOfertas
            razon_social = a;
            email = b;
            telefono = c;
-           direccion = d + " " + e + " " + f + " " + g;
+           direccion = d + ";" + e + ";" + f + ";" + g;
            ciudad = h;
            CUIT = i;
            rubro = j;
