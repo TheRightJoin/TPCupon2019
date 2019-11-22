@@ -16,6 +16,8 @@ namespace FrbaOfertas
 
         public String CUIT;
         public int idRubroPosta;
+        public String rubroQueYaTiene;
+
         public ModificarProveedor()
         {
             InitializeComponent();
@@ -42,6 +44,10 @@ namespace FrbaOfertas
             CUIT = "felofelipe";
 
             txtCUIT.Text = CUIT;
+
+            cbxRubro.DataSource = AdmRubro.obtenerRubros().Tables[0];
+            cbxRubro.DisplayMember = "Rubro_Descripcion";
+            cbxRubro.ValueMember = "idRubro";
 
             Proveedor proveedor = AdmProveedores.obtenerProveedor(CUIT);
 

@@ -14,6 +14,7 @@ namespace FrbaOfertas.AbmProveedor
     {
         public static String cuitSeleccionado = "felofelipe";
 
+
         public VerProveedores()
         {
             InitializeComponent();
@@ -43,6 +44,7 @@ namespace FrbaOfertas.AbmProveedor
                 int selectedrowindex = dgvProveedores.SelectedCells[0].RowIndex;
                 DataGridViewRow selectedRow = dgvProveedores.Rows[selectedrowindex];
                 cuitSeleccionado = (selectedRow.Cells["Provee_CUIT"].Value).ToString();
+
             }
         }
 
