@@ -12,7 +12,7 @@ namespace FrbaOfertas.AbmProveedor
 {
     public partial class VerProveedores : Form
     {
-        public static String cuitSeleccionado;
+        public static String cuitSeleccionado = "felofelipe";
 
         public VerProveedores()
         {
@@ -62,6 +62,19 @@ namespace FrbaOfertas.AbmProveedor
             ModificarProveedor mp = new ModificarProveedor();
             this.Hide();
             mp.Show();
+        }
+
+        private void dgvProveedores_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridView dgv = sender as DataGridView;
+            if (dgv == null)
+                return;
+            if (dgv.CurrentRow.Selected)
+            {
+                int selectedrowindex = dgvProveedores.SelectedCells[0].RowIndex;
+                DataGridViewRow selectedRow = dgvProveedores.Rows[selectedrowindex];
+                cuitSeleccionado = (selectedRow.Cells["Provee_CUIT"].Value).ToString();
+            }
         }
     }
 }

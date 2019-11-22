@@ -95,8 +95,9 @@
             this.dgvProveedores.Location = new System.Drawing.Point(34, 120);
             this.dgvProveedores.Name = "dgvProveedores";
             this.dgvProveedores.RowTemplate.Height = 28;
-            this.dgvProveedores.Size = new System.Drawing.Size(1345, 397);
+            this.dgvProveedores.Size = new System.Drawing.Size(1404, 397);
             this.dgvProveedores.TabIndex = 6;
+            this.dgvProveedores.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProveedores_CellContentClick);
             // 
             // btnSeleccionar
             // 
@@ -132,7 +133,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1413, 609);
+            this.ClientSize = new System.Drawing.Size(1507, 609);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnSeleccionar);
