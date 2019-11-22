@@ -36,18 +36,6 @@ namespace FrbaOfertas.AbmProveedor
 
         }
 
-
-        private void dgvProveedores_SelectionChanged(object sender, EventArgs e)
-        {
-            if (dgvProveedores.SelectedCells.Count > 0)
-            {
-                int selectedrowindex = dgvProveedores.SelectedCells[0].RowIndex;
-                DataGridViewRow selectedRow = dgvProveedores.Rows[selectedrowindex];
-                cuitSeleccionado = (selectedRow.Cells["Provee_CUIT"].Value).ToString();
-
-            }
-        }
-
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Esta seguro que desea eliminar el Proveedor de CUIT " + cuitSeleccionado + "?", "Warning",
@@ -66,7 +54,18 @@ namespace FrbaOfertas.AbmProveedor
             mp.Show();
         }
 
-        private void dgvProveedores_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvProveedores_SelectionChanged_1(object sender, EventArgs e)
+        {
+            if (dgvProveedores.SelectedCells.Count > 0)
+            {
+                int selectedrowindex = dgvProveedores.SelectedCells[0].RowIndex;
+                DataGridViewRow selectedRow = dgvProveedores.Rows[selectedrowindex];
+                cuitSeleccionado = (selectedRow.Cells["Provee_CUIT"].Value).ToString();
+
+            }
+        }
+
+    /*    private void dgvProveedores_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             DataGridView dgv = sender as DataGridView;
             if (dgv == null)
@@ -77,6 +76,6 @@ namespace FrbaOfertas.AbmProveedor
                 DataGridViewRow selectedRow = dgvProveedores.Rows[selectedrowindex];
                 cuitSeleccionado = (selectedRow.Cells["Provee_CUIT"].Value).ToString();
             }
-        }
+        }*/
     }
 }

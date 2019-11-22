@@ -111,7 +111,7 @@ namespace FrbaOfertas
             //--filtro por RS y email
             if (cuit == "" && email != "" && RS != "")
             {
-                String query = "select TOP 1000 [Provee_CUIT],[Provee_RS],[Rubro_Descripcion],[Provee_Dom],[Provee_Ciudad],[Provee_postal],[Provee_Telefono],[Provee_contacto],[Provee_email] from THE_RIGHT_JOIN.Proveedor JOIN THE_RIGHT_JOIN.Rubro ON (Provee_Rubro = idRubro) WHERE Provee_RS LIKE '%' + @RS+ '%' AND Provee_email LIKE '%' + @email+ '%' ";
+                String query = "select TOP 1000 [Provee_CUIT],[Provee_RS],[Rubro_Descripcion],[Provee_Dom],[Provee_Ciudad],[Provee_postal],[Provee_Telefono],[Provee_contacto],[Provee_email] from THE_RIGHT_JOIN.Proveedor JOIN THE_RIGHT_JOIN.Rubro ON (Provee_Rubro = idRubro) WHERE Provee_RS LIKE '%' + @RS+ '%' AND Provee_email LIKE '%' + @email+ '%'";
                 SqlCommand cmd = new SqlCommand(query, conn);
                 SqlParameter paramEmail = cmd.Parameters.Add("@email", SqlDbType.VarChar);
                 paramEmail.Value = email;
@@ -152,7 +152,7 @@ namespace FrbaOfertas
                 using (SqlCommand cmd = new SqlCommand("THE_RIGHT_JOIN.bajaProveedor", conn))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.Add("@cuit", SqlDbType.Decimal).Value = cuit;
+                    cmd.Parameters.Add("@cuit", SqlDbType.VarChar).Value = cuit;
                     conn.Open();
                     cmd.ExecuteNonQuery();
                     conn.Close();
