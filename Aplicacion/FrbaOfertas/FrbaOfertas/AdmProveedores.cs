@@ -81,7 +81,7 @@ namespace FrbaOfertas
             //--filtro por email
             if (RS == "" && cuit == "")
             {
-                String query = "select * from THE_RIGHT_JOIN.Proveedor JOIN THE_RIGHT_JOIN.Rubro ON (Provee_Rubro = idRubro) WHERE Provee_email LIKE '%' + @email+ '%'";
+                String query = "select TOP 1000 [Provee_CUIT],[Provee_RS],[Rubro_Descripcion],[Provee_Dom],[Provee_Ciudad],[Provee_postal],[Provee_Telefono],[Provee_contacto],[Provee_email] from THE_RIGHT_JOIN.Proveedor JOIN THE_RIGHT_JOIN.Rubro ON (Provee_Rubro = idRubro) WHERE Provee_email LIKE '%' + @email+ '%'";
                 SqlCommand cmd = new SqlCommand(query, conn);
                 SqlParameter paramEmail = cmd.Parameters.Add("@email", SqlDbType.VarChar);
                 paramEmail.Value = email;
@@ -91,7 +91,7 @@ namespace FrbaOfertas
             //--filtro por RS
             if (email == "" && cuit == "")
             {
-                String query = "select * from THE_RIGHT_JOIN.Proveedor JOIN THE_RIGHT_JOIN.Rubro ON (Provee_Rubro = idRubro) WHERE Provee_RS LIKE '%' + @RS+ '%'";
+                String query = "select TOP 1000 [Provee_CUIT],[Provee_RS],[Rubro_Descripcion],[Provee_Dom],[Provee_Ciudad],[Provee_postal],[Provee_Telefono],[Provee_contacto],[Provee_email] from THE_RIGHT_JOIN.Proveedor JOIN THE_RIGHT_JOIN.Rubro ON (Provee_Rubro = idRubro) WHERE Provee_RS LIKE '%' + @RS+ '%'";
                 SqlCommand cmd = new SqlCommand(query, conn);
                 SqlParameter paramRS = cmd.Parameters.Add("@RS", SqlDbType.VarChar);
                 paramRS.Value = RS;
@@ -101,7 +101,7 @@ namespace FrbaOfertas
             //--filtro por CUIT
             if (email == "" && RS == "")
             {
-                String query = "select * from THE_RIGHT_JOIN.Proveedor JOIN THE_RIGHT_JOIN.Rubro ON (Provee_Rubro = idRubro) WHERE Provee_CUIT = @cuit";
+                String query = "select TOP 1000 [Provee_CUIT],[Provee_RS],[Rubro_Descripcion],[Provee_Dom],[Provee_Ciudad],[Provee_postal],[Provee_Telefono],[Provee_contacto],[Provee_email] from THE_RIGHT_JOIN.Proveedor JOIN THE_RIGHT_JOIN.Rubro ON (Provee_Rubro = idRubro) WHERE Provee_CUIT = @cuit";
                 SqlCommand cmd = new SqlCommand(query, conn);
                 SqlParameter paramcuit = cmd.Parameters.Add("@cuit", SqlDbType.VarChar);
                 paramcuit.Value = cuit;
@@ -111,7 +111,7 @@ namespace FrbaOfertas
             //--filtro por RS y email
             if (cuit == "" && email != "" && RS != "")
             {
-                String query = "select * from THE_RIGHT_JOIN.Proveedor JOIN THE_RIGHT_JOIN.Rubro ON (Provee_Rubro = idRubro) WHERE Provee_RS LIKE '%' + @RS+ '%' AND Provee_email LIKE '%' + @email+ '%' ";
+                String query = "select TOP 1000 [Provee_CUIT],[Provee_RS],[Rubro_Descripcion],[Provee_Dom],[Provee_Ciudad],[Provee_postal],[Provee_Telefono],[Provee_contacto],[Provee_email] from THE_RIGHT_JOIN.Proveedor JOIN THE_RIGHT_JOIN.Rubro ON (Provee_Rubro = idRubro) WHERE Provee_RS LIKE '%' + @RS+ '%' AND Provee_email LIKE '%' + @email+ '%' ";
                 SqlCommand cmd = new SqlCommand(query, conn);
                 SqlParameter paramEmail = cmd.Parameters.Add("@email", SqlDbType.VarChar);
                 paramEmail.Value = email;
@@ -123,7 +123,7 @@ namespace FrbaOfertas
             //--filtro RS y cuit
             if (cuit != "" && email == "" && RS != "")
             {
-                String query = "select * from THE_RIGHT_JOIN.Proveedor JOIN THE_RIGHT_JOIN.Rubro ON (Provee_Rubro = idRubro) WHERE Provee_CUIT = @cuit";
+                String query = "select TOP 1000 [Provee_CUIT],[Provee_RS],[Rubro_Descripcion],[Provee_Dom],[Provee_Ciudad],[Provee_postal],[Provee_Telefono],[Provee_contacto],[Provee_email] from THE_RIGHT_JOIN.Proveedor JOIN THE_RIGHT_JOIN.Rubro ON (Provee_Rubro = idRubro) WHERE Provee_CUIT = @cuit";
                 SqlCommand cmd = new SqlCommand(query, conn);
                 SqlParameter paramcuit = cmd.Parameters.Add("@cuit", SqlDbType.VarChar);
                 paramcuit.Value = cuit;
@@ -133,7 +133,7 @@ namespace FrbaOfertas
             //--filtro por los 3
             if (cuit != "" && email != "" && RS != "")
             {
-                String query = "select * from THE_RIGHT_JOIN.Proveedor JOIN THE_RIGHT_JOIN.Rubro ON (Provee_Rubro = idRubro) WHERE Provee_CUIT = @cuit";
+                String query = "select TOP 1000 [Provee_CUIT],[Provee_RS],[Rubro_Descripcion],[Provee_Dom],[Provee_Ciudad],[Provee_postal],[Provee_Telefono],[Provee_contacto],[Provee_email] from THE_RIGHT_JOIN.Proveedor JOIN THE_RIGHT_JOIN.Rubro ON (Provee_Rubro = idRubro) WHERE Provee_CUIT = @cuit";
                 SqlCommand cmd = new SqlCommand(query, conn);
                 SqlParameter paramcuit = cmd.Parameters.Add("@cuit", SqlDbType.VarChar);
                 paramcuit.Value = cuit;

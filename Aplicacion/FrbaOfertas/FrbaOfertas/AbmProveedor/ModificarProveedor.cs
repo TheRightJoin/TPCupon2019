@@ -41,7 +41,7 @@ namespace FrbaOfertas
         private void ModificarProveedor_Load(object sender, EventArgs e)
         {
             CUIT = VerProveedores.cuitSeleccionado;
-            CUIT = "felofelipe";
+    //        CUIT = "felofelipe";
 
             txtCUIT.Text = CUIT;
 

@@ -12,7 +12,7 @@ namespace FrbaOfertas.AbmProveedor
 {
     public partial class VerProveedores : Form
     {
-        public static String cuitSeleccionado = "felofelipe";
+        public static String cuitSeleccionado = "";
 
 
         public VerProveedores()
