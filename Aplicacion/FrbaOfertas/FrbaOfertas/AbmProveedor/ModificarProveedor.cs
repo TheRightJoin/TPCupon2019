@@ -15,6 +15,7 @@ namespace FrbaOfertas
     {
 
         public String CUIT;
+        public int idRubroPosta;
         public ModificarProveedor()
         {
             InitializeComponent();
@@ -38,9 +39,10 @@ namespace FrbaOfertas
         private void ModificarProveedor_Load(object sender, EventArgs e)
         {
             CUIT = VerProveedores.cuitSeleccionado;
+            
             txtCUIT.Text = CUIT;
 
-            VerProveedor proveedor = AdmProveedores.obtenerProveedor(CUIT);
+            Proveedor proveedor = AdmProveedores.obtenerProveedor(CUIT);
 
             txtRS.Text = proveedor.razon_social;
             txtTelefono.Text = proveedor.telefono.ToString();
@@ -49,22 +51,22 @@ namespace FrbaOfertas
             txtContacto.Text = proveedor.contacto;
             txtPostal.Text = proveedor.postal;
             cbxRubro.Text = proveedor.rubro;
+            idRubroPosta = proveedor.idRubro;
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            VerProveedor miProve = new VerProveedor(txtRS.Text,
+             String direccionTotal = txtCalle.Text + "; " + txtPiso.Text + "; " + txtDepto.Text + "; " + txtLocalidad.Text;
+             Proveedor miProve = new Proveedor(         txtRS.Text,
                                                         txtEmail.Text,
                                                         Convert.ToDecimal(txtTelefono.Text),
-                                                        txtCalle.Text,
-                                                        txtPiso.Text,
-                                                        txtDepto.Text,
-                                                        txtLocalidad.Text,
+                                                        direccionTotal,
                                                         txtCiudad.Text,
                                                         txtCUIT.Text,
                                                         cbxRubro.Text,
+                                                        idRubroPosta,
                                                         txtContacto.Text,
-                                                        txtPostal.Text);
+                                                        txtPostal.Text); 
             AdmProveedores.modificarProveedor(miProve);
             limpiarCampos();
             this.Hide();

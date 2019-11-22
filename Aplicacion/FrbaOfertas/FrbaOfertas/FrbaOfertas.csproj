@@ -81,7 +81,6 @@
     <Compile Include="AdmRol.cs" />
     <Compile Include="AdmRubro.cs" />
     <Compile Include="AdmUsuario.cs" />
-    <Compile Include="AltaProveedores.cs" />
     <Compile Include="CragaCredito\CargaCredito.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -139,7 +138,7 @@
     <Compile Include="Oferta.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="VerProveedor.cs" />
+    <Compile Include="Proveedor.cs" />
     <Compile Include="CrearOferta\PublicarOferta.cs">
       <SubType>Form</SubType>
     </Compile>

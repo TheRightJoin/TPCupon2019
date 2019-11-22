@@ -11,7 +11,7 @@ namespace FrbaOfertas
 {
     public class AdmProveedores
     {
-        public static void AltaProveedor(AltaProveedores miProveedor)
+        public static void AltaProveedor(Proveedor miProveedor)
         {
 
             string connString = ConfigurationManager.ConnectionStrings["THE_RIGHT_JOIN"].ConnectionString;
@@ -27,7 +27,7 @@ namespace FrbaOfertas
                     cmd.Parameters.Add("@ciudad", SqlDbType.VarChar).Value = miProveedor.ciudad;
                     cmd.Parameters.Add("@telefono", SqlDbType.Decimal).Value = miProveedor.telefono;
                     cmd.Parameters.Add("@cuit", SqlDbType.VarChar).Value = miProveedor.CUIT;
-                    cmd.Parameters.Add("@rubro", SqlDbType.Int).Value = miProveedor.rubro;
+                    cmd.Parameters.Add("@idRubro", SqlDbType.Int).Value = miProveedor.idRubro;
                     cmd.Parameters.Add("@activo", SqlDbType.Decimal).Value = miProveedor.activo;
                     cmd.Parameters.Add("@email", SqlDbType.VarChar).Value = miProveedor.email;
                     cmd.Parameters.Add("@postal", SqlDbType.VarChar).Value = miProveedor.postal;
@@ -39,7 +39,7 @@ namespace FrbaOfertas
             }
         }
 
-        public static VerProveedor obtenerProveedor(String cuit)
+        public static Proveedor obtenerProveedor(String cuit)
         {
             string connString = ConfigurationManager.ConnectionStrings["THE_RIGHT_JOIN"].ConnectionString;
             SqlConnection conn = new SqlConnection(connString);
@@ -54,11 +54,12 @@ namespace FrbaOfertas
             String direccion = ds.Tables[0].Rows[0]["Provee_Dom"].ToString();
             String ciudad = ds.Tables[0].Rows[0]["Provee_Ciudad"].ToString();
             String rubro = ds.Tables[0].Rows[0]["Rubro_Descripcion"].ToString();
+            int idRubro = Convert.ToInt32(ds.Tables[0].Rows[0]["Provee_Rubro"]);
             String contacto = ds.Tables[0].Rows[0]["Provee_contacto"].ToString();
             String postal = ds.Tables[0].Rows[0]["Provee_postal"].ToString();
 
 
-            VerProveedor provee = new VerProveedor(RS, email, telefono, direccion, null, null, null, ciudad, cuit, rubro, contacto, postal);
+            Proveedor provee = new Proveedor(RS, email, telefono, direccion, ciudad, cuit, rubro,idRubro, contacto, postal);
             return provee;
         }
 
@@ -141,9 +142,9 @@ namespace FrbaOfertas
             return null;
         }
 
-
-        public static void bajaProveedor(string cuit)
+        public static void bajaProveedor(String cuit)
         {
+
             string connString = ConfigurationManager.ConnectionStrings["THE_RIGHT_JOIN"].ConnectionString;
             SqlConnection conn = new SqlConnection(connString);
             using (conn)
@@ -151,16 +152,16 @@ namespace FrbaOfertas
                 using (SqlCommand cmd = new SqlCommand("THE_RIGHT_JOIN.bajaProveedor", conn))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.Add("@cuit", SqlDbType.VarChar).Value = cuit;
+                    cmd.Parameters.Add("@cuit", SqlDbType.Decimal).Value = cuit;
                     conn.Open();
                     cmd.ExecuteNonQuery();
                     conn.Close();
                 }
             }
+                
         }
 
-
-        public static void modificarProveedor(VerProveedor provee)
+        public static void modificarProveedor(Proveedor provee)
         {
             string connString = ConfigurationManager.ConnectionStrings["THE_RIGHT_JOIN"].ConnectionString;
             SqlConnection conn = new SqlConnection(connString);
@@ -175,7 +176,7 @@ namespace FrbaOfertas
                     cmd.Parameters.Add("@telefono", SqlDbType.Decimal).Value = provee.telefono;
                     cmd.Parameters.Add("@direccion", SqlDbType.VarChar).Value = provee.direccion;
                     cmd.Parameters.Add("@ciudad", SqlDbType.VarChar).Value = provee.ciudad;
-                    cmd.Parameters.Add("@rubro", SqlDbType.Decimal).Value = provee.rubro;
+                    cmd.Parameters.Add("@idRubro", SqlDbType.Int).Value = provee.idRubro;
                     cmd.Parameters.Add("@contacto", SqlDbType.VarChar).Value = provee.contacto;
                     cmd.Parameters.Add("@postal", SqlDbType.VarChar).Value = provee.postal;
                     conn.Open();

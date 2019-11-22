@@ -63,16 +63,5 @@ namespace FrbaOfertas.AbmProveedor
             this.Hide();
             mp.Show();
         }
-
-        private void dgvProveedores_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (dgvProveedores.SelectedCells.Count > 0)
-            {
-                int selectedrowindex = dgvProveedores.SelectedCells[0].RowIndex;
-                DataGridViewRow selectedRow = dgvProveedores.Rows[selectedrowindex];
-                cuitSeleccionado = (selectedRow.Cells["Provee_CUIT"].Value).ToString();
-            }
-        }
-
     }
 }

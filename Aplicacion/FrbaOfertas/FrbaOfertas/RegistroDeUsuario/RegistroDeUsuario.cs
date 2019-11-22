@@ -201,16 +201,15 @@ namespace FrbaOfertas
 
                     break;
                 case "Proveedor":
+                    String direccionTotal = txtPisoP.Text + "; " + txtPisoP.Text + "; " + txtDeptoP.Text + "; " + txtLocalidad.Text;
                     miUser = new Usuario(txtUsuario.Text, txtContrasenia.Text, Convert.ToDecimal(null), txtCUIT.Text);
-                    AltaProveedores miProvee = new AltaProveedores(txtRS.Text,
+                    Proveedor miProvee = new Proveedor(txtRS.Text,
                                                        txtEmailP.Text,
                                                        Convert.ToDecimal(txtTelefonoP.Text),
-                                                       txtCalleP.Text,
-                                                       txtPisoP.Text,
-                                                       txtDeptoP.Text,
-                                                       txtLocalidadP.Text,
+                                                       direccionTotal,
                                                        txtCiuP.Text,
                                                        txtCUIT.Text,
+                                                       cbxRubro.Text,
                                                        Convert.ToInt32(cbxRubro.SelectedValue),
                                                        txtContacto.Text,
                                                        txtPostalP.Text);

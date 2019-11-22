@@ -22,16 +22,24 @@ namespace FrbaOfertas
 
         private void AltaProveedor_Load(object sender, EventArgs e)
         {
-            comboBox1.DataSource = AdmRubro.obtenerRubros().Tables[0];
-            comboBox1.DisplayMember = "Rubro_Descripcion";
-            comboBox1.ValueMember = "idRubro";
+            cbxRubro.DataSource = AdmRubro.obtenerRubros().Tables[0];
+            cbxRubro.DisplayMember = "Rubro_Descripcion";
+            cbxRubro.ValueMember = "idRubro";
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            AltaProveedores miProveedor = new AltaProveedores(textBox1.Text, textBox2.Text, Convert.ToDecimal(textBox3.Text), textBox4.Text, textBox5.Text,
-                                                  textBox6.Text, textBox7.Text, textBox9.Text, textBox10.Text, comboBox1.SelectedIndex,
-                                                  textBox12.Text, textBox8.Text);
+            String direccionTotal = txtCalle.Text + "; " + txtPiso.Text + "; " + txtDepto.Text + "; " + txtLocalidad.Text;
+            Proveedor miProveedor = new Proveedor(txtRS.Text, 
+                                                  txtEmail.Text, 
+                                                  Convert.ToDecimal(txtTelefono.Text), 
+                                                  direccionTotal , 
+                                                  txtCiudad.Text, 
+                                                  txtCUIT.Text,
+                                                  cbxRubro.Text,
+                                                  cbxRubro.SelectedIndex,
+                                                  txtContacto.Text, 
+                                                  txtPostal.Text);
            
             AdmProveedores.AltaProveedor(miProveedor);
         }
