@@ -114,7 +114,6 @@ Oferta_Fecha_Ven datetime,
 Oferta_Cantidad numeric(18,0),
 Oferta_Descripcion nvarchar(255),
 Oferta_Codigo nvarchar(50) NOT NULL PRIMARY KEY,
-Oferta_Disponible numeric(1,0),
 Oferta_CUIT nvarchar(20),
 Oferta_CantxCli numeric(18,0))
 
