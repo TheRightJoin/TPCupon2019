@@ -44,7 +44,7 @@ REFERENCES THE_RIGHT_JOIN.Rubro (idRubro)
 
 CREATE TABLE THE_RIGHT_JOIN.Usuario(
 Usuari_idUser int IDENTITY(1,1) PRIMARY KEY NOT NULL,
-Usuari_Username nvarchar(255),
+Usuari_Username nvarchar(255) UNIQUE,
 Usuari_Password nvarchar(255),
 Usuari_DNI numeric(18,0),
 Usuari_CUIT nvarchar(20),
@@ -114,7 +114,6 @@ Oferta_Fecha_Ven datetime,
 Oferta_Cantidad numeric(18,0),
 Oferta_Descripcion nvarchar(255),
 Oferta_Codigo nvarchar(50) NOT NULL PRIMARY KEY,
-Oferta_Entregado_Fecha datetime,
 Oferta_Disponible numeric(1,0),
 Oferta_CUIT nvarchar(20),
 Oferta_CantxCli numeric(18,0))
