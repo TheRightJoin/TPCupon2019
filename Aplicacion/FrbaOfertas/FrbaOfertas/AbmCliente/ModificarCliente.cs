@@ -31,20 +31,8 @@ namespace FrbaOfertas
             txtTelefono.Text = cli.telefono.ToString();
             txtDireccion.Text = cli.direccion;
             txtLocalidad.Text = cli.localidad;
-        }
 
-        private void verClientesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            formListadoClientes flc = new formListadoClientes();
-            flc.Show();
-            this.Hide();
-        }
-
-        private void crearClienteToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            AltaCliente fac = new AltaCliente();
-            fac.Show();
-            this.Hide();
+            this.Controls.Add(Form1.MainMenu);
         }
 
 

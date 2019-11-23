@@ -77,13 +77,9 @@ namespace FrbaOfertas
             limpiarCampos();
         }
 
-
-
-        private void verClientesToolStripMenuItem_Click(object sender, EventArgs e)
+        private void AltaCliente_Load(object sender, EventArgs e)
         {
-            formListadoClientes flc = new formListadoClientes();
-            flc.Show();
-            this.Hide();
+            this.Controls.Add(Form1.MainMenu);
         }
 
 

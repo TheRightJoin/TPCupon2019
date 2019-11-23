@@ -44,66 +44,74 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(32, 39);
+            this.label1.Location = new System.Drawing.Point(15, 71);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(100, 20);
+            this.label1.Size = new System.Drawing.Size(68, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Razon social";
             // 
             // txtRS
             // 
-            this.txtRS.Location = new System.Drawing.Point(155, 39);
+            this.txtRS.Location = new System.Drawing.Point(97, 71);
+            this.txtRS.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtRS.Name = "txtRS";
-            this.txtRS.Size = new System.Drawing.Size(202, 26);
+            this.txtRS.Size = new System.Drawing.Size(136, 20);
             this.txtRS.TabIndex = 1;
             // 
             // txtCUIT
             // 
-            this.txtCUIT.Location = new System.Drawing.Point(458, 40);
+            this.txtCUIT.Location = new System.Drawing.Point(299, 72);
+            this.txtCUIT.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtCUIT.Name = "txtCUIT";
-            this.txtCUIT.Size = new System.Drawing.Size(202, 26);
+            this.txtCUIT.Size = new System.Drawing.Size(136, 20);
             this.txtCUIT.TabIndex = 3;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(391, 40);
+            this.label2.Location = new System.Drawing.Point(255, 72);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(46, 20);
+            this.label2.Size = new System.Drawing.Size(32, 13);
             this.label2.TabIndex = 2;
             this.label2.Text = "CUIT";
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(781, 39);
+            this.txtEmail.Location = new System.Drawing.Point(515, 71);
+            this.txtEmail.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(202, 26);
+            this.txtEmail.Size = new System.Drawing.Size(136, 20);
             this.txtEmail.TabIndex = 5;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(715, 39);
+            this.label3.Location = new System.Drawing.Point(471, 71);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(48, 20);
+            this.label3.Size = new System.Drawing.Size(32, 13);
             this.label3.TabIndex = 4;
             this.label3.Text = "Email";
             // 
             // dgvProveedores
             // 
             this.dgvProveedores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProveedores.Location = new System.Drawing.Point(34, 120);
+            this.dgvProveedores.Location = new System.Drawing.Point(17, 124);
+            this.dgvProveedores.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgvProveedores.Name = "dgvProveedores";
             this.dgvProveedores.RowTemplate.Height = 28;
-            this.dgvProveedores.Size = new System.Drawing.Size(1404, 397);
+            this.dgvProveedores.Size = new System.Drawing.Size(885, 258);
             this.dgvProveedores.TabIndex = 6;
             this.dgvProveedores.SelectionChanged += new System.EventHandler(this.dgvProveedores_SelectionChanged_1);
             // 
             // btnSeleccionar
             // 
-            this.btnSeleccionar.Location = new System.Drawing.Point(1123, 18);
+            this.btnSeleccionar.Location = new System.Drawing.Point(743, 58);
+            this.btnSeleccionar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnSeleccionar.Name = "btnSeleccionar";
-            this.btnSeleccionar.Size = new System.Drawing.Size(220, 75);
+            this.btnSeleccionar.Size = new System.Drawing.Size(147, 49);
             this.btnSeleccionar.TabIndex = 7;
             this.btnSeleccionar.Text = "Seleccionar";
             this.btnSeleccionar.UseVisualStyleBackColor = true;
@@ -111,9 +119,10 @@
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(137, 532);
+            this.btnEliminar.Location = new System.Drawing.Point(85, 392);
+            this.btnEliminar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(322, 63);
+            this.btnEliminar.Size = new System.Drawing.Size(215, 41);
             this.btnEliminar.TabIndex = 8;
             this.btnEliminar.Text = "Eliminar Proveedor";
             this.btnEliminar.UseVisualStyleBackColor = true;
@@ -121,9 +130,10 @@
             // 
             // btnModificar
             // 
-            this.btnModificar.Location = new System.Drawing.Point(918, 532);
+            this.btnModificar.Location = new System.Drawing.Point(606, 392);
+            this.btnModificar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(322, 63);
+            this.btnModificar.Size = new System.Drawing.Size(215, 41);
             this.btnModificar.TabIndex = 9;
             this.btnModificar.Text = "Modificar Proveedor";
             this.btnModificar.UseVisualStyleBackColor = true;
@@ -131,9 +141,9 @@
             // 
             // VerProveedores
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1507, 609);
+            this.ClientSize = new System.Drawing.Size(913, 447);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnSeleccionar);
@@ -144,8 +154,10 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtRS);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "VerProveedores";
             this.Text = "VerProveedores";
+            this.Load += new System.EventHandler(this.VerProveedores_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProveedores)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

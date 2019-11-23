@@ -25,6 +25,7 @@ namespace FrbaOfertas
             cbxRubro.DataSource = AdmRubro.obtenerRubros().Tables[0];
             cbxRubro.DisplayMember = "Rubro_Descripcion";
             cbxRubro.ValueMember = "idRubro";
+            this.Controls.Add(Form1.MainMenu);
         }
 
         private void limpiarcampos() {

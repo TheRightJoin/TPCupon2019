@@ -20,6 +20,7 @@ namespace FrbaOfertas
         private void ListadoOfertas_Load(object sender, EventArgs e)
         {
             dgvOfertas.DataSource = AdmOfertas.obtenerOfertasDisponibles().Tables[0];
+            this.Controls.Add(Form1.MainMenu);
         }
     }
 }
