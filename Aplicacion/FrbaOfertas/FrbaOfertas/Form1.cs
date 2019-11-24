@@ -17,72 +17,7 @@ namespace FrbaOfertas
         public Form1()
         {
             InitializeComponent();
-        }
-
-        private void verClientesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            formListadoClientes flc = new formListadoClientes();
-            flc.Show();
-            this.Hide();
-        }
-
-
-        private void crearClienteToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            AltaCliente fac = new AltaCliente();
-            fac.Show();
-            this.Hide();
-        }
-
-        private void crearProveedorToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            AltaProveedor formAltaProveedor = new AltaProveedor();
-            formAltaProveedor.Show();
-            this.Hide();
-        }
-
-        private void verProveedoresToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            VerProveedores formVerProveedores = new VerProveedores();
-            formVerProveedores.Show();
-            this.Hide();
-        }
-
-        private void cargarCreditoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            CargaCredito fcc = new CargaCredito();
-            fcc.Show();
-            this.Hide();
-        }
-
-        private void publicarOfertaToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            PublicarOferta fpo = new PublicarOferta();
-            fpo.Show();
-            this.Hide();
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            DateTime value = Convert.ToDateTime(ConfigurationManager.AppSettings["DateFormat"]);
-            crearMenuStripPublico();
-        }
-
-        private void comprarOfertaToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ListadoOfertas flo = new ListadoOfertas();
-            flo.Show();
-            this.Hide();
-
-        }
-
-        private void resgristroDeUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            RegistroDeUsuario rg = new RegistroDeUsuario();
-            rg.Show();
-            this.Hide();
-            
-        }
+        }      
 
         private void crearMenuStripPublico() 
         {
@@ -135,7 +70,7 @@ namespace FrbaOfertas
                 case "Confeccionar Oferta":
                     break;
                 case "Registro de Usuario":
-                    break;
+                    break;                
                 default:
                     break;
             }
@@ -185,6 +120,11 @@ namespace FrbaOfertas
                     hideForms();
                     fru.Show();
                     break;
+                case "Estadisticas":
+                    ListadoEstadistico fle = new ListadoEstadistico();
+                    hideForms();
+                    fle.Show();
+                    break;
                 default:
                     break;
             }
@@ -195,6 +135,12 @@ namespace FrbaOfertas
             {
                 f.Hide();
             }
+        }
+
+        private void Form1_Load_1(object sender, EventArgs e)
+        {
+            DateTime value = Convert.ToDateTime(ConfigurationManager.AppSettings["DateFormat"]);
+            crearMenuStripPublico();
         }
     }
 }

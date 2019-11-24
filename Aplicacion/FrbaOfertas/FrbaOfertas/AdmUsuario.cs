@@ -49,6 +49,7 @@ namespace FrbaOfertas
             funcionalidades.Add("Confeccionar Oferta");
             funcionalidades.Add("Comprar Ofertas");
             funcionalidades.Add("Registro de Usuario");
+            funcionalidades.Add("Estadisticas");
             return funcionalidades;
         }
     }

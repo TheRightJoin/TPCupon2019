@@ -21,7 +21,6 @@ namespace FrbaOfertas
             query += "WHERE Cli_Activo IS NULL OR Cli_Activo = 1";
             SqlCommand cmd = new SqlCommand(query, conn);
             return ConectorBDD.cargarDataSet(conn,cmd);
-
         }
 
         public static Cliente obtenerCliente(Decimal dniCliente)
