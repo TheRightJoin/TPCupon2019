@@ -49,9 +49,13 @@ where Oferta_Codigo IS NOT NULL
 
 --TABLA Factura
 --LISTO
+set Identity_Insert THE_RIGHT_JOIN.Factura on
+
 insert into THE_RIGHT_JOIN.Factura select 'A',Factura_Nro,Factura_Fecha,sum(Oferta_Precio),Provee_CUIT from gd_esquema.Maestra
 where Factura_Nro IS NOT NULL
 group by Factura_Nro,Factura_Fecha,Provee_CUIT
+
+set Identity_Insert THE_RIGHT_JOIN.Factura off
 
 --Tabla Item
 --LISTO

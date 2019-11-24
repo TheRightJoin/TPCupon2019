@@ -157,7 +157,7 @@ FOREIGN KEY (Carga_dniClie) REFERENCES THE_RIGHT_JOIN.Cliente (Cli_Dni)
 
 CREATE TABLE THE_RIGHT_JOIN.Factura(
 Factura_tipoFactura nvarchar(255) NOT NULL,
-Factura_numFactura INTEGER NOT NULL,
+Factura_numFactura INTEGER NOT NULL identity(1,1),
 Factura_fecha datetime,
 Factura_total numeric(18,0),
 Factura_CUIT nvarchar(20))
