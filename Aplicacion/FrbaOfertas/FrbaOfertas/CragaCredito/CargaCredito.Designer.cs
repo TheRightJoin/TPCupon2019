@@ -177,6 +177,7 @@
             this.Controls.Add(this.cmbTipo);
             this.Name = "CargaCredito";
             this.Text = "CargaCredito";
+            this.Load += new System.EventHandler(this.CargaCredito_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

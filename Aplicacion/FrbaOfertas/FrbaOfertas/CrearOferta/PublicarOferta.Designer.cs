@@ -223,6 +223,7 @@
             this.Controls.Add(this.txtDesc);
             this.Name = "PublicarOferta";
             this.Text = "PublicarOferta";
+            this.Load += new System.EventHandler(this.PublicarOferta_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

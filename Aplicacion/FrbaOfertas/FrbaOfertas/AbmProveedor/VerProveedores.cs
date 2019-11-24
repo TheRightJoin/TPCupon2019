@@ -65,6 +65,11 @@ namespace FrbaOfertas.AbmProveedor
             }
         }
 
+        private void VerProveedores_Load(object sender, EventArgs e)
+        {
+            this.Controls.Add(Form1.MainMenu);
+        }
+
     /*    private void dgvProveedores_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             DataGridView dgv = sender as DataGridView;

@@ -36,5 +36,10 @@ namespace FrbaOfertas
             }
         }
 
+        private void PublicarOferta_Load(object sender, EventArgs e)
+        {
+            this.Controls.Add(Form1.MainMenu);
+        }
+
     }
 }

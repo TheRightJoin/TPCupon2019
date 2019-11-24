@@ -60,6 +60,8 @@ namespace FrbaOfertas
             cbxRubro.Text = proveedor.rubro;
             idRubroPosta = proveedor.idRubro;
             parseoDireccion(proveedor.direccion);
+
+            this.Controls.Add(Form1.MainMenu);
         }
 
         private void btnModificar_Click(object sender, EventArgs e)

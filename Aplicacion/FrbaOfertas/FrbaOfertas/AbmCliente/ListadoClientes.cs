@@ -61,25 +61,9 @@ namespace FrbaOfertas
             }
         }
 
-        private void btnModificar_Click(object sender, EventArgs e)
+        private void formListadoClientes_Load(object sender, EventArgs e)
         {
-            ModificarCliente fmc = new ModificarCliente();
-            fmc.Show();
-            this.Hide();
-        }
-
-        private void crearClienteToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            AltaCliente fac = new AltaCliente();
-            fac.Show();
-            this.Hide();
-        }
-
-        private void cargarCreditoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            CargaCredito fcc = new CargaCredito();
-            fcc.Show();
-            this.Hide();
+            this.Controls.Add(Form1.MainMenu);
         }
 
     }

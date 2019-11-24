@@ -101,5 +101,10 @@ namespace FrbaOfertas
                 e.Handled = true;
             }
         }
+
+        private void CargaCredito_Load(object sender, EventArgs e)
+        {
+            this.Controls.Add(Form1.MainMenu);
+        }
     }
 }
