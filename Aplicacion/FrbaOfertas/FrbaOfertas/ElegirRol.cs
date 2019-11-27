@@ -12,6 +12,7 @@ namespace FrbaOfertas
 {
     public partial class ElegirRol : Form
     {
+        public static int rolElegido;
         public ElegirRol()
         {
             InitializeComponent();
@@ -32,6 +33,7 @@ namespace FrbaOfertas
 
         private void btnIngresar_Click(object sender, EventArgs e)
         {
+            rolElegido =Convert.ToInt32(cmbRoles.SelectedValue);
             Form1 f1 = new Form1();
             f1.Show();
             this.Hide();
