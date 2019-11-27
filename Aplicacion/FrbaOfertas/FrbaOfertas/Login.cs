@@ -24,7 +24,10 @@ namespace FrbaOfertas
             switch(intento)
             {
                 case 0:
-                    MessageBox.Show("bien");
+                    MessageBox.Show("Datos Correctos");
+                    Form1 f1 = new Form1();
+                    f1.Show();
+                    this.Hide();
                     break;
                 case 3:
                     MessageBox.Show("bloqueado");
