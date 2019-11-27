@@ -19,5 +19,15 @@ namespace FrbaOfertas
             SqlCommand cmd = new SqlCommand(query, conn);
             return ConectorBDD.cargarDataSet(conn, cmd);
         }
+
+        public static DataSet obtenerRolesPorUsuario(string username)
+        {
+            string connString = ConfigurationManager.ConnectionStrings["THE_RIGHT_JOIN"].ConnectionString;
+            SqlConnection conn = new SqlConnection(connString);
+            String query = "SELECT * FROM [GD2C2019].[THE_RIGHT_JOIN].[traerRolxUsuario](@username)";
+            SqlCommand cmd = new SqlCommand(query, conn);
+            cmd.Parameters.Add("@username", SqlDbType.VarChar).Value = username;
+            return ConectorBDD.cargarDataSet(conn, cmd);
+        }
     }
 }

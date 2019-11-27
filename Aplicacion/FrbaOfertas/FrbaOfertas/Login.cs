@@ -12,6 +12,7 @@ namespace FrbaOfertas
 {
     public partial class Login : Form
     {
+        public static string username = "";
         int intento = 0;
         public Login()
         {
@@ -25,8 +26,9 @@ namespace FrbaOfertas
             {
                 case 0:
                     MessageBox.Show("Datos Correctos");
-                    Form1 f1 = new Form1();
-                    f1.Show();
+                    username = txtUsuario.Text;
+                    ElegirRol fer = new ElegirRol();
+                    fer.Show();
                     this.Hide();
                     break;
                 case 3:
