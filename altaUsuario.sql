@@ -10,4 +10,4 @@ CREATE procedure THE_RIGHT_JOIN.altaUsuario
 
 AS
 INSERT INTO THE_RIGHT_JOIN.Usuario(Usuari_Username, Usuari_Password, Usuari_DNI, Usuari_CUIT, Usuari_Habilitado)
-VALUES (@usuario, @pass, @dni, @cuit, 1)
+VALUES (@usuario, HASHBYTES('SHA2_256',@pass), @dni, @cuit, 1)
