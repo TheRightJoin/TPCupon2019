@@ -80,6 +80,17 @@ namespace FrbaOfertas
             return ConectorBDD.cargarDataSet(conn, cmd);
         }
 
+        public static String obtenerCuitDelUsuario(string username)
+        {
+            string connString = ConfigurationManager.ConnectionStrings["THE_RIGHT_JOIN"].ConnectionString;
+            SqlConnection conn = new SqlConnection(connString);
+            String query = "SELECT Provee_CUIT from THE_RIGHT_JOIN.Usuario JOIN THE_RIGHT_JOIN.Proveedor ON (Usuari_CUIT = Provee_CUIT) where Usuari_Username = @username";
+            SqlCommand cmd = new SqlCommand(query, conn);
+            cmd.Parameters.Add("@username", SqlDbType.VarChar).Value = username;
+            DataSet ds = ConectorBDD.cargarDataSet(conn, cmd);
+            return ds.Tables[0].Rows[0]["Provee_CUIT"].ToString();
+        }
+
         public static DataSet generarQuerys(string RS, string cuit, string email)
         {
             string connString = ConfigurationManager.ConnectionStrings["THE_RIGHT_JOIN"].ConnectionString;

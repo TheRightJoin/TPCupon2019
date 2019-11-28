@@ -12,7 +12,7 @@ namespace FrbaOfertas
 {
     public partial class PublicarOferta : Form
     {
-        public string ProveSeleccionado;
+        public string ProveSeleccionado="";
         public PublicarOferta()
         {
             InitializeComponent();
@@ -21,9 +21,19 @@ namespace FrbaOfertas
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
             Oferta of;
-            of = new Oferta(txtCodigo.Text, Convert.ToDecimal(txtPrecioOferta.Text), Convert.ToDecimal(txtPrecioLista.Text),
+            if (ProveSeleccionado != "")
+            {
+                of = new Oferta(txtCodigo.Text, Convert.ToDecimal(txtPrecioOferta.Text), Convert.ToDecimal(txtPrecioLista.Text),
                 dtpFechaPub.Value.Date, dtpFechaVec.Value.Date, Convert.ToDecimal(txtCantidad.Text), txtDesc.Text,
                 1, ProveSeleccionado);
+            }
+            else
+            {
+                of = new Oferta(txtCodigo.Text, Convert.ToDecimal(txtPrecioOferta.Text), Convert.ToDecimal(txtPrecioLista.Text),
+                dtpFechaPub.Value.Date, dtpFechaVec.Value.Date, Convert.ToDecimal(txtCantidad.Text), txtDesc.Text,
+                1, AdmProveedores.obtenerCuitDelUsuario(Login.username));
+            }
+            
             int filas = AdmOfertas.altaOferta(of);
             if (filas > 0)
             {
