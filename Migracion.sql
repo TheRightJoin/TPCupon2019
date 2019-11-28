@@ -60,8 +60,8 @@ insert into THE_RIGHT_JOIN.Rubro select distinct Provee_Rubro from gd_esquema.Ma
 
 --TABLA PROVEEDORES
 --LISTO
-insert into THE_RIGHT_JOIN.Proveedor select distinct Provee_RS,Provee_Dom,Provee_Ciudad,Provee_Telefono,Provee_CUIT, null, null, null, 
-    (select idRubro from THE_RIGHT_JOIN.Rubro R where R.Rubro_Descripcion = Provee_Rubro),NULL
+insert into THE_RIGHT_JOIN.Proveedor select distinct Provee_RS,Provee_Dom,Provee_Ciudad,Provee_Telefono,Provee_CUIT, 
+    (select idRubro from THE_RIGHT_JOIN.Rubro R where R.Rubro_Descripcion = Provee_Rubro),NULL, null, null, null
  from gd_esquema.Maestra WHERE Provee_CUIT IS NOT NULL
 
 
@@ -114,11 +114,11 @@ end
 insert into THE_RIGHT_JOIN.Usuario 
 select THE_RIGHT_JOIN.LimpiarCaracteres( LOWER( REPLACE( Cli_Nombre+Cli_Apellido,' ', '')))
 ,HASHBYTES('SHA2_256',N'password') 
-,Cli_Dni,NULL,1 
+,Cli_Dni,NULL,1,0 
 from THE_RIGHT_JOIN.Cliente
 
 insert into THE_RIGHT_JOIN.Usuario
-select Provee_CUIT, HASHBYTES('SHA2_256',N'password'), NULL, Provee_CUIT,1
+select Provee_CUIT, HASHBYTES('SHA2_256',N'password'), NULL, Provee_CUIT,1,0
  from THE_RIGHT_JOIN.Proveedor
 
 --FUNCIONALIDADES
