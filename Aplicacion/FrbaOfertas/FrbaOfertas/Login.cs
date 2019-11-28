@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
+using System.Configuration;
 
 namespace FrbaOfertas
 {
@@ -34,6 +36,14 @@ namespace FrbaOfertas
                 case 3:
                     MessageBox.Show("bloqueado");
                     intento = 0;
+                    string connString = ConfigurationManager.ConnectionStrings["THE_RIGHT_JOIN"].ConnectionString;
+                    SqlConnection conn = new SqlConnection(connString);
+                    SqlCommand cmd = new SqlCommand("THE_RIGHT_JOIN.bloquearUser", conn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add("@username", SqlDbType.VarChar).Value = txtUsuario.Text;
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
                     break;
                 case 4:
                     MessageBox.Show("mal");
