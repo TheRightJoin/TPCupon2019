@@ -19,7 +19,7 @@ namespace FrbaOfertas
 
         private void RegistroDeUsuario_Load(object sender, EventArgs e)
         {
-            cbxRol.DataSource = AdmRol.obtenerRoles().Tables[0];
+            cbxRol.DataSource = AdmRol.obtenerRoles("").Tables[0];
             cbxRol.DisplayMember = "rol_Name";
             cbxRol.ValueMember = "id_rol";
 
