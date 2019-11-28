@@ -101,11 +101,11 @@
     <Compile Include="ElegirRol.Designer.cs">
       <DependentUpon>ElegirRol.cs</DependentUpon>
     </Compile>
-    <Compile Include="Facturar\Form1.cs">
+    <Compile Include="Facturar\FacturarAProveedor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Facturar\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Facturar\FacturarAProveedor.Designer.cs">
+      <DependentUpon>FacturarAProveedor.cs</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -188,6 +188,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ElegirRol.resx">
       <DependentUpon>ElegirRol.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Facturar\FacturarAProveedor.resx">
+      <DependentUpon>FacturarAProveedor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

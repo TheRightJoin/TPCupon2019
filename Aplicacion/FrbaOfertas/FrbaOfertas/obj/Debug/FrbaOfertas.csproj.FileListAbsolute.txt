@@ -42,3 +42,4 @@ C:\Users\lucas\Desktop\UTN\Gestion2019\TPCupon2019\Aplicacion\FrbaOfertas\FrbaOf
 C:\Users\usuario\Desktop\GDD\TPCupon2019\Aplicacion\FrbaOfertas\FrbaOfertas\obj\Debug\FrbaOfertas.ElegirRol.resources
 C:\Users\usuario\Desktop\GDD\TPCupon2019\Aplicacion\FrbaOfertas\FrbaOfertas\obj\Debug\FrbaOfertas.ListadoEstadistico.resources
 C:\Users\usuario\Desktop\GDD\TPCupon2019\Aplicacion\FrbaOfertas\FrbaOfertas\obj\Debug\FrbaOfertas.Login.resources
+C:\Users\usuario\Desktop\GDD\TPCupon2019\Aplicacion\FrbaOfertas\FrbaOfertas\obj\Debug\FrbaOfertas.Facturar.FacturarAProveedor.resources
