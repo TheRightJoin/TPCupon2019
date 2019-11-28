@@ -33,7 +33,10 @@ Provee_Ciudad nvarchar(255),
 Provee_Telefono numeric(18,0),
 Provee_CUIT nvarchar(20) PRIMARY KEY NOT NULL,
 Provee_Rubro int,
-Provee_Activo numeric(1,0))
+Provee_Activo numeric(1,0),
+Provee_email nvarchar(255),
+Provee_postal nvarchar(255),
+Provee_contacto nvarchar(255))
 
 ALTER TABLE THE_RIGHT_JOIN.Proveedor
 ADD CONSTRAINT FK_Rubro
@@ -115,7 +118,9 @@ Oferta_Cantidad numeric(18,0),
 Oferta_Descripcion nvarchar(255),
 Oferta_Codigo nvarchar(50) NOT NULL PRIMARY KEY,
 Oferta_CUIT nvarchar(20),
-Oferta_CantxCli numeric(18,0))
+Oferta_CantxCli numeric(18,0),
+Oferta_Disponible numeric(1,0),
+)
 
 
 ALTER TABLE THE_RIGHT_JOIN.Oferta
