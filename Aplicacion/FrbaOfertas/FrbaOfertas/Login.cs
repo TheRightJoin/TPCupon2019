@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Configuration;
+using FrbaOfertas.RegistroDeUsuario;
 
 namespace FrbaOfertas
 {
@@ -53,6 +54,14 @@ namespace FrbaOfertas
                     MessageBox.Show("mal");
                     break;
             }
+        }
+
+        private void btnSingIn_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            RegistroDeUsuario ru = new RegistroDeUsuario();
+            ru.Show();
+            
         }
     }
 }

@@ -164,15 +164,15 @@ namespace FrbaOfertas
         {
             switch (cbxRol.Text)
             {
-                case "Cliente":
+                case "CLIENTE":
                     mostrarCliente();
                     esconderProveedor();
                     break;
-                case "Proveedor":
+                case "PROVEEDOR":
                     mostrarProveedor();
                     esconderCliente();
                     break;
-                case "Administrador":
+                case "ADMIN":
                     esconderCliente();
                     esconderProveedor();
                     break;
