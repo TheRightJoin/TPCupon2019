@@ -50,5 +50,18 @@ namespace FrbaOfertas
             return ConectorBDD.cargarDataSet(conn, cmd);
 
         }
+
+        public static DataSet obtenerOfertasPorCliente(String cuit, DateTime fechamin, DateTime fechamax, DateTime fechaActual){
+            
+            string connString = ConfigurationManager.ConnectionStrings["THE_RIGHT_JOIN"].ConnectionString;
+            SqlConnection conn = new SqlConnection(connString);
+            String query = "select * from THE_RIGHT_JOIN.ofertasAdquiridasPorCliente(@cuit, @fechaMin, @fechaMax, @fechaAct)";
+            SqlCommand cmd = new SqlCommand(query, conn);
+            cmd.Parameters.Add("@cuit", SqlDbType.VarChar).Value = cuit;
+            cmd.Parameters.Add("@fechaMin", SqlDbType.Date).Value = fechamin;
+            cmd.Parameters.Add("@fechaMax", SqlDbType.Date).Value = fechamax;
+            cmd.Parameters.Add("@fechaAct", SqlDbType.Date).Value = fechaActual;
+            return ConectorBDD.cargarDataSet(conn, cmd);
+        }
     }
 }
