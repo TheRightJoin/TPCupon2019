@@ -21,3 +21,6 @@ C:\Users\usuario\Desktop\GDD\TPCupon2019\Aplicacion\FrbaOfertas\FrbaOfertas\bin\
 C:\Users\usuario\Desktop\GDD\TPCupon2019\Aplicacion\FrbaOfertas\FrbaOfertas\bin\Debug\FrbaOfertas.pdb
 C:\Users\usuario\Desktop\GDD\TPCupon2019\Aplicacion\FrbaOfertas\FrbaOfertas\obj\Debug\FrbaOfertas.exe
 C:\Users\usuario\Desktop\GDD\TPCupon2019\Aplicacion\FrbaOfertas\FrbaOfertas\obj\Debug\FrbaOfertas.pdb
+C:\Users\usuario\Desktop\GDD\TPCupon2019\Aplicacion\FrbaOfertas\FrbaOfertas\obj\Debug\FrbaOfertas.AbmRol.AgregarFuncionalidades.resources
+C:\Users\usuario\Desktop\GDD\TPCupon2019\Aplicacion\FrbaOfertas\FrbaOfertas\obj\Debug\FrbaOfertas.AbmRol.AltaRol.resources
+C:\Users\usuario\Desktop\GDD\TPCupon2019\Aplicacion\FrbaOfertas\FrbaOfertas\obj\Debug\FrbaOfertas.AbmRol.VerRoles.resources
