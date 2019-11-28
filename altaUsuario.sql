@@ -9,5 +9,18 @@ CREATE procedure THE_RIGHT_JOIN.altaUsuario
 @cuit nvarchar(255) = NULL
 
 AS
+begin
 INSERT INTO THE_RIGHT_JOIN.Usuario(Usuari_Username, Usuari_Password, Usuari_DNI, Usuari_CUIT, Usuari_Habilitado)
 VALUES (@usuario, HASHBYTES('SHA2_256',@pass), @dni, @cuit, 1)
+
+if(@dni IS NOT NULL)
+	begin
+	insert into THE_RIGHT_JOIN.RolXUsuario (idUser,idRol)
+	values ((select Usuari_idUser from THE_RIGHT_JOIN.Usuario WHERE Usuari_DNI = @dni),2)
+	end
+else
+	begin
+	insert into THE_RIGHT_JOIN.RolXUsuario (idUser,idRol)
+	values ((select Usuari_idUser from THE_RIGHT_JOIN.Usuario WHERE Usuari_CUIT = @cuit),3)
+	end
+end

@@ -185,7 +185,7 @@ namespace FrbaOfertas
             Usuario miUser;
             switch (cbxRol.Text)
             {     
-                case "Cliente":
+                case "CLIENTE":
                     miUser = new Usuario(txtUsuario.Text, txtContrasenia.Text, Convert.ToDecimal(txtDNI.Text), null);
                     Cliente miClie = new Cliente(Convert.ToDecimal(txtDNI.Text),
                                                  txtNombre.Text,
@@ -198,11 +198,17 @@ namespace FrbaOfertas
                                                  txtPostal.Text,
                                                  txtLocalidad.Text);
 
-                    AdmClientes.altaCliente(miClie);
-                    AdmUsuario.altaUsuario(miUser);
+                   int filas = AdmClientes.altaCliente(miClie);
+                   if (filas > 0)
+                   {
+                       AdmUsuario.altaUsuario(miUser);
+                   }
+                   else {
+                       MessageBox.Show("Error en la creacion del cliente");
+                   }
 
                     break;
-                case "Proveedor":
+                case "PROVEEDOR":
                     String direccionTotal = txtPisoP.Text + "; " + txtPisoP.Text + "; " + txtDeptoP.Text + "; " + txtLocalidad.Text;
                     miUser = new Usuario(txtUsuario.Text, txtContrasenia.Text, Convert.ToDecimal(null), txtCUIT.Text);
                     Proveedor miProvee = new Proveedor(txtRS.Text,
@@ -225,6 +231,9 @@ namespace FrbaOfertas
             }
 
             vaciarTxt();
+            Login fl = new Login();
+            fl.Show();
+            this.Hide();
         }
 
     }

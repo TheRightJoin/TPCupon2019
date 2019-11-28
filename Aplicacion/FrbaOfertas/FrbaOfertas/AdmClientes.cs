@@ -45,8 +45,9 @@ namespace FrbaOfertas
         }
 
 
-        public static void altaCliente(Cliente cli)
+        public static int altaCliente(Cliente cli)
         {
+            int filas = 0;
             string connString = ConfigurationManager.ConnectionStrings["THE_RIGHT_JOIN"].ConnectionString;
             SqlConnection conn = new SqlConnection(connString); 
             using (conn)
@@ -64,11 +65,14 @@ namespace FrbaOfertas
                     cmd.Parameters.Add("@telefono", SqlDbType.Decimal).Value = cli.telefono;
                     cmd.Parameters.Add("@codpost", SqlDbType.VarChar).Value = cli.codPostal;
                     cmd.Parameters.Add("@localidad", SqlDbType.VarChar).Value = cli.localidad;
+                    cmd.Parameters.Add("@retorno", SqlDbType.Int).Direction = ParameterDirection.Output;
                     conn.Open();
                     cmd.ExecuteNonQuery();
+                    filas = Convert.ToInt32(cmd.Parameters["@retorno"].Value);
                     conn.Close();
                 }
             }
+            return filas;
         }
 
         public static void modificarCliente(Cliente cli)

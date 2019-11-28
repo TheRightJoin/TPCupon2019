@@ -35,7 +35,7 @@ namespace FrbaOfertas
                     this.Hide();
                     break;
                 case 3:
-                    MessageBox.Show("bloqueado");
+                    MessageBox.Show("Usuario Bloqueado");
                     string connString = ConfigurationManager.ConnectionStrings["THE_RIGHT_JOIN"].ConnectionString;
                     SqlConnection conn = new SqlConnection(connString);
                     SqlCommand cmd = new SqlCommand("THE_RIGHT_JOIN.bloquearUser", conn);
@@ -47,7 +47,8 @@ namespace FrbaOfertas
                     break;
                 case 1:
                 case 2:
-                    MessageBox.Show("mal");
+                case 4:
+                    MessageBox.Show("Datos Incorrectos");
                     break;
                 default:
                     MessageBox.Show("Usuario bloqueado");
