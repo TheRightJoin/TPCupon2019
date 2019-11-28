@@ -114,11 +114,11 @@ end
 insert into THE_RIGHT_JOIN.Usuario 
 select THE_RIGHT_JOIN.LimpiarCaracteres( LOWER( REPLACE( Cli_Nombre+Cli_Apellido,' ', '')))
 ,HASHBYTES('SHA2_256',N'password') 
-,Cli_Dni,NULL,1 
+,Cli_Dni,NULL,1,0 
 from THE_RIGHT_JOIN.Cliente
 
 insert into THE_RIGHT_JOIN.Usuario
-select Provee_CUIT, HASHBYTES('SHA2_256',N'password'), NULL, Provee_CUIT,1
+select Provee_CUIT, HASHBYTES('SHA2_256',N'password'), NULL, Provee_CUIT,1,0
  from THE_RIGHT_JOIN.Proveedor
 
 --FUNCIONALIDADES

@@ -9,17 +9,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Configuration;
-<<<<<<< HEAD
 
-=======
->>>>>>> bd4f0c6cd8deb48fab000bd1d1b101b462f222fb
 
 namespace FrbaOfertas
 {
     public partial class Login : Form
     {
         public static string username = "";
-        int intento = 0;
+        int ret;
         public Login()
         {
             InitializeComponent();
@@ -27,8 +24,8 @@ namespace FrbaOfertas
         //HAY UN lblRestantes PARA PONER LOS INTENTOS QUE QUEDAN
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            intento = AdmUsuario.logueo(txtUsuario.Text, txtPass.Text, intento);
-            switch(intento)
+            ret = AdmUsuario.logueo(txtUsuario.Text, txtPass.Text);
+            switch(ret)
             {
                 case 0:
                     MessageBox.Show("Datos Correctos");
@@ -39,7 +36,6 @@ namespace FrbaOfertas
                     break;
                 case 3:
                     MessageBox.Show("bloqueado");
-                    intento = 0;
                     string connString = ConfigurationManager.ConnectionStrings["THE_RIGHT_JOIN"].ConnectionString;
                     SqlConnection conn = new SqlConnection(connString);
                     SqlCommand cmd = new SqlCommand("THE_RIGHT_JOIN.bloquearUser", conn);
@@ -49,12 +45,12 @@ namespace FrbaOfertas
                     cmd.ExecuteNonQuery();
                     conn.Close();
                     break;
-                case 4:
+                case 1:
+                case 2:
                     MessageBox.Show("mal");
-                    intento = 0;
                     break;
                 default:
-                    MessageBox.Show("mal");
+                    MessageBox.Show("Usuario bloqueado");
                     break;
             }
         }

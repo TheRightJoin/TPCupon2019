@@ -47,17 +47,34 @@ namespace FrbaOfertas
             return funcionalidades;
         }
 
-        public static int logueo(String username, String password, int intentos)
+        public static int logueo(String username, String password)
         {
+
+            int ret;
             string connString = ConfigurationManager.ConnectionStrings["THE_RIGHT_JOIN"].ConnectionString;
             SqlConnection conn = new SqlConnection(connString);
-            String query = "select THE_RIGHT_JOIN.logueo(@usuario,@pass,@intentos) flag";
-            SqlCommand cmd = new SqlCommand(query, conn);
-            cmd.Parameters.Add("@usuario", SqlDbType.VarChar).Value = username;
-            cmd.Parameters.Add("@pass", SqlDbType.VarChar).Value = password;
-            cmd.Parameters.Add("@intentos", SqlDbType.VarChar).Value = intentos;
-            DataSet ds = ConectorBDD.cargarDataSet(conn, cmd);
-            return Convert.ToInt32(ds.Tables[0].Rows[0]["flag"].ToString());
+            using (conn)
+            {
+                using (SqlCommand cmd = new SqlCommand("THE_RIGHT_JOIN.logueo", conn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add("@usuario", SqlDbType.VarChar).Value = username;
+                    cmd.Parameters.Add("@pass", SqlDbType.VarChar).Value = password;
+
+                    cmd.Parameters.Add("@ret", SqlDbType.Int).Direction = ParameterDirection.Output;;
+
+                    conn.Open();
+
+                    cmd.ExecuteNonQuery();
+                    
+                    ret = Convert.ToInt32(cmd.Parameters["@ret"].Value);
+
+                    conn.Close();
+                }
+            }
+
+            return ret;
         }
+        
     }
 }

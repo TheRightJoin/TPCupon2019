@@ -51,7 +51,8 @@ Usuari_Username nvarchar(255) UNIQUE,
 Usuari_Password nvarchar(255),
 Usuari_DNI numeric(18,0),
 Usuari_CUIT nvarchar(20),
-Usuari_Habilitado numeric(1,0))
+Usuari_Habilitado numeric(1,0),
+Usuari_Intentos numeric(18,0))
 
 ALTER TABLE THE_RIGHT_JOIN.Usuario
 ADD CONSTRAINT FK_Cliente
