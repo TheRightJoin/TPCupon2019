@@ -9,7 +9,10 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Configuration;
+<<<<<<< HEAD
 
+=======
+>>>>>>> bd4f0c6cd8deb48fab000bd1d1b101b462f222fb
 
 namespace FrbaOfertas
 {

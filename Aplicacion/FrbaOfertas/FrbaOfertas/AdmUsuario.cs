@@ -39,17 +39,11 @@ namespace FrbaOfertas
             }
         }
 
-        public static List<String> funcionalidadesDelRol(String nombreUsuario)
+        public static List<String> funcionalidadesDelRol(Decimal idRol)
         { 
             //ahora esta hardcodeadisimo, despues hay que obtenga las funcionalidades del cliente de la BDD
             List<String> funcionalidades = new List<String>();
-            funcionalidades.Add("Clientes");
-            funcionalidades.Add("Proveedores");
-            funcionalidades.Add("Cargar Credito");
-            funcionalidades.Add("Confeccionar Oferta");
-            funcionalidades.Add("Comprar Ofertas");
-            funcionalidades.Add("Registro de Usuario");
-            funcionalidades.Add("Estadisticas");
+            
             return funcionalidades;
         }
 

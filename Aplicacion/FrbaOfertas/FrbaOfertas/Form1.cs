@@ -28,7 +28,8 @@ namespace FrbaOfertas
             MainMenu.Name = "MainMenu";
             MainMenu.Dock = DockStyle.Top; 
             //nombre de usuario hardcodeadisimo, hay que obtenerlo del login
-            List<String> funcUsuario = AdmUsuario.funcionalidadesDelRol("");
+            DataSet ds = AdmRol.obtenerFuncionalidadesRol(ElegirRol.rolElegido);
+            List<String> funcUsuario = ds.Tables[0].AsEnumerable().Select(r => r.Field<String>("funcio_name")).ToList();
             foreach (var menuItem in funcUsuario)
             {
                 ToolStripMenuItem item = new ToolStripMenuItem(menuItem);
@@ -43,7 +44,7 @@ namespace FrbaOfertas
         {
             switch (item.Text)
             {
-                case "Clientes":
+                case "ABM CLIENTE":
                     ToolStripMenuItem itemCli1 = new ToolStripMenuItem("Ver Clientes");
                     ToolStripMenuItem itemCli2 = new ToolStripMenuItem("Alta Cliente");
                     itemCli1.Text = "Ver Clientes";
@@ -53,7 +54,7 @@ namespace FrbaOfertas
                     item.DropDownItems.Add(itemCli1);
                     item.DropDownItems.Add(itemCli2);
                     break;
-                case "Proveedores":
+                case "ABM PROVEEDOR":
                     ToolStripMenuItem itemProv1 = new ToolStripMenuItem("Ver Proveedores");
                     ToolStripMenuItem itemProv2 = new ToolStripMenuItem("Alta Proveedor");
                     itemProv1.Text = "Ver Proveedores";
@@ -62,15 +63,7 @@ namespace FrbaOfertas
                     itemProv2.Click += new EventHandler(this.FileMenuItemClick);
                     item.DropDownItems.Add(itemProv1);
                     item.DropDownItems.Add(itemProv2);
-                    break;
-                case "Cargar Credito":
-                    break;
-                case "Comprar Ofertas":
-                    break;
-                case "Confeccionar Oferta":
-                    break;
-                case "Registro de Usuario":
-                    break;                
+                    break;            
                 default:
                     break;
             }
@@ -100,27 +93,27 @@ namespace FrbaOfertas
                     hideForms();
                     fap.Show();
                     break;
-                case "Cargar Credito":
+                case "CARGAR CREDITO":
                     CargaCredito fcc = new CargaCredito();
                     hideForms();
                     fcc.Show();
                     break;
-                case "Comprar Ofertas":  
+                case "COMPRAR OFERTA":  
                     ListadoOfertas flo = new ListadoOfertas();
                     hideForms();
                     flo.Show();
                     break;
-                case "Confeccionar Oferta":
+                case "GENERAR OFERTA":
                     PublicarOferta fpc = new PublicarOferta();
                     hideForms();
                     fpc.Show();
                     break;
-                case "Registro de Usuario":
+                case "REGISTRAR USUARIO":
                     RegistroDeUsuario fru = new RegistroDeUsuario();
                     hideForms();
                     fru.Show();
                     break;
-                case "Estadisticas":
+                case "ESTADISTICA":
                     ListadoEstadistico fle = new ListadoEstadistico();
                     hideForms();
                     fle.Show();
