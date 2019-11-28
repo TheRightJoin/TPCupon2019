@@ -7,11 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
+using System.Configuration;
 
 namespace FrbaOfertas
 {
     public partial class Login : Form
     {
+        public static string username = "";
         int intento = 0;
         public Login()
         {
@@ -24,11 +27,23 @@ namespace FrbaOfertas
             switch(intento)
             {
                 case 0:
-                    MessageBox.Show("bien");
+                    MessageBox.Show("Datos Correctos");
+                    username = txtUsuario.Text;
+                    ElegirRol fer = new ElegirRol();
+                    fer.Show();
+                    this.Hide();
                     break;
                 case 3:
                     MessageBox.Show("bloqueado");
                     intento = 0;
+                    string connString = ConfigurationManager.ConnectionStrings["THE_RIGHT_JOIN"].ConnectionString;
+                    SqlConnection conn = new SqlConnection(connString);
+                    SqlCommand cmd = new SqlCommand("THE_RIGHT_JOIN.bloquearUser", conn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add("@username", SqlDbType.VarChar).Value = txtUsuario.Text;
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
                     break;
                 case 4:
                     MessageBox.Show("mal");
@@ -38,6 +53,14 @@ namespace FrbaOfertas
                     MessageBox.Show("mal");
                     break;
             }
+        }
+
+        private void btnSingIn_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            RegistroDeUsuario ru = new RegistroDeUsuario();
+            ru.Show();
+            
         }
     }
 }

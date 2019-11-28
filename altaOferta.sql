@@ -8,9 +8,10 @@ create procedure THE_RIGHT_JOIN.altaOferta
 @desc nvarchar(255) = null,
 @disponible numeric(1,0) = null,
 @cuit nvarchar(20) = null,
+@cantxClie numeric(18,0),
 @filasAfectadas int out
 as
-insert into THE_RIGHT_JOIN.Oferta (Oferta_Codigo,Oferta_Precio_Ficticio,Oferta_Fecha,Oferta_Fecha_Ven,Oferta_Cantidad,Oferta_Descripcion,Oferta_Disponible,Oferta_CUIT)
-values(@codigo,@precio,@precioFicticio,@fecha,@fecha_ven,@cantidad,@desc,@disponible,@cuit)
+insert into THE_RIGHT_JOIN.Oferta (Oferta_Codigo,Oferta_Precio,Oferta_Precio_Ficticio,Oferta_Fecha,Oferta_Fecha_Ven,Oferta_Cantidad,Oferta_Descripcion,Oferta_Disponible,Oferta_CUIT, Oferta_CantxCli)
+values(@codigo,@precio,@precioFicticio,@fecha,@fecha_ven,@cantidad,@desc,@disponible,@cuit,@cantxClie)
 set @filasAfectadas = @@ROWCOUNT
 return;

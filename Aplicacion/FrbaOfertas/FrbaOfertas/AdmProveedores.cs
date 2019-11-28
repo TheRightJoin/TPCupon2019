@@ -71,6 +71,14 @@ namespace FrbaOfertas
             SqlCommand cmd = new SqlCommand(query, conn);
             return ConectorBDD.cargarDataSet(conn, cmd);
         }
+        public static DataSet obtenerProveedoresRS()
+        {
+            string connString = ConfigurationManager.ConnectionStrings["THE_RIGHT_JOIN"].ConnectionString;
+            SqlConnection conn = new SqlConnection(connString);
+            String query = "SELECT TOP 1000 [Provee_CUIT],[Provee_RS] FROM THE_RIGHT_JOIN.Proveedor";
+            SqlCommand cmd = new SqlCommand(query, conn);
+            return ConectorBDD.cargarDataSet(conn, cmd);
+        }
 
         public static DataSet generarQuerys(string RS, string cuit, string email)
         {

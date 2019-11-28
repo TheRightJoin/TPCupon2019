@@ -60,5 +60,25 @@ namespace FrbaOfertas
             }
             return filas;
         }
-    }
+            public static DataSet obtenerRolesPorUsuario(string username)
+            {
+                string connString = ConfigurationManager.ConnectionStrings["THE_RIGHT_JOIN"].ConnectionString;
+                SqlConnection conn = new SqlConnection(connString);
+                String query = "SELECT * FROM [GD2C2019].[THE_RIGHT_JOIN].[traerRolxUsuario](@username)";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.Add("@username", SqlDbType.VarChar).Value = username;
+                return ConectorBDD.cargarDataSet(conn, cmd);
+            }
+
+            public static DataSet obtenerFuncionalidadesRol(int idRol)
+            {
+                string connString = ConfigurationManager.ConnectionStrings["THE_RIGHT_JOIN"].ConnectionString;
+                SqlConnection conn = new SqlConnection(connString);
+                String query = "SELECT * FROM [GD2C2019].[THE_RIGHT_JOIN].[traerFuncDelRol](@rol)";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.Add("@rol", SqlDbType.Int).Value = idRol;
+                return ConectorBDD.cargarDataSet(conn, cmd);
+            }
+        }
+
 }

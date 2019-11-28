@@ -12,6 +12,7 @@ namespace FrbaOfertas
 {
     public partial class PublicarOferta : Form
     {
+        public string ProveSeleccionado;
         public PublicarOferta()
         {
             InitializeComponent();
@@ -22,7 +23,7 @@ namespace FrbaOfertas
             Oferta of;
             of = new Oferta(txtCodigo.Text, Convert.ToDecimal(txtPrecioOferta.Text), Convert.ToDecimal(txtPrecioLista.Text),
                 dtpFechaPub.Value.Date, dtpFechaVec.Value.Date, Convert.ToDecimal(txtCantidad.Text), txtDesc.Text,
-                1, txtProv.Text);
+                1, ProveSeleccionado);
             int filas = AdmOfertas.altaOferta(of);
             if (filas > 0)
             {
@@ -39,6 +40,22 @@ namespace FrbaOfertas
         private void PublicarOferta_Load(object sender, EventArgs e)
         {
             this.Controls.Add(Form1.MainMenu);
+            if (ElegirRol.rolElegido == 3)
+            {
+                dgvProve.Hide();
+                lblSeleccioneProv.Hide();
+            }
+            dgvProve.DataSource =  AdmProveedores.obtenerProveedoresRS().Tables[0];
+        }
+
+        private void dgvProve_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dgvProve.SelectedCells.Count > 0)
+            {
+                int selectedrowindex = dgvProve.SelectedCells[0].RowIndex;
+                DataGridViewRow selectedRow = dgvProve.Rows[selectedrowindex];
+                ProveSeleccionado = selectedRow.Cells["Provee_CUIT"].Value.ToString();
+            }
         }
 
     }
