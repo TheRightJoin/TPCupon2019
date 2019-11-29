@@ -65,7 +65,7 @@ namespace FrbaOfertas
             cmd.Parameters.Add("@fechaAct", SqlDbType.Date).Value = fechaActual;
             return ConectorBDD.cargarDataSet(conn, cmd);
         }
-        public static int comprarOferta(int dni, DateTime fecha, int cantidad, String codigoOferta)
+        public static int comprarOferta(Decimal dni, DateTime fecha, int cantidad, String codigoOferta)
         {
 
             string connString = ConfigurationManager.ConnectionStrings["THE_RIGHT_JOIN"].ConnectionString;
@@ -76,7 +76,7 @@ namespace FrbaOfertas
                 using (SqlCommand cmd = new SqlCommand("THE_RIGHT_JOIN.comprarOferta", conn))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.Add("@dni", SqlDbType.Decimal).Value = Convert.ToDecimal(dni);
+                    cmd.Parameters.Add("@dni", SqlDbType.Decimal).Value = dni;
                     cmd.Parameters.Add("@cantidad", SqlDbType.Decimal).Value = Convert.ToDecimal(cantidad);
                     cmd.Parameters.Add("@fecha", SqlDbType.Date).Value = fecha;
                     cmd.Parameters.Add("@codOferta", SqlDbType.VarChar).Value = codigoOferta;

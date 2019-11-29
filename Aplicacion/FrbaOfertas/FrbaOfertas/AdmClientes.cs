@@ -175,28 +175,5 @@ namespace FrbaOfertas
 
             }
 
-        public static int obtenerDNI(String username)
-        {
-            int dni;
-            string connString = ConfigurationManager.ConnectionStrings["THE_RIGHT_JOIN"].ConnectionString;
-            SqlConnection conn = new SqlConnection(connString);
-            using (conn)
-            {
-                using (SqlCommand cmd = new SqlCommand("THE_RIGHT_JOIN.obtenerDNI", conn))
-                {
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.Add("@username", SqlDbType.VarChar).Value = username;
-                    cmd.Parameters.Add("@dni", SqlDbType.Int).Direction = ParameterDirection.Output;
-                    conn.Open();
-                    cmd.ExecuteNonQuery();
-                    dni = Convert.ToInt32(cmd.Parameters["@dni"].Value);
-                    conn.Close();
-                }
-            }
-
-            return dni;
-            
-           
-        }
     }
 }
