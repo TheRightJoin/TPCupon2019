@@ -186,30 +186,39 @@ namespace FrbaOfertas
             switch (cbxRol.Text)
             {     
                 case "CLIENTE":
-                    miUser = new Usuario(txtUsuario.Text, txtContrasenia.Text, Convert.ToDecimal(txtDNI.Text), null);
-                    Cliente miClie = new Cliente(Convert.ToDecimal(txtDNI.Text),
-                                                 txtNombre.Text,
-                                                 txtApellido.Text,
-                                                 txtEmail.Text,
-                                                 txtDireccion.Text,
-                                                 txtCiudad.Text,
-                                                 Convert.ToDateTime(dtpNacimiento.Text),
-                                                 Convert.ToDecimal(txtTelefono.Text),
-                                                 txtPostal.Text,
-                                                 txtLocalidad.Text);
+                    if (txtApellido.Text != "" && txtDNI.Text != "" && txtNombre.Text != "")
+                    {
+                        miUser = new Usuario(txtUsuario.Text, txtContrasenia.Text, Convert.ToDecimal(txtDNI.Text), null);
+                        Cliente miClie = new Cliente(Convert.ToDecimal(txtDNI.Text),
+                                                     txtNombre.Text,
+                                                     txtApellido.Text,
+                                                     txtEmail.Text,
+                                                     txtDireccion.Text,
+                                                     txtCiudad.Text,
+                                                     Convert.ToDateTime(dtpNacimiento.Text),
+                                                     Convert.ToDecimal(txtTelefono.Text),
+                                                     txtPostal.Text,
+                                                     txtLocalidad.Text);
 
-                   int filas = AdmClientes.altaCliente(miClie);
-                   if (filas > 0)
-                   {
+                        int filas = AdmClientes.altaCliente(miClie);
+                        if (filas > 0)
+                        {
 
-                       retorno = AdmUsuario.altaUsuario(miUser);
-                       if (retorno == -1) {
-                           MessageBox.Show("Ya existe el usuario: " + txtUsuario.Text); 
-                       }
-                   }
-                   else {
-                       MessageBox.Show("Error en la creacion del cliente");
-                   }
+                            retorno = AdmUsuario.altaUsuario(miUser);
+                            if (retorno == -1)
+                            {
+                                MessageBox.Show("Ya existe el usuario: " + txtUsuario.Text);
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Error en la creacion del cliente");
+                        }
+                    }
+                    else {
+                        MessageBox.Show("Complete todos los campos obligatorios");
+                    }
+                    
 
                     break;
                 case "PROVEEDOR":
@@ -246,6 +255,35 @@ namespace FrbaOfertas
             Login fl = new Login();
             fl.Show();
             this.Hide();
+        }
+
+        private void cbxRol_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void txtDNI_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtTelefonoP_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtTelefono_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
         }
 
     }

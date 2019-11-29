@@ -31,9 +31,9 @@
             this.dgvOfertas = new System.Windows.Forms.DataGridView();
             this.btnComprar = new System.Windows.Forms.Button();
             this.txtCantidad = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.dgvCliente = new System.Windows.Forms.DataGridView();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOfertas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCliente)).BeginInit();
             this.SuspendLayout();
@@ -41,18 +41,18 @@
             // dgvOfertas
             // 
             this.dgvOfertas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvOfertas.Location = new System.Drawing.Point(105, 134);
-            this.dgvOfertas.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dgvOfertas.Location = new System.Drawing.Point(70, 87);
             this.dgvOfertas.Name = "dgvOfertas";
-            this.dgvOfertas.Size = new System.Drawing.Size(907, 412);
+            this.dgvOfertas.Size = new System.Drawing.Size(604, 268);
             this.dgvOfertas.TabIndex = 0;
             this.dgvOfertas.SelectionChanged += new System.EventHandler(this.dgvOfertas_SelectionChanged);
             // 
             // btnComprar
             // 
-            this.btnComprar.Location = new System.Drawing.Point(728, 576);
+            this.btnComprar.Location = new System.Drawing.Point(485, 374);
+            this.btnComprar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnComprar.Name = "btnComprar";
-            this.btnComprar.Size = new System.Drawing.Size(284, 78);
+            this.btnComprar.Size = new System.Drawing.Size(189, 51);
             this.btnComprar.TabIndex = 1;
             this.btnComprar.Text = "Comprar";
             this.btnComprar.UseVisualStyleBackColor = true;
@@ -60,51 +60,53 @@
             // 
             // txtCantidad
             // 
-            this.txtCantidad.Location = new System.Drawing.Point(216, 612);
+            this.txtCantidad.Location = new System.Drawing.Point(144, 398);
+            this.txtCantidad.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtCantidad.Name = "txtCantidad";
-            this.txtCantidad.Size = new System.Drawing.Size(228, 26);
+            this.txtCantidad.Size = new System.Drawing.Size(153, 20);
             this.txtCantidad.TabIndex = 2;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(0, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(51, 20);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "label1";
+            this.txtCantidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCantidad_KeyPress);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(101, 618);
+            this.label2.Location = new System.Drawing.Point(787, 71);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(73, 20);
+            this.label2.Size = new System.Drawing.Size(126, 13);
             this.label2.TabIndex = 4;
-            this.label2.Text = "Cantidad";
+            this.label2.Text = "Seleccione un proveedor";
             // 
             // dgvCliente
             // 
             this.dgvCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCliente.Location = new System.Drawing.Point(1115, 134);
-            this.dgvCliente.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dgvCliente.Location = new System.Drawing.Point(707, 87);
             this.dgvCliente.Name = "dgvCliente";
-            this.dgvCliente.Size = new System.Drawing.Size(356, 412);
+            this.dgvCliente.Size = new System.Drawing.Size(273, 268);
             this.dgvCliente.TabIndex = 5;
             this.dgvCliente.SelectionChanged += new System.EventHandler(this.dgvCliente_SelectionChanged);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(67, 401);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(49, 13);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Cantidad";
+            // 
             // ListadoOfertas
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1516, 666);
+            this.ClientSize = new System.Drawing.Size(998, 433);
             this.Controls.Add(this.dgvCliente);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.txtCantidad);
             this.Controls.Add(this.btnComprar);
             this.Controls.Add(this.dgvOfertas);
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "ListadoOfertas";
             this.Text = "ListadoOfertas";
             this.Load += new System.EventHandler(this.ListadoOfertas_Load);
@@ -120,8 +122,8 @@
         private System.Windows.Forms.DataGridView dgvOfertas;
         private System.Windows.Forms.Button btnComprar;
         private System.Windows.Forms.TextBox txtCantidad;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridView dgvCliente;
+        private System.Windows.Forms.Label label1;
     }
 }

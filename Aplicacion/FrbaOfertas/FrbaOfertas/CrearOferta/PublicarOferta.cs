@@ -20,31 +20,39 @@ namespace FrbaOfertas
 
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
-            Oferta of;
-            if (ProveSeleccionado != "")
+            if (txtDesc.Text != "" && txtPrecioLista.Text != "" && txtPrecioOferta.Text != "" && txtCantidad.Text != "" && txtCodigo.Text != "")
             {
-                of = new Oferta(txtCodigo.Text, Convert.ToDecimal(txtPrecioOferta.Text), Convert.ToDecimal(txtPrecioLista.Text),
-                dtpFechaPub.Value.Date, dtpFechaVec.Value.Date, Convert.ToDecimal(txtCantidad.Text), txtDesc.Text,
-                1, ProveSeleccionado, Convert.ToDecimal(txtCantxCli.Text));
-            }
-            else
-            {
-                of = new Oferta(txtCodigo.Text, Convert.ToDecimal(txtPrecioOferta.Text), Convert.ToDecimal(txtPrecioLista.Text),
-                dtpFechaPub.Value.Date, dtpFechaVec.Value.Date, Convert.ToDecimal(txtCantidad.Text), txtDesc.Text,
-                1, AdmProveedores.obtenerCuitDelUsuario(Login.username), Convert.ToDecimal(txtCantxCli.Text));
-            }
-            
-            int filas = AdmOfertas.altaOferta(of);
-            if (filas > 0)
-            {
-                MessageBox.Show("Oferta creada correctamente");
-                Form1 f1 = new Form1();
-                f1.Show();
-                this.Hide();
+                Oferta of;
+                if (ProveSeleccionado != "")
+                {
+                    of = new Oferta(txtCodigo.Text, Convert.ToDecimal(txtPrecioOferta.Text), Convert.ToDecimal(txtPrecioLista.Text),
+                    dtpFechaPub.Value.Date, dtpFechaVec.Value.Date, Convert.ToDecimal(txtCantidad.Text), txtDesc.Text,
+                    1, ProveSeleccionado, Convert.ToDecimal(txtCantxCli.Text));
+                }
+                else
+                {
+                    of = new Oferta(txtCodigo.Text, Convert.ToDecimal(txtPrecioOferta.Text), Convert.ToDecimal(txtPrecioLista.Text),
+                    dtpFechaPub.Value.Date, dtpFechaVec.Value.Date, Convert.ToDecimal(txtCantidad.Text), txtDesc.Text,
+                    1, AdmProveedores.obtenerCuitDelUsuario(Login.username), Convert.ToDecimal(txtCantxCli.Text));
+                }
+
+                int filas = AdmOfertas.altaOferta(of);
+                if (filas > 0)
+                {
+                    MessageBox.Show("Oferta creada correctamente");
+                    Form1 f1 = new Form1();
+                    f1.Show();
+                    this.Hide();
+                }
+                else
+                {
+                    MessageBox.Show("Error en la creacion");
+                }
             }
             else {
-                MessageBox.Show("Error en la creacion");
+                MessageBox.Show("Complete todos los campos obligatorios");
             }
+            
         }
 
         private void PublicarOferta_Load(object sender, EventArgs e)
@@ -65,6 +73,38 @@ namespace FrbaOfertas
                 int selectedrowindex = dgvProve.SelectedCells[0].RowIndex;
                 DataGridViewRow selectedRow = dgvProve.Rows[selectedrowindex];
                 ProveSeleccionado = selectedRow.Cells["Provee_CUIT"].Value.ToString();
+            }
+        }
+
+        private void txtCantxCli_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtCantidad_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtPrecioLista_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtPrecioOferta_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
             }
         }
 

@@ -43,14 +43,22 @@ namespace FrbaOfertas
             {
                 telefono = Convert.ToDecimal(txtTelefono.Text);
             }
-            Cliente cli = new Cliente(dniCliente,
-                txtNombre.Text, txtApellido.Text, txtMail.Text, txtDireccion.Text, txtCiudad.Text, dtpNacimiento.Value.Date, telefono, txtCodPost.Text, txtLocalidad.Text);
-            AdmClientes.modificarCliente(cli);
-            limpiarCampos();
-            MessageBox.Show("Cliente modificado correctamente");
-            formListadoClientes flc = new formListadoClientes();
-            flc.Show();
-            this.Hide();
+            if (txtApellido.Text != "" && txtNombre.Text != "")
+            {
+                Cliente cli = new Cliente(dniCliente,
+               txtNombre.Text, txtApellido.Text, txtMail.Text, txtDireccion.Text, txtCiudad.Text, dtpNacimiento.Value.Date, telefono, txtCodPost.Text, txtLocalidad.Text);
+                AdmClientes.modificarCliente(cli);
+                limpiarCampos();
+                MessageBox.Show("Cliente modificado correctamente");
+                formListadoClientes flc = new formListadoClientes();
+                flc.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Complete todos los campos obligatorios", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+           
         }
         private void limpiarCampos()
         {

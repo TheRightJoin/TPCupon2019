@@ -25,7 +25,7 @@ namespace FrbaOfertas
             {
                 telefono = Convert.ToDecimal(txtTelefono.Text);
             }
-            if (txtDni.Text != "")
+            if (txtDni.Text != "" && txtApellido.Text != "" && txtNombre.Text != "")
             {
                 Cliente cli = new Cliente(Convert.ToDecimal(txtDni.Text),
                 txtNombre.Text, txtApellido.Text, txtMail.Text, txtDireccion.Text, txtCiudad.Text, dtpNacimiento.Value.Date, telefono, txtCodPost.Text, txtLocalidad.Text);
@@ -45,7 +45,7 @@ namespace FrbaOfertas
                 }
             }
             else {
-                MessageBox.Show("El DNI no puede ser vacio", "Warning",MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Complete todos los campos obligatorios", "Warning",MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             
         }

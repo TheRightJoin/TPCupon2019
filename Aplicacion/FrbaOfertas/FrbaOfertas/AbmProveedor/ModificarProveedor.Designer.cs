@@ -55,6 +55,7 @@
             this.txtRS = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnModificar = new System.Windows.Forms.Button();
+            this.label15 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label14
@@ -81,15 +82,16 @@
             // 
             this.cbxRubro.FormattingEnabled = true;
             this.cbxRubro.Location = new System.Drawing.Point(240, 247);
-            this.cbxRubro.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbxRubro.Margin = new System.Windows.Forms.Padding(2);
             this.cbxRubro.Name = "cbxRubro";
             this.cbxRubro.Size = new System.Drawing.Size(126, 21);
             this.cbxRubro.TabIndex = 51;
+            this.cbxRubro.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbxRubro_KeyPress);
             // 
             // txtContacto
             // 
             this.txtContacto.Location = new System.Drawing.Point(240, 182);
-            this.txtContacto.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtContacto.Margin = new System.Windows.Forms.Padding(2);
             this.txtContacto.Name = "txtContacto";
             this.txtContacto.Size = new System.Drawing.Size(126, 20);
             this.txtContacto.TabIndex = 50;
@@ -116,8 +118,9 @@
             // 
             // txtCUIT
             // 
+            this.txtCUIT.Enabled = false;
             this.txtCUIT.Location = new System.Drawing.Point(240, 118);
-            this.txtCUIT.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtCUIT.Margin = new System.Windows.Forms.Padding(2);
             this.txtCUIT.Name = "txtCUIT";
             this.txtCUIT.Size = new System.Drawing.Size(126, 20);
             this.txtCUIT.TabIndex = 47;
@@ -135,7 +138,7 @@
             // txtCiudad
             // 
             this.txtCiudad.Location = new System.Drawing.Point(685, 292);
-            this.txtCiudad.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtCiudad.Margin = new System.Windows.Forms.Padding(2);
             this.txtCiudad.Name = "txtCiudad";
             this.txtCiudad.Size = new System.Drawing.Size(126, 20);
             this.txtCiudad.TabIndex = 45;
@@ -153,7 +156,7 @@
             // txtPostal
             // 
             this.txtPostal.Location = new System.Drawing.Point(685, 247);
-            this.txtPostal.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtPostal.Margin = new System.Windows.Forms.Padding(2);
             this.txtPostal.Name = "txtPostal";
             this.txtPostal.Size = new System.Drawing.Size(126, 20);
             this.txtPostal.TabIndex = 43;
@@ -171,7 +174,7 @@
             // txtLocalidad
             // 
             this.txtLocalidad.Location = new System.Drawing.Point(685, 203);
-            this.txtLocalidad.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtLocalidad.Margin = new System.Windows.Forms.Padding(2);
             this.txtLocalidad.Name = "txtLocalidad";
             this.txtLocalidad.Size = new System.Drawing.Size(126, 20);
             this.txtLocalidad.TabIndex = 41;
@@ -189,7 +192,7 @@
             // txtDepto
             // 
             this.txtDepto.Location = new System.Drawing.Point(685, 163);
-            this.txtDepto.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtDepto.Margin = new System.Windows.Forms.Padding(2);
             this.txtDepto.Name = "txtDepto";
             this.txtDepto.Size = new System.Drawing.Size(126, 20);
             this.txtDepto.TabIndex = 39;
@@ -207,7 +210,7 @@
             // txtPiso
             // 
             this.txtPiso.Location = new System.Drawing.Point(685, 122);
-            this.txtPiso.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtPiso.Margin = new System.Windows.Forms.Padding(2);
             this.txtPiso.Name = "txtPiso";
             this.txtPiso.Size = new System.Drawing.Size(126, 20);
             this.txtPiso.TabIndex = 37;
@@ -225,7 +228,7 @@
             // txtCalle
             // 
             this.txtCalle.Location = new System.Drawing.Point(685, 83);
-            this.txtCalle.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtCalle.Margin = new System.Windows.Forms.Padding(2);
             this.txtCalle.Name = "txtCalle";
             this.txtCalle.Size = new System.Drawing.Size(126, 20);
             this.txtCalle.TabIndex = 35;
@@ -243,10 +246,11 @@
             // txtTelefono
             // 
             this.txtTelefono.Location = new System.Drawing.Point(240, 215);
-            this.txtTelefono.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtTelefono.Margin = new System.Windows.Forms.Padding(2);
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(126, 20);
             this.txtTelefono.TabIndex = 33;
+            this.txtTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelefono_KeyPress);
             // 
             // label3
             // 
@@ -261,7 +265,7 @@
             // txtEmail
             // 
             this.txtEmail.Location = new System.Drawing.Point(240, 149);
-            this.txtEmail.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtEmail.Margin = new System.Windows.Forms.Padding(2);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(126, 20);
             this.txtEmail.TabIndex = 31;
@@ -279,7 +283,7 @@
             // txtRS
             // 
             this.txtRS.Location = new System.Drawing.Point(240, 85);
-            this.txtRS.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtRS.Margin = new System.Windows.Forms.Padding(2);
             this.txtRS.Name = "txtRS";
             this.txtRS.Size = new System.Drawing.Size(126, 20);
             this.txtRS.TabIndex = 29;
@@ -297,7 +301,7 @@
             // btnModificar
             // 
             this.btnModificar.Location = new System.Drawing.Point(681, 337);
-            this.btnModificar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnModificar.Margin = new System.Windows.Forms.Padding(2);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(128, 41);
             this.btnModificar.TabIndex = 54;
@@ -305,11 +309,23 @@
             this.btnModificar.UseVisualStyleBackColor = true;
             this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.Color.Red;
+            this.label15.Location = new System.Drawing.Point(371, 85);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(15, 20);
+            this.label15.TabIndex = 55;
+            this.label15.Text = "*";
+            // 
             // ModificarProveedor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1011, 389);
+            this.Controls.Add(this.label15);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.label13);
@@ -337,7 +353,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtRS);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ModificarProveedor";
             this.Text = "ModificarProveedor";
             this.Load += new System.EventHandler(this.ModificarProveedor_Load);
@@ -375,5 +391,6 @@
         private System.Windows.Forms.TextBox txtRS;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnModificar;
+        private System.Windows.Forms.Label label15;
     }
 }

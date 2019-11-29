@@ -66,22 +66,29 @@ namespace FrbaOfertas
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            String direccionTotal = txtCalle.Text + "; " + txtPiso.Text + "; " + txtDepto.Text + "; " + txtLocalidad.Text;
-            Proveedor miProve = new Proveedor(txtRS.Text,
-                                                       txtEmail.Text,
-                                                       Convert.ToDecimal(txtTelefono.Text),
-                                                       direccionTotal,
-                                                       txtCiudad.Text,
-                                                       txtCUIT.Text,
-                                                       cbxRubro.Text,
-                                                       idRubroPosta,
-                                                       txtContacto.Text,
-                                                       txtPostal.Text);
-            AdmProveedores.modificarProveedor(miProve);
-            limpiarCampos();
-            this.Hide();
-            VerProveedores vp = new VerProveedores();
-            vp.Show();
+            if (txtRS.Text != "")
+            {
+                String direccionTotal = txtCalle.Text + "; " + txtPiso.Text + "; " + txtDepto.Text + "; " + txtLocalidad.Text;
+                Proveedor miProve = new Proveedor(txtRS.Text,
+                                                           txtEmail.Text,
+                                                           Convert.ToDecimal(txtTelefono.Text),
+                                                           direccionTotal,
+                                                           txtCiudad.Text,
+                                                           txtCUIT.Text,
+                                                           cbxRubro.Text,
+                                                           idRubroPosta,
+                                                           txtContacto.Text,
+                                                           txtPostal.Text);
+                AdmProveedores.modificarProveedor(miProve);
+                limpiarCampos();
+                this.Hide();
+                VerProveedores vp = new VerProveedores();
+                vp.Show();
+            }
+            else {
+                MessageBox.Show("Complete los campos obligatorios");
+            }
+            
         }
 
 
@@ -128,6 +135,19 @@ namespace FrbaOfertas
             txtPiso.Text = piso;
             txtLocalidad.Text = localidad;
 
+        }
+
+        private void txtTelefono_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void cbxRubro_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
         }
     }
 }
