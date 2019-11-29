@@ -75,6 +75,24 @@ namespace FrbaOfertas
 
             return ret;
         }
+
+        public static void cambiarContrasenia(String usuario, String contraNueva){
+        
+            string connString = ConfigurationManager.ConnectionStrings["THE_RIGHT_JOIN"].ConnectionString;
+            SqlConnection conn = new SqlConnection(connString);
+            using (conn)
+            {
+                using (SqlCommand cmd = new SqlCommand("THE_RIGHT_JOIN.cambiarContra", conn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add("@usuario", SqlDbType.VarChar).Value = usuario;
+                    cmd.Parameters.Add("@pass", SqlDbType.VarChar).Value = contraNueva;
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
+                }
+            }
+        } 
         
     }
 }
