@@ -181,7 +181,7 @@ namespace FrbaOfertas
 
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
-
+            int retorno;
             Usuario miUser;
             switch (cbxRol.Text)
             {     
@@ -201,7 +201,11 @@ namespace FrbaOfertas
                    int filas = AdmClientes.altaCliente(miClie);
                    if (filas > 0)
                    {
-                       AdmUsuario.altaUsuario(miUser);
+
+                       retorno = AdmUsuario.altaUsuario(miUser);
+                       if (retorno == -1) {
+                           MessageBox.Show("Ya existe el usuario: " + txtUsuario.Text); 
+                       }
                    }
                    else {
                        MessageBox.Show("Error en la creacion del cliente");
@@ -222,11 +226,19 @@ namespace FrbaOfertas
                                                        txtContacto.Text,
                                                        txtPostalP.Text);
                     AdmProveedores.AltaProveedor(miProvee);
-                    AdmUsuario.altaUsuario(miUser);
+                    retorno = AdmUsuario.altaUsuario(miUser);
+                    if (retorno == -1)
+                    {
+                        MessageBox.Show("Ya existe el usuario: " + txtUsuario.Text);
+                    }
                     break;
                 case "Administrador":
                     miUser = new Usuario(txtUsuario.Text, txtContrasenia.Text, Convert.ToDecimal(null), null);
-                    AdmUsuario.altaUsuario(miUser);
+                   retorno = AdmUsuario.altaUsuario(miUser);
+                   if (retorno == -1)
+                   {
+                       MessageBox.Show("Ya existe el usuario: " + txtUsuario.Text);
+                   }
                     break;
             }
 
