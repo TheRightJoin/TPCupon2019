@@ -154,7 +154,18 @@ namespace FrbaOfertas
         private void Form1_Load_1(object sender, EventArgs e)
         {
             DateTime value = Convert.ToDateTime(ConfigurationManager.AppSettings["DateFormat"]);
-            crearMenuStripPublico();
+            if (MainMenu.Items.Count.ToString() == "0")
+            {
+                crearMenuStripPublico();
+            }
+            else {
+                this.Controls.Add(MainMenu);
+            }
+            
+           
+        
         }
+
+       
     }
 }
