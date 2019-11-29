@@ -19,7 +19,8 @@ namespace FrbaOfertas
         }
 
         String codigoOferta;
-        int dni = AdmClientes.obtenerDNI(Login.username);
+        int dniAdmin;
+        int dni;
         int cantidad;
         int resultado;
         DateTime fecha = Convert.ToDateTime(ConfigurationManager.AppSettings["Fecha"]);
@@ -27,8 +28,20 @@ namespace FrbaOfertas
 
         private void ListadoOfertas_Load(object sender, EventArgs e)
         {
+            dgvCliente.Hide();
             dgvOfertas.DataSource = AdmOfertas.obtenerOfertasDisponibles().Tables[0];
             this.Controls.Add(Form1.MainMenu);
+
+            dgvCliente.DataSource = AdmClientes.obtenerClientesNyA().Tables[0];
+
+            if (ElegirRol.rolElegido == 1)
+            {
+                dgvCliente.Show();
+            }
+            else
+            {
+                AdmClientes.obtenerDNI(Login.username);
+            }
         }
 
         private void btnComprar_Click(object sender, EventArgs e)
@@ -62,6 +75,17 @@ namespace FrbaOfertas
                 int selectedrowindex = dgvOfertas.SelectedCells[0].RowIndex;
                 DataGridViewRow selectedRow = dgvOfertas.Rows[selectedrowindex];
                 codigoOferta = (selectedRow.Cells["Oferta_Codigo"].Value).ToString();
+
+            }
+        }
+
+        private void dgvCliente_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dgvCliente.SelectedCells.Count > 0)
+            {
+                int selectedrowindex = dgvCliente.SelectedCells[0].RowIndex;
+                DataGridViewRow selectedRow = dgvCliente.Rows[selectedrowindex];
+                dni = Convert.ToInt32((selectedRow.Cells["Cli_Dni"].Value));
 
             }
         }
