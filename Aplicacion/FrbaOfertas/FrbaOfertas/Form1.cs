@@ -39,6 +39,10 @@ namespace FrbaOfertas
                 MainMenu.Items.Add(item);
                 this.subItems(item);
             }
+            ToolStripMenuItem desloguear = new ToolStripMenuItem("LOGOUT");
+            desloguear.Text = "LOGOUT";
+            desloguear.Click += new EventHandler(this.FileMenuItemClick);
+            MainMenu.Items.Add(desloguear);
         }
 
         private void subItems(ToolStripMenuItem item)
@@ -123,6 +127,16 @@ namespace FrbaOfertas
                     FacturarAProveedor ffp = new FacturarAProveedor();
                     hideForms();
                     ffp.Show();
+                    break;
+                case "MODIFICAR PASSWORD":
+                    CambiarPass fcp = new CambiarPass();
+                    hideForms();
+                    fcp.Show();
+                    break;
+                case "LOGOUT":
+                    Login flog = new Login();
+                    hideForms();
+                    flog.Show();
                     break;
                 default:
                     break;
