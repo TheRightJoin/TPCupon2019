@@ -20,7 +20,7 @@ namespace FrbaOfertas
 
         String codigoOferta;
         int dniAdmin;
-        int dni;
+        Decimal dni;
         int cantidad;
         int resultado;
         DateTime fecha = Convert.ToDateTime(ConfigurationManager.AppSettings["Fecha"]);
@@ -40,7 +40,7 @@ namespace FrbaOfertas
             }
             else
             {
-                AdmClientes.obtenerDNI(Login.username);
+               dni = AdmClientes.obtenerDniDelUsuario(Login.username);
             }
         }
 
