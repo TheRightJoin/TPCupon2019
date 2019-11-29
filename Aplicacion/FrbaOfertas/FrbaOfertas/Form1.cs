@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using FrbaOfertas.AbmProveedor;
 using System.Configuration;
+using FrbaOfertas.Facturar;
 namespace FrbaOfertas
 {
     public partial class Form1 : Form
@@ -117,6 +118,11 @@ namespace FrbaOfertas
                     ListadoEstadistico fle = new ListadoEstadistico();
                     hideForms();
                     fle.Show();
+                    break;
+                case "FACTURACION":
+                    FacturarAProveedor ffp = new FacturarAProveedor();
+                    hideForms();
+                    ffp.Show();
                     break;
                 default:
                     break;
