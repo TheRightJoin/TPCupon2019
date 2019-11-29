@@ -11,9 +11,9 @@ namespace FrbaOfertas
 {
     class AdmUsuario
     {
-        public static void altaUsuario(Usuario user)
+        public static int altaUsuario(Usuario user)
         {
-
+            int retorno;
 
             string connString = ConfigurationManager.ConnectionStrings["THE_RIGHT_JOIN"].ConnectionString;
             SqlConnection conn = new SqlConnection(connString);
@@ -32,11 +32,16 @@ namespace FrbaOfertas
                     }
                     cmd.Parameters.Add("@cuit", SqlDbType.VarChar).Value = user.CUIT;
 
+                    cmd.Parameters.Add("@retorno", SqlDbType.Int).Direction = ParameterDirection.Output;
+
                     conn.Open();
                     cmd.ExecuteNonQuery();
+                    retorno = Convert.ToInt32(cmd.Parameters["@retorno"].Value);
                     conn.Close();
                 }
             }
+
+            return retorno;
         }
 
         public static List<String> funcionalidadesDelRol(Decimal idRol)
