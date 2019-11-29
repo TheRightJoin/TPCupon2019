@@ -97,7 +97,31 @@ namespace FrbaOfertas
                     conn.Close();
                 }
             }
-        } 
+        }
+
+        public static DataSet obtenerUsuarios() {
+            string connString = ConfigurationManager.ConnectionStrings["THE_RIGHT_JOIN"].ConnectionString;
+            SqlConnection conn = new SqlConnection(connString);
+            String query = "SELECT Usuari_idUser, Usuari_Username FROM THE_RIGHT_JOIN.Usuario WHERE Usuari_Habilitado = 1";
+            SqlCommand cmd = new SqlCommand(query, conn);
+            return ConectorBDD.cargarDataSet(conn, cmd);
+        }
+
+        public static void eliminarUsuario(String username) {
+            string connString = ConfigurationManager.ConnectionStrings["THE_RIGHT_JOIN"].ConnectionString;
+            SqlConnection conn = new SqlConnection(connString);
+            using (conn)
+            {
+                using (SqlCommand cmd = new SqlCommand("THE_RIGHT_JOIN.eliminarUsuario", conn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add("@username", SqlDbType.VarChar).Value = username;
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
+                }
+            }
+        }
         
     }
 }

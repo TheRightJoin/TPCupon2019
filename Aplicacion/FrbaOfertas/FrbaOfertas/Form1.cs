@@ -40,8 +40,8 @@ namespace FrbaOfertas
                 MainMenu.Items.Add(item);
                 this.subItems(item);
             }
-            ToolStripMenuItem desloguear = new ToolStripMenuItem("LOGOUT");
-            desloguear.Text = "LOGOUT";
+            ToolStripMenuItem desloguear = new ToolStripMenuItem("PERFIL");
+            desloguear.Text = "PERFIL";
             desloguear.Click += new EventHandler(this.FileMenuItemClick);
             MainMenu.Items.Add(desloguear);
         }
@@ -134,8 +134,8 @@ namespace FrbaOfertas
                     hideForms();
                     fcp.Show();
                     break;
-                case "LOGOUT":
-                    Login flog = new Login();
+                case "PERFIL":
+                    Perfil flog = new Perfil();
                     hideForms();
                     flog.Show();
                     break;

@@ -34,5 +34,10 @@ namespace FrbaOfertas
                 MessageBox.Show("Los campos no coinciden");
             }
         }
+
+        private void CambiarPass_Load(object sender, EventArgs e)
+        {
+            this.Controls.Add(Form1.MainMenu);
+        }
     }
 }
