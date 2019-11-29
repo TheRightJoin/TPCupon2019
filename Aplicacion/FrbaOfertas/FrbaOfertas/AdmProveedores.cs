@@ -11,9 +11,9 @@ namespace FrbaOfertas
 {
     public class AdmProveedores
     {
-        public static void AltaProveedor(Proveedor miProveedor)
+        public static int AltaProveedor(Proveedor miProveedor)
         {
-
+            int resultado;
             string connString = ConfigurationManager.ConnectionStrings["THE_RIGHT_JOIN"].ConnectionString;
             SqlConnection conn = new SqlConnection(connString);
 
@@ -32,11 +32,15 @@ namespace FrbaOfertas
                     cmd.Parameters.Add("@email", SqlDbType.VarChar).Value = miProveedor.email;
                     cmd.Parameters.Add("@postal", SqlDbType.VarChar).Value = miProveedor.postal;
                     cmd.Parameters.Add("@contacto", SqlDbType.VarChar).Value = miProveedor.contacto;
+                    cmd.Parameters.Add("@resultado", SqlDbType.Int).Direction = ParameterDirection.Output;
                     conn.Open();
                     cmd.ExecuteNonQuery();
+                    resultado = Convert.ToInt32(cmd.Parameters["@resultado"].Value);
                     conn.Close();
                 }
             }
+
+            return resultado;
         }
 
         public static Proveedor obtenerProveedor(String cuit)

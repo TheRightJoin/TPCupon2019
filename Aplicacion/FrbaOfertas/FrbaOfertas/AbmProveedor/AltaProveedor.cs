@@ -56,7 +56,11 @@ namespace FrbaOfertas
                                                   txtContacto.Text, 
                                                   txtPostal.Text);
            
-            AdmProveedores.AltaProveedor(miProveedor);
+            int resultado =  AdmProveedores.AltaProveedor(miProveedor);
+            if (resultado == -1)
+            {
+                MessageBox.Show("Ya existe un proveedor con este CUIT: " + txtCUIT.Text);
+            }
             limpiarcampos();
         }
 
