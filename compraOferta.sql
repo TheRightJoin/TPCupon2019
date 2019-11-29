@@ -8,10 +8,12 @@ create procedure THE_RIGHT_JOIN.comprarOferta(
  0 todo bien
  1 no hay saldo
  2 no hay cantidad 
- 4 supera la cant maxima
  3 no esta disponible
+ 4 supera la cant maxima
+
 */
 as
+set @resultado = 0
 declare @saldo numeric(18,2) = (select Cli_Saldo from THE_RIGHT_JOIN.Cliente where Cli_Dni = @dni)
 declare @precio numeric(18,2) = (select Oferta_Precio from THE_RIGHT_JOIN.Oferta where Oferta_Codigo = @codOferta) * @cantidad
 declare @disponibilidad numeric(18,0) = (select Oferta_Cantidad from THE_RIGHT_JOIN.Oferta where Oferta_Codigo = @codOferta)
@@ -23,7 +25,7 @@ begin
 		if(@cantMax >= @cantidad)
 		begin
 			if((select Oferta_Disponible from THE_RIGHT_JOIN.Oferta where Oferta_Codigo = @codOferta) = 1 and
-			(select Oferta_Fecha_Ven from THE_RIGHT_JOIN.Oferta where Oferta_Codigo = @codOferta) < @fecha and 
+			(select Oferta_Fecha_Ven from THE_RIGHT_JOIN.Oferta where Oferta_Codigo = @codOferta) > @fecha and 
 			@fecha > (select Oferta_Fecha from THE_RIGHT_JOIN.Oferta where Oferta_Codigo = @codOferta))
 			begin
 				update THE_RIGHT_JOIN.Oferta set Oferta_Cantidad = Oferta_Cantidad - @cantidad

@@ -25,13 +25,13 @@ namespace FrbaOfertas
             {
                 of = new Oferta(txtCodigo.Text, Convert.ToDecimal(txtPrecioOferta.Text), Convert.ToDecimal(txtPrecioLista.Text),
                 dtpFechaPub.Value.Date, dtpFechaVec.Value.Date, Convert.ToDecimal(txtCantidad.Text), txtDesc.Text,
-                1, ProveSeleccionado);
+                1, ProveSeleccionado, Convert.ToDecimal(txtCantxCli.Text));
             }
             else
             {
                 of = new Oferta(txtCodigo.Text, Convert.ToDecimal(txtPrecioOferta.Text), Convert.ToDecimal(txtPrecioLista.Text),
                 dtpFechaPub.Value.Date, dtpFechaVec.Value.Date, Convert.ToDecimal(txtCantidad.Text), txtDesc.Text,
-                1, AdmProveedores.obtenerCuitDelUsuario(Login.username));
+                1, AdmProveedores.obtenerCuitDelUsuario(Login.username), Convert.ToDecimal(txtCantxCli.Text));
             }
             
             int filas = AdmOfertas.altaOferta(of);

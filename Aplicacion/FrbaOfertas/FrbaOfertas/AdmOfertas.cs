@@ -30,7 +30,8 @@ namespace FrbaOfertas
                     cmd.Parameters.Add("@desc", SqlDbType.VarChar).Value = of.descripcion;
                     cmd.Parameters.Add("@disponible", SqlDbType.Decimal).Value = of.disponible;
                     cmd.Parameters.Add("@cuit", SqlDbType.VarChar).Value = of.cuit;
-                    cmd.Parameters.Add("@filasAfectadas", SqlDbType.Int).Direction = ParameterDirection.Output;                  
+                    cmd.Parameters.Add("@cantxClie", SqlDbType.Decimal).Value = of.cantxCli;
+                    cmd.Parameters.Add("@filasAfectadas", SqlDbType.Int).Direction = ParameterDirection.Output;
                     conn.Open();
                     cmd.ExecuteNonQuery();
                     filas = Convert.ToInt32(cmd.Parameters["@filasAfectadas"].Value);
@@ -51,8 +52,9 @@ namespace FrbaOfertas
 
         }
 
-        public static DataSet obtenerOfertasPorCliente(String cuit, DateTime fechamin, DateTime fechamax, DateTime fechaActual){
-            
+        public static DataSet obtenerOfertasPorCliente(String cuit, DateTime fechamin, DateTime fechamax, DateTime fechaActual)
+        {
+
             string connString = ConfigurationManager.ConnectionStrings["THE_RIGHT_JOIN"].ConnectionString;
             SqlConnection conn = new SqlConnection(connString);
             String query = "select * from THE_RIGHT_JOIN.ofertasAdquiridasPorCliente(@cuit, @fechaMin, @fechaMax, @fechaAct)";
@@ -63,5 +65,31 @@ namespace FrbaOfertas
             cmd.Parameters.Add("@fechaAct", SqlDbType.Date).Value = fechaActual;
             return ConectorBDD.cargarDataSet(conn, cmd);
         }
+        public static int comprarOferta(int dni, DateTime fecha, int cantidad, String codigoOferta)
+        {
+
+            string connString = ConfigurationManager.ConnectionStrings["THE_RIGHT_JOIN"].ConnectionString;
+            SqlConnection conn = new SqlConnection(connString);
+            int resultado;
+            using (conn)
+            {
+                using (SqlCommand cmd = new SqlCommand("THE_RIGHT_JOIN.comprarOferta", conn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add("@dni", SqlDbType.Decimal).Value = Convert.ToDecimal(dni);
+                    cmd.Parameters.Add("@cantidad", SqlDbType.Decimal).Value = Convert.ToDecimal(cantidad);
+                    cmd.Parameters.Add("@fecha", SqlDbType.Date).Value = fecha;
+                    cmd.Parameters.Add("@codOferta", SqlDbType.VarChar).Value = codigoOferta;
+                    cmd.Parameters.Add("@resultado", SqlDbType.Int).Direction = ParameterDirection.Output;
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                    resultado = Convert.ToInt32(cmd.Parameters["@resultado"].Value);
+                    conn.Close();
+                }
+            }
+
+            return resultado;
+        }
+
     }
 }
