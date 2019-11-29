@@ -94,7 +94,7 @@
             // txtUsuario
             // 
             this.txtUsuario.Location = new System.Drawing.Point(240, 20);
-            this.txtUsuario.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtUsuario.Margin = new System.Windows.Forms.Padding(2);
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(119, 20);
             this.txtUsuario.TabIndex = 1;
@@ -102,7 +102,7 @@
             // txtContrasenia
             // 
             this.txtContrasenia.Location = new System.Drawing.Point(240, 53);
-            this.txtContrasenia.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtContrasenia.Margin = new System.Windows.Forms.Padding(2);
             this.txtContrasenia.Name = "txtContrasenia";
             this.txtContrasenia.Size = new System.Drawing.Size(119, 20);
             this.txtContrasenia.TabIndex = 3;
@@ -120,7 +120,7 @@
             // txtNombre
             // 
             this.txtNombre.Location = new System.Drawing.Point(240, 159);
-            this.txtNombre.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNombre.Margin = new System.Windows.Forms.Padding(2);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(119, 20);
             this.txtNombre.TabIndex = 5;
@@ -138,7 +138,7 @@
             // txtApellido
             // 
             this.txtApellido.Location = new System.Drawing.Point(240, 190);
-            this.txtApellido.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtApellido.Margin = new System.Windows.Forms.Padding(2);
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(119, 20);
             this.txtApellido.TabIndex = 7;
@@ -156,10 +156,11 @@
             // txtDNI
             // 
             this.txtDNI.Location = new System.Drawing.Point(240, 227);
-            this.txtDNI.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtDNI.Margin = new System.Windows.Forms.Padding(2);
             this.txtDNI.Name = "txtDNI";
             this.txtDNI.Size = new System.Drawing.Size(119, 20);
             this.txtDNI.TabIndex = 9;
+            this.txtDNI.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDNI_KeyPress);
             // 
             // lblDNI
             // 
@@ -174,7 +175,7 @@
             // txtEmail
             // 
             this.txtEmail.Location = new System.Drawing.Point(240, 267);
-            this.txtEmail.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtEmail.Margin = new System.Windows.Forms.Padding(2);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(119, 20);
             this.txtEmail.TabIndex = 11;
@@ -192,10 +193,11 @@
             // txtTelefono
             // 
             this.txtTelefono.Location = new System.Drawing.Point(240, 307);
-            this.txtTelefono.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtTelefono.Margin = new System.Windows.Forms.Padding(2);
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(119, 20);
             this.txtTelefono.TabIndex = 13;
+            this.txtTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelefono_KeyPress);
             // 
             // lblTelefono
             // 
@@ -220,7 +222,7 @@
             // txtDireccion
             // 
             this.txtDireccion.Location = new System.Drawing.Point(615, 195);
-            this.txtDireccion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtDireccion.Margin = new System.Windows.Forms.Padding(2);
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.Size = new System.Drawing.Size(119, 20);
             this.txtDireccion.TabIndex = 17;
@@ -238,7 +240,7 @@
             // txtLocalidad
             // 
             this.txtLocalidad.Location = new System.Drawing.Point(615, 227);
-            this.txtLocalidad.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtLocalidad.Margin = new System.Windows.Forms.Padding(2);
             this.txtLocalidad.Name = "txtLocalidad";
             this.txtLocalidad.Size = new System.Drawing.Size(119, 20);
             this.txtLocalidad.TabIndex = 19;
@@ -256,7 +258,7 @@
             // txtCiudad
             // 
             this.txtCiudad.Location = new System.Drawing.Point(615, 267);
-            this.txtCiudad.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtCiudad.Margin = new System.Windows.Forms.Padding(2);
             this.txtCiudad.Name = "txtCiudad";
             this.txtCiudad.Size = new System.Drawing.Size(119, 20);
             this.txtCiudad.TabIndex = 21;
@@ -274,7 +276,7 @@
             // txtPostal
             // 
             this.txtPostal.Location = new System.Drawing.Point(615, 307);
-            this.txtPostal.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtPostal.Margin = new System.Windows.Forms.Padding(2);
             this.txtPostal.Name = "txtPostal";
             this.txtPostal.Size = new System.Drawing.Size(119, 20);
             this.txtPostal.TabIndex = 23;
@@ -303,16 +305,17 @@
             // 
             this.cbxRol.FormattingEnabled = true;
             this.cbxRol.Location = new System.Drawing.Point(240, 93);
-            this.cbxRol.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbxRol.Margin = new System.Windows.Forms.Padding(2);
             this.cbxRol.Name = "cbxRol";
             this.cbxRol.Size = new System.Drawing.Size(119, 21);
             this.cbxRol.TabIndex = 25;
             this.cbxRol.SelectedIndexChanged += new System.EventHandler(this.cbxRol_SelectedIndexChanged);
+            this.cbxRol.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbxRol_KeyPress);
             // 
             // dtpNacimiento
             // 
             this.dtpNacimiento.Location = new System.Drawing.Point(615, 164);
-            this.dtpNacimiento.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtpNacimiento.Margin = new System.Windows.Forms.Padding(2);
             this.dtpNacimiento.Name = "dtpNacimiento";
             this.dtpNacimiento.Size = new System.Drawing.Size(119, 20);
             this.dtpNacimiento.TabIndex = 26;
@@ -321,7 +324,7 @@
             // 
             this.cbxRubro.FormattingEnabled = true;
             this.cbxRubro.Location = new System.Drawing.Point(233, 321);
-            this.cbxRubro.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbxRubro.Margin = new System.Windows.Forms.Padding(2);
             this.cbxRubro.Name = "cbxRubro";
             this.cbxRubro.Size = new System.Drawing.Size(126, 21);
             this.cbxRubro.TabIndex = 50;
@@ -329,7 +332,7 @@
             // txtContacto
             // 
             this.txtContacto.Location = new System.Drawing.Point(233, 256);
-            this.txtContacto.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtContacto.Margin = new System.Windows.Forms.Padding(2);
             this.txtContacto.Name = "txtContacto";
             this.txtContacto.Size = new System.Drawing.Size(126, 20);
             this.txtContacto.TabIndex = 49;
@@ -357,7 +360,7 @@
             // txtCUIT
             // 
             this.txtCUIT.Location = new System.Drawing.Point(233, 193);
-            this.txtCUIT.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtCUIT.Margin = new System.Windows.Forms.Padding(2);
             this.txtCUIT.Name = "txtCUIT";
             this.txtCUIT.Size = new System.Drawing.Size(126, 20);
             this.txtCUIT.TabIndex = 46;
@@ -375,7 +378,7 @@
             // txtCiuP
             // 
             this.txtCiuP.Location = new System.Drawing.Point(558, 371);
-            this.txtCiuP.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtCiuP.Margin = new System.Windows.Forms.Padding(2);
             this.txtCiuP.Name = "txtCiuP";
             this.txtCiuP.Size = new System.Drawing.Size(126, 20);
             this.txtCiuP.TabIndex = 44;
@@ -393,7 +396,7 @@
             // txtPostalP
             // 
             this.txtPostalP.Location = new System.Drawing.Point(581, 321);
-            this.txtPostalP.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtPostalP.Margin = new System.Windows.Forms.Padding(2);
             this.txtPostalP.Name = "txtPostalP";
             this.txtPostalP.Size = new System.Drawing.Size(126, 20);
             this.txtPostalP.TabIndex = 42;
@@ -411,7 +414,7 @@
             // txtLocalidadP
             // 
             this.txtLocalidadP.Location = new System.Drawing.Point(581, 278);
-            this.txtLocalidadP.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtLocalidadP.Margin = new System.Windows.Forms.Padding(2);
             this.txtLocalidadP.Name = "txtLocalidadP";
             this.txtLocalidadP.Size = new System.Drawing.Size(126, 20);
             this.txtLocalidadP.TabIndex = 40;
@@ -429,7 +432,7 @@
             // txtDeptoP
             // 
             this.txtDeptoP.Location = new System.Drawing.Point(581, 237);
-            this.txtDeptoP.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtDeptoP.Margin = new System.Windows.Forms.Padding(2);
             this.txtDeptoP.Name = "txtDeptoP";
             this.txtDeptoP.Size = new System.Drawing.Size(126, 20);
             this.txtDeptoP.TabIndex = 38;
@@ -447,7 +450,7 @@
             // txtPisoP
             // 
             this.txtPisoP.Location = new System.Drawing.Point(581, 196);
-            this.txtPisoP.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtPisoP.Margin = new System.Windows.Forms.Padding(2);
             this.txtPisoP.Name = "txtPisoP";
             this.txtPisoP.Size = new System.Drawing.Size(126, 20);
             this.txtPisoP.TabIndex = 36;
@@ -465,7 +468,7 @@
             // txtCalleP
             // 
             this.txtCalleP.Location = new System.Drawing.Point(581, 157);
-            this.txtCalleP.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtCalleP.Margin = new System.Windows.Forms.Padding(2);
             this.txtCalleP.Name = "txtCalleP";
             this.txtCalleP.Size = new System.Drawing.Size(126, 20);
             this.txtCalleP.TabIndex = 34;
@@ -483,10 +486,11 @@
             // txtTelefonoP
             // 
             this.txtTelefonoP.Location = new System.Drawing.Point(233, 289);
-            this.txtTelefonoP.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtTelefonoP.Margin = new System.Windows.Forms.Padding(2);
             this.txtTelefonoP.Name = "txtTelefonoP";
             this.txtTelefonoP.Size = new System.Drawing.Size(126, 20);
             this.txtTelefonoP.TabIndex = 32;
+            this.txtTelefonoP.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelefonoP_KeyPress);
             // 
             // lbltelefono2
             // 
@@ -501,7 +505,7 @@
             // txtEmailP
             // 
             this.txtEmailP.Location = new System.Drawing.Point(233, 223);
-            this.txtEmailP.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtEmailP.Margin = new System.Windows.Forms.Padding(2);
             this.txtEmailP.Name = "txtEmailP";
             this.txtEmailP.Size = new System.Drawing.Size(126, 20);
             this.txtEmailP.TabIndex = 30;
@@ -519,7 +523,7 @@
             // txtRS
             // 
             this.txtRS.Location = new System.Drawing.Point(233, 159);
-            this.txtRS.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtRS.Margin = new System.Windows.Forms.Padding(2);
             this.txtRS.Name = "txtRS";
             this.txtRS.Size = new System.Drawing.Size(126, 20);
             this.txtRS.TabIndex = 28;
@@ -537,7 +541,7 @@
             // btnRegistrar
             // 
             this.btnRegistrar.Location = new System.Drawing.Point(793, 295);
-            this.btnRegistrar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnRegistrar.Margin = new System.Windows.Forms.Padding(2);
             this.btnRegistrar.Name = "btnRegistrar";
             this.btnRegistrar.Size = new System.Drawing.Size(127, 45);
             this.btnRegistrar.TabIndex = 51;
@@ -601,7 +605,7 @@
             this.Controls.Add(this.lblContra);
             this.Controls.Add(this.txtUsuario);
             this.Controls.Add(this.lblUsuario);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "RegistroDeUsuario";
             this.Text = "RegistroDeUsuario";
             this.Load += new System.EventHandler(this.RegistroDeUsuario_Load);

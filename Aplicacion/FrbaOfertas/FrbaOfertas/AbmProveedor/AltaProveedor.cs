@@ -45,23 +45,43 @@ namespace FrbaOfertas
         private void button1_Click(object sender, EventArgs e)
         {
             String direccionTotal = txtCalle.Text + "; " + txtPiso.Text + "; " + txtDepto.Text + "; " + txtLocalidad.Text;
-            Proveedor miProveedor = new Proveedor(txtRS.Text, 
-                                                  txtEmail.Text, 
-                                                  Convert.ToDecimal(txtTelefono.Text), 
-                                                  direccionTotal , 
-                                                  txtCiudad.Text, 
-                                                  txtCUIT.Text,
-                                                  cbxRubro.Text,
-                                                  Convert.ToInt32(cbxRubro.SelectedValue),
-                                                  txtContacto.Text, 
-                                                  txtPostal.Text);
-           
-            int resultado =  AdmProveedores.AltaProveedor(miProveedor);
-            if (resultado == -1)
+            if (txtRS.Text != "" && txtCUIT.Text != "" && cbxRubro.Text != "")
             {
-                MessageBox.Show("Ya existe un proveedor con este CUIT: " + txtCUIT.Text);
+                Proveedor miProveedor = new Proveedor(txtRS.Text,
+                                                 txtEmail.Text,
+                                                 Convert.ToDecimal(txtTelefono.Text),
+                                                 direccionTotal,
+                                                 txtCiudad.Text,
+                                                 txtCUIT.Text,
+                                                 cbxRubro.Text,
+                                                 Convert.ToInt32(cbxRubro.SelectedValue),
+                                                 txtContacto.Text,
+                                                 txtPostal.Text);
+
+                int resultado = AdmProveedores.AltaProveedor(miProveedor);
+                if (resultado == -1)
+                {
+                    MessageBox.Show("Ya existe un proveedor con este CUIT: " + txtCUIT.Text);
+                }
+                limpiarcampos();
             }
-            limpiarcampos();
+            else {
+                MessageBox.Show("Complete todos los campos obligatorios");
+            }
+           
+        }
+
+        private void cbxRubro_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void txtTelefono_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
         }
 
 
