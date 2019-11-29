@@ -28,5 +28,10 @@ namespace FrbaOfertas.AbmRol
             }
             else { MessageBox.Show("No se pudo realizar el alta del rol","ERROR",MessageBoxButtons.OK,MessageBoxIcon.Error); }
         }
+
+        private void AltaRol_Load(object sender, EventArgs e)
+        {
+            this.Controls.Add(Form1.MainMenu);
+        }
     }
 }

@@ -132,9 +132,6 @@ insert into THE_RIGHT_JOIN.Funcionalidad values ('CONSUMIR OFERTA')
 insert into THE_RIGHT_JOIN.Funcionalidad values ('FACTURACION')
 insert into THE_RIGHT_JOIN.Funcionalidad values ('ESTADISTICA')
 
-delete from THE_RIGHT_JOIN.Funcionalidad
-delete from THE_RIGHT_JOIN.FuncXRol
-
 --ROLES
 INSERT INTO THE_RIGHT_JOIN.Rol VALUES ('ADMIN',1)
 INSERT INTO THE_RIGHT_JOIN.Rol VALUES ('CLIENTE',1)

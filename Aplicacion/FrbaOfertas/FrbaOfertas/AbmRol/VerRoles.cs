@@ -12,7 +12,7 @@ namespace FrbaOfertas.AbmRol
 {
     public partial class VerRoles : Form
     {
-        int idSeleccionado;
+        public static int idSeleccionado;
         public VerRoles()
         {
             InitializeComponent();
@@ -55,6 +55,18 @@ namespace FrbaOfertas.AbmRol
             AltaRol altaRol = new AltaRol();
             altaRol.Show();
             this.Hide();
+        }
+
+        private void btnAsignar_Click(object sender, EventArgs e)
+        {
+            AgregarFuncionalidades agregarFuncionalidades = new AgregarFuncionalidades();
+            agregarFuncionalidades.Show();
+            this.Hide();
+        }
+
+        private void VerRoles_Load_1(object sender, EventArgs e)
+        {
+            this.Controls.Add(Form1.MainMenu);
         }
     }
 }

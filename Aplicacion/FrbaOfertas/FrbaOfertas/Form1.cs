@@ -145,6 +145,11 @@ namespace FrbaOfertas
                     hideForms();
                     co.Show();
                     break;
+                case "ABM ROL":
+                    AbmRol.VerRoles verRoles = new AbmRol.VerRoles();
+                    hideForms();
+                    verRoles.Show();
+                    break;
                 default:
                     break;
             }

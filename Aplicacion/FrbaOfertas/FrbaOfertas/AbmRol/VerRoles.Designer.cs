@@ -33,6 +33,7 @@
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnSeleccionar = new System.Windows.Forms.Button();
             this.txtFiltro = new System.Windows.Forms.TextBox();
+            this.btnAsignar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -82,11 +83,22 @@
             this.txtFiltro.Size = new System.Drawing.Size(100, 20);
             this.txtFiltro.TabIndex = 4;
             // 
+            // btnAsignar
+            // 
+            this.btnAsignar.Location = new System.Drawing.Point(434, 305);
+            this.btnAsignar.Name = "btnAsignar";
+            this.btnAsignar.Size = new System.Drawing.Size(130, 23);
+            this.btnAsignar.TabIndex = 5;
+            this.btnAsignar.Text = "Asignar Funcionalidades";
+            this.btnAsignar.UseVisualStyleBackColor = true;
+            this.btnAsignar.Click += new System.EventHandler(this.btnAsignar_Click);
+            // 
             // VerRoles
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1011, 354);
+            this.Controls.Add(this.btnAsignar);
             this.Controls.Add(this.txtFiltro);
             this.Controls.Add(this.btnSeleccionar);
             this.Controls.Add(this.btnAgregar);
@@ -94,6 +106,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Name = "VerRoles";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.VerRoles_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -107,5 +120,6 @@
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Button btnSeleccionar;
         private System.Windows.Forms.TextBox txtFiltro;
+        private System.Windows.Forms.Button btnAsignar;
     }
 }

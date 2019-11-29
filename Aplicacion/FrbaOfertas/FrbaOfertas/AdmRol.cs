@@ -87,6 +87,46 @@ namespace FrbaOfertas
                 cmd.Parameters.Add("@rol", SqlDbType.Int).Value = idRol;
                 return ConectorBDD.cargarDataSet(conn, cmd);
             }
+        public static int asignarFuncionalidad(int idRol, int idFunc)
+        {
+            string connString = ConfigurationManager.ConnectionStrings["THE_RIGHT_JOIN"].ConnectionString;
+            SqlConnection conn = new SqlConnection(connString);
+            int filas;
+            using (conn)
+            {
+                using (SqlCommand cmd = new SqlCommand("THE_RIGHT_JOIN.asignarFuncionalidad", conn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add("@idRol", SqlDbType.VarChar).Value = idRol;
+                    cmd.Parameters.Add("@idFunc", SqlDbType.VarChar).Value = idFunc;
+                    cmd.Parameters.Add("@flag", SqlDbType.Int).Direction = ParameterDirection.Output;
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                    filas = Convert.ToInt32(cmd.Parameters["@flag"].Value);
+                    conn.Close();
+                }
+            }
+            return filas;
         }
+
+        public static int rolDerivaDe(int idRol)
+        {
+            int retorno = 0;
+            string connString = ConfigurationManager.ConnectionStrings["THE_RIGHT_JOIN"].ConnectionString;
+            SqlConnection conn = new SqlConnection(connString);
+            String query = "SELECT THE_RIGHT_JOIN.rolDerivaDe(@idRol)";
+            SqlCommand cmd = new SqlCommand(query, conn);
+            SqlParameter paramNombre = cmd.Parameters.Add("@idRol", SqlDbType.Int);
+            paramNombre.Value = idRol;
+            using (conn)
+            using (cmd)
+            {
+                conn.Open();
+                retorno = Convert.ToInt32(cmd.ExecuteScalar());
+                conn.Close();
+            }
+            return retorno;
+        }
+    }
 
 }
