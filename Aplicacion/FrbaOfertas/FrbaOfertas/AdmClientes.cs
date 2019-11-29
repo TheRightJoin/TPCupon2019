@@ -22,12 +22,32 @@ namespace FrbaOfertas
             SqlCommand cmd = new SqlCommand(query, conn);
             return ConectorBDD.cargarDataSet(conn,cmd);
         }
+        public static DataSet obtenerClientesNyA()
+        {
+            string connString = ConfigurationManager.ConnectionStrings["THE_RIGHT_JOIN"].ConnectionString;
+            SqlConnection conn = new SqlConnection(connString);
+            String query = "SELECT TOP 1000 [Cli_Dni],[Cli_Nombre],[Cli_Apellido] FROM [GD2C2019].[THE_RIGHT_JOIN].[Cliente]";
+            query += "WHERE Cli_Activo IS NULL OR Cli_Activo = 1";
+            SqlCommand cmd = new SqlCommand(query, conn);
+            return ConectorBDD.cargarDataSet(conn, cmd);
+        }
+
+        public static Decimal obtenerDniDelUsuario(string username)
+        {
+            string connString = ConfigurationManager.ConnectionStrings["THE_RIGHT_JOIN"].ConnectionString;
+            SqlConnection conn = new SqlConnection(connString);
+            String query = "SELECT Cli_Dni from THE_RIGHT_JOIN.Usuario JOIN THE_RIGHT_JOIN.Cliente ON (Usuari_DNI = Cli_Dni) where Usuari_Username = @username";
+            SqlCommand cmd = new SqlCommand(query, conn);
+            cmd.Parameters.Add("@username", SqlDbType.VarChar).Value = username;
+            DataSet ds = ConectorBDD.cargarDataSet(conn, cmd);
+            return Convert.ToDecimal(ds.Tables[0].Rows[0]["Cli_Dni"]);
+        }
 
         public static Cliente obtenerCliente(Decimal dniCliente)
         {
             string connString = ConfigurationManager.ConnectionStrings["THE_RIGHT_JOIN"].ConnectionString;
             SqlConnection conn = new SqlConnection(connString);
-            String query = "select * from THE_RIGHT_JOIN.obtenerClienteDNI(@dni)";
+            String query = "select * from THE_RIGHT_JOIN.Cliente where Cli_Dni = @dni";
             SqlCommand cmd = new SqlCommand(query, conn);
             cmd.Parameters.Add("@dni", SqlDbType.Decimal).Value = dniCliente;
             DataSet ds = ConectorBDD.cargarDataSet(conn, cmd);

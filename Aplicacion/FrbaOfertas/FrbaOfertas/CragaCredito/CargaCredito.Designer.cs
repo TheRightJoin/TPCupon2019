@@ -40,7 +40,9 @@
             this.label5 = new System.Windows.Forms.Label();
             this.btnConfirmar = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
-            this.txtDni = new System.Windows.Forms.TextBox();
+            this.dgvClientes = new System.Windows.Forms.DataGridView();
+            this.lblCliente = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
             this.SuspendLayout();
             // 
             // cmbTipo
@@ -49,7 +51,7 @@
             this.cmbTipo.Items.AddRange(new object[] {
             "Credito",
             "Debito"});
-            this.cmbTipo.Location = new System.Drawing.Point(319, 102);
+            this.cmbTipo.Location = new System.Drawing.Point(409, 102);
             this.cmbTipo.Name = "cmbTipo";
             this.cmbTipo.Size = new System.Drawing.Size(121, 21);
             this.cmbTipo.TabIndex = 0;
@@ -58,7 +60,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(243, 105);
+            this.label1.Location = new System.Drawing.Point(333, 105);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(70, 13);
             this.label1.TabIndex = 1;
@@ -66,7 +68,7 @@
             // 
             // txtMonto
             // 
-            this.txtMonto.Location = new System.Drawing.Point(319, 157);
+            this.txtMonto.Location = new System.Drawing.Point(409, 157);
             this.txtMonto.Name = "txtMonto";
             this.txtMonto.Size = new System.Drawing.Size(121, 20);
             this.txtMonto.TabIndex = 2;
@@ -75,7 +77,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(234, 160);
+            this.label2.Location = new System.Drawing.Point(324, 160);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(79, 13);
             this.label2.TabIndex = 1;
@@ -83,7 +85,7 @@
             // 
             // txtNumero
             // 
-            this.txtNumero.Location = new System.Drawing.Point(605, 102);
+            this.txtNumero.Location = new System.Drawing.Point(695, 102);
             this.txtNumero.Name = "txtNumero";
             this.txtNumero.Size = new System.Drawing.Size(165, 20);
             this.txtNumero.TabIndex = 3;
@@ -92,7 +94,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(504, 105);
+            this.label3.Location = new System.Drawing.Point(594, 105);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(95, 13);
             this.label3.TabIndex = 1;
@@ -101,7 +103,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(495, 160);
+            this.label4.Location = new System.Drawing.Point(585, 160);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(104, 13);
             this.label4.TabIndex = 1;
@@ -109,7 +111,7 @@
             // 
             // txtCodigo
             // 
-            this.txtCodigo.Location = new System.Drawing.Point(605, 157);
+            this.txtCodigo.Location = new System.Drawing.Point(695, 157);
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(82, 20);
             this.txtCodigo.TabIndex = 3;
@@ -117,7 +119,7 @@
             // 
             // dtpVenc
             // 
-            this.dtpVenc.Location = new System.Drawing.Point(605, 207);
+            this.dtpVenc.Location = new System.Drawing.Point(695, 207);
             this.dtpVenc.Name = "dtpVenc";
             this.dtpVenc.Size = new System.Drawing.Size(200, 20);
             this.dtpVenc.TabIndex = 4;
@@ -125,7 +127,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(487, 213);
+            this.label5.Location = new System.Drawing.Point(577, 213);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(112, 13);
             this.label5.TabIndex = 1;
@@ -133,7 +135,7 @@
             // 
             // btnConfirmar
             // 
-            this.btnConfirmar.Location = new System.Drawing.Point(345, 264);
+            this.btnConfirmar.Location = new System.Drawing.Point(435, 264);
             this.btnConfirmar.Name = "btnConfirmar";
             this.btnConfirmar.Size = new System.Drawing.Size(323, 40);
             this.btnConfirmar.TabIndex = 5;
@@ -144,25 +146,37 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(504, 56);
+            this.label6.Location = new System.Drawing.Point(594, 65);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(129, 13);
             this.label6.TabIndex = 6;
             this.label6.Text = "DATOS DE LA TARJETA";
             // 
-            // txtDni
+            // dgvClientes
             // 
-            this.txtDni.Location = new System.Drawing.Point(319, 65);
-            this.txtDni.Name = "txtDni";
-            this.txtDni.Size = new System.Drawing.Size(121, 20);
-            this.txtDni.TabIndex = 7;
+            this.dgvClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvClientes.Location = new System.Drawing.Point(13, 90);
+            this.dgvClientes.Name = "dgvClientes";
+            this.dgvClientes.Size = new System.Drawing.Size(308, 202);
+            this.dgvClientes.TabIndex = 7;
+            this.dgvClientes.SelectionChanged += new System.EventHandler(this.dgvClientes_SelectionChanged);
+            // 
+            // lblCliente
+            // 
+            this.lblCliente.AutoSize = true;
+            this.lblCliente.Location = new System.Drawing.Point(12, 65);
+            this.lblCliente.Name = "lblCliente";
+            this.lblCliente.Size = new System.Drawing.Size(72, 13);
+            this.lblCliente.TabIndex = 6;
+            this.lblCliente.Text = "Elija el Cliente";
             // 
             // CargaCredito
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1011, 331);
-            this.Controls.Add(this.txtDni);
+            this.Controls.Add(this.dgvClientes);
+            this.Controls.Add(this.lblCliente);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.btnConfirmar);
             this.Controls.Add(this.dtpVenc);
@@ -178,6 +192,7 @@
             this.Name = "CargaCredito";
             this.Text = "CargaCredito";
             this.Load += new System.EventHandler(this.CargaCredito_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -197,6 +212,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnConfirmar;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txtDni;
+        private System.Windows.Forms.DataGridView dgvClientes;
+        private System.Windows.Forms.Label lblCliente;
     }
 }

@@ -66,5 +66,12 @@ namespace FrbaOfertas
             this.Controls.Add(Form1.MainMenu);
         }
 
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            ModificarCliente fmc = new ModificarCliente();
+            this.Hide();
+            fmc.Show();
+        }
+
     }
 }
