@@ -27,6 +27,7 @@ namespace FrbaOfertas
             this.MainMenuStrip = MainMenu;
             Controls.Add(MainMenu);
             MainMenu.Name = "MainMenu";
+            MainMenu.Font = new System.Drawing.Font("Arial",7f, FontStyle.Italic);
             MainMenu.Dock = DockStyle.Top; 
             //nombre de usuario hardcodeadisimo, hay que obtenerlo del login
             DataSet ds = AdmRol.obtenerFuncionalidadesRol(ElegirRol.rolElegido);

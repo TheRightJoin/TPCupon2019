@@ -54,7 +54,7 @@
             // txtRS
             // 
             this.txtRS.Location = new System.Drawing.Point(97, 71);
-            this.txtRS.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtRS.Margin = new System.Windows.Forms.Padding(2);
             this.txtRS.Name = "txtRS";
             this.txtRS.Size = new System.Drawing.Size(136, 20);
             this.txtRS.TabIndex = 1;
@@ -62,7 +62,7 @@
             // txtCUIT
             // 
             this.txtCUIT.Location = new System.Drawing.Point(299, 72);
-            this.txtCUIT.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtCUIT.Margin = new System.Windows.Forms.Padding(2);
             this.txtCUIT.Name = "txtCUIT";
             this.txtCUIT.Size = new System.Drawing.Size(136, 20);
             this.txtCUIT.TabIndex = 3;
@@ -80,7 +80,7 @@
             // txtEmail
             // 
             this.txtEmail.Location = new System.Drawing.Point(515, 71);
-            this.txtEmail.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtEmail.Margin = new System.Windows.Forms.Padding(2);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(136, 20);
             this.txtEmail.TabIndex = 5;
@@ -99,7 +99,7 @@
             // 
             this.dgvProveedores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProveedores.Location = new System.Drawing.Point(17, 124);
-            this.dgvProveedores.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvProveedores.Margin = new System.Windows.Forms.Padding(2);
             this.dgvProveedores.Name = "dgvProveedores";
             this.dgvProveedores.RowTemplate.Height = 28;
             this.dgvProveedores.Size = new System.Drawing.Size(885, 258);
@@ -109,7 +109,7 @@
             // btnSeleccionar
             // 
             this.btnSeleccionar.Location = new System.Drawing.Point(743, 58);
-            this.btnSeleccionar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSeleccionar.Margin = new System.Windows.Forms.Padding(2);
             this.btnSeleccionar.Name = "btnSeleccionar";
             this.btnSeleccionar.Size = new System.Drawing.Size(147, 49);
             this.btnSeleccionar.TabIndex = 7;
@@ -120,7 +120,7 @@
             // btnEliminar
             // 
             this.btnEliminar.Location = new System.Drawing.Point(85, 392);
-            this.btnEliminar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnEliminar.Margin = new System.Windows.Forms.Padding(2);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(215, 41);
             this.btnEliminar.TabIndex = 8;
@@ -131,7 +131,7 @@
             // btnModificar
             // 
             this.btnModificar.Location = new System.Drawing.Point(606, 392);
-            this.btnModificar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnModificar.Margin = new System.Windows.Forms.Padding(2);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(215, 41);
             this.btnModificar.TabIndex = 9;
@@ -143,7 +143,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(913, 447);
+            this.ClientSize = new System.Drawing.Size(1011, 447);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnSeleccionar);
@@ -154,7 +154,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtRS);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "VerProveedores";
             this.Text = "VerProveedores";
             this.Load += new System.EventHandler(this.VerProveedores_Load);

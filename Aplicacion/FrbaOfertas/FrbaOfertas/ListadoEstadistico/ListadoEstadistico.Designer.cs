@@ -43,7 +43,7 @@
             // cmbAnio
             // 
             this.cmbAnio.FormattingEnabled = true;
-            this.cmbAnio.Location = new System.Drawing.Point(96, 92);
+            this.cmbAnio.Location = new System.Drawing.Point(198, 92);
             this.cmbAnio.Name = "cmbAnio";
             this.cmbAnio.Size = new System.Drawing.Size(121, 21);
             this.cmbAnio.TabIndex = 0;
@@ -52,7 +52,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(93, 67);
+            this.label1.Location = new System.Drawing.Point(195, 67);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(96, 13);
             this.label1.TabIndex = 1;
@@ -61,7 +61,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(266, 67);
+            this.label2.Location = new System.Drawing.Point(368, 67);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(116, 13);
             this.label2.TabIndex = 2;
@@ -71,7 +71,7 @@
             // 
             this.rdbSem1.AutoSize = true;
             this.rdbSem1.Checked = true;
-            this.rdbSem1.Location = new System.Drawing.Point(283, 96);
+            this.rdbSem1.Location = new System.Drawing.Point(385, 96);
             this.rdbSem1.Name = "rdbSem1";
             this.rdbSem1.Size = new System.Drawing.Size(31, 17);
             this.rdbSem1.TabIndex = 3;
@@ -82,7 +82,7 @@
             // rdbSem2
             // 
             this.rdbSem2.AutoSize = true;
-            this.rdbSem2.Location = new System.Drawing.Point(333, 96);
+            this.rdbSem2.Location = new System.Drawing.Point(435, 96);
             this.rdbSem2.Name = "rdbSem2";
             this.rdbSem2.Size = new System.Drawing.Size(31, 17);
             this.rdbSem2.TabIndex = 3;
@@ -92,7 +92,7 @@
             // dgvEstadistica
             // 
             this.dgvEstadistica.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvEstadistica.Location = new System.Drawing.Point(96, 189);
+            this.dgvEstadistica.Location = new System.Drawing.Point(198, 189);
             this.dgvEstadistica.Name = "dgvEstadistica";
             this.dgvEstadistica.Size = new System.Drawing.Size(550, 180);
             this.dgvEstadistica.TabIndex = 4;
@@ -103,7 +103,7 @@
             this.cmbTipoEst.Items.AddRange(new object[] {
             "Proveedores con mayor facturacion",
             "Proveedores con mayor descuento"});
-            this.cmbTipoEst.Location = new System.Drawing.Point(434, 92);
+            this.cmbTipoEst.Location = new System.Drawing.Point(536, 92);
             this.cmbTipoEst.Name = "cmbTipoEst";
             this.cmbTipoEst.Size = new System.Drawing.Size(196, 21);
             this.cmbTipoEst.TabIndex = 5;
@@ -112,7 +112,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(478, 67);
+            this.label3.Location = new System.Drawing.Point(580, 67);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(96, 13);
             this.label3.TabIndex = 6;
@@ -120,7 +120,7 @@
             // 
             // btnVerEst
             // 
-            this.btnVerEst.Location = new System.Drawing.Point(96, 131);
+            this.btnVerEst.Location = new System.Drawing.Point(198, 131);
             this.btnVerEst.Name = "btnVerEst";
             this.btnVerEst.Size = new System.Drawing.Size(550, 39);
             this.btnVerEst.TabIndex = 7;
@@ -132,7 +132,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(747, 396);
+            this.ClientSize = new System.Drawing.Size(1011, 396);
             this.Controls.Add(this.btnVerEst);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.cmbTipoEst);

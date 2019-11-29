@@ -36,7 +36,7 @@
             // lblRol
             // 
             this.lblRol.AutoSize = true;
-            this.lblRol.Location = new System.Drawing.Point(67, 20);
+            this.lblRol.Location = new System.Drawing.Point(360, 20);
             this.lblRol.Name = "lblRol";
             this.lblRol.Size = new System.Drawing.Size(35, 13);
             this.lblRol.TabIndex = 0;
@@ -45,7 +45,7 @@
             // cmbRoles
             // 
             this.cmbRoles.FormattingEnabled = true;
-            this.cmbRoles.Location = new System.Drawing.Point(115, 43);
+            this.cmbRoles.Location = new System.Drawing.Point(408, 43);
             this.cmbRoles.Name = "cmbRoles";
             this.cmbRoles.Size = new System.Drawing.Size(169, 21);
             this.cmbRoles.TabIndex = 1;
@@ -53,7 +53,7 @@
             // 
             // btnIngresar
             // 
-            this.btnIngresar.Location = new System.Drawing.Point(113, 80);
+            this.btnIngresar.Location = new System.Drawing.Point(406, 80);
             this.btnIngresar.Name = "btnIngresar";
             this.btnIngresar.Size = new System.Drawing.Size(171, 23);
             this.btnIngresar.TabIndex = 2;
@@ -65,7 +65,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(412, 127);
+            this.ClientSize = new System.Drawing.Size(1011, 127);
             this.Controls.Add(this.btnIngresar);
             this.Controls.Add(this.cmbRoles);
             this.Controls.Add(this.lblRol);

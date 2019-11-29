@@ -35,7 +35,7 @@
             // dgvOfertas
             // 
             this.dgvOfertas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvOfertas.Location = new System.Drawing.Point(24, 85);
+            this.dgvOfertas.Location = new System.Drawing.Point(70, 87);
             this.dgvOfertas.Name = "dgvOfertas";
             this.dgvOfertas.Size = new System.Drawing.Size(814, 316);
             this.dgvOfertas.TabIndex = 0;
@@ -44,7 +44,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(862, 433);
+            this.ClientSize = new System.Drawing.Size(1011, 433);
             this.Controls.Add(this.dgvOfertas);
             this.Name = "ListadoOfertas";
             this.Text = "ListadoOfertas";
