@@ -29,12 +29,20 @@ namespace FrbaOfertas
             {
                 Cliente cli = new Cliente(Convert.ToDecimal(txtDni.Text),
                 txtNombre.Text, txtApellido.Text, txtMail.Text, txtDireccion.Text, txtCiudad.Text, dtpNacimiento.Value.Date, telefono, txtCodPost.Text, txtLocalidad.Text);
-                AdmClientes.altaCliente(cli);
-                limpiarCampos();
-                MessageBox.Show("Cliente creado correctamente", "OK", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                formListadoClientes flc = new formListadoClientes();
-                flc.Show();
-                this.Hide();
+                int filas = AdmClientes.altaCliente(cli);
+                if (filas > 0)
+                {
+
+                    limpiarCampos();
+                    MessageBox.Show("Cliente creado correctamente", "OK", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    formListadoClientes flc = new formListadoClientes();
+                    flc.Show();
+                    this.Hide();
+                }
+                else
+                {
+                    MessageBox.Show("Ya existe un Cliente con este DNI: " + txtDni.Text);
+                }
             }
             else {
                 MessageBox.Show("El DNI no puede ser vacio", "Warning",MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
