@@ -88,6 +88,7 @@
     <Compile Include="AbmProveedor\AltaProveedor.Designer.cs">
       <DependentUpon>AltaProveedor.cs</DependentUpon>
     </Compile>
+    <Compile Include="admCupon.cs" />
     <Compile Include="AdmFuncionalidades.cs" />
     <Compile Include="AdmOfertas.cs" />
     <Compile Include="AdmProveedores.cs" />
@@ -99,6 +100,12 @@
     </Compile>
     <Compile Include="CambiarPass.Designer.cs">
       <DependentUpon>CambiarPass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConsumirOferta\ConsumoOferta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConsumirOferta\ConsumoOferta.Designer.cs">
+      <DependentUpon>ConsumoOferta.cs</DependentUpon>
     </Compile>
     <Compile Include="CragaCredito\CargaCredito.cs">
       <SubType>Form</SubType>
@@ -215,6 +222,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ComprarOferta\ListadoOfertas.resx">
       <DependentUpon>ListadoOfertas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConsumirOferta\ConsumoOferta.resx">
+      <DependentUpon>ConsumoOferta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CragaCredito\CargaCredito.resx">
       <DependentUpon>CargaCredito.cs</DependentUpon>

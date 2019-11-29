@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using FrbaOfertas.AbmProveedor;
 using System.Configuration;
 using FrbaOfertas.Facturar;
+using FrbaOfertas.ConsumirOferta;
 namespace FrbaOfertas
 {
     public partial class Form1 : Form
@@ -138,6 +139,11 @@ namespace FrbaOfertas
                     Perfil flog = new Perfil();
                     hideForms();
                     flog.Show();
+                    break;
+                case "CONSUMIR OFERTA":
+                    ConsumoOferta co = new ConsumoOferta();
+                    hideForms();
+                    co.Show();
                     break;
                 default:
                     break;
