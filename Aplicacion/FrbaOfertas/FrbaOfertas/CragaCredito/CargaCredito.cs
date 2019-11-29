@@ -14,6 +14,7 @@ namespace FrbaOfertas
 {
     public partial class CargaCredito : Form
     {
+        public Decimal ClienteSeleccionado = -1;
         public CargaCredito()
         {
             InitializeComponent();
@@ -62,10 +63,18 @@ namespace FrbaOfertas
 
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
-            //FALTA OBTENER EL DNI DEL CLIENTE DEL LOGIN
-            if (txtDni.Text != "" && txtMonto.Text != "" && txtCodigo.Text != "" && txtNumero.Text != "" && cmbTipo.Text != "")
+            Decimal dni;
+            if (ClienteSeleccionado > 0)
             {
-                int filas=cargarCredito(Convert.ToDecimal(txtDni.Text), cmbTipo.Text, Convert.ToDecimal(txtMonto.Text), Convert.ToDecimal(txtNumero.Text),dtpVenc.Value.Date);
+                dni = ClienteSeleccionado;
+            }
+            else
+            {
+                dni = AdmClientes.obtenerDniDelUsuario(Login.username);
+            }
+            if (txtMonto.Text != "" && txtCodigo.Text != "" && txtNumero.Text != "" && cmbTipo.Text != "")
+            {
+                int filas=cargarCredito(dni, cmbTipo.Text, Convert.ToDecimal(txtMonto.Text), Convert.ToDecimal(txtNumero.Text),dtpVenc.Value.Date);
                 if (filas > 0)
                 {
                     MessageBox.Show("Se ha cargado el credito correctamente");
@@ -105,6 +114,25 @@ namespace FrbaOfertas
         private void CargaCredito_Load(object sender, EventArgs e)
         {
             this.Controls.Add(Form1.MainMenu);
+            if (ElegirRol.rolElegido == 2)
+            {
+                dgvClientes.Hide();
+                lblCliente.Hide();
+            }
+            else
+            {
+                dgvClientes.DataSource = AdmClientes.obtenerClientesNyA().Tables[0];
+            }
+        }
+
+        private void dgvClientes_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dgvClientes.SelectedCells.Count > 0)
+            {
+                int selectedrowindex = dgvClientes.SelectedCells[0].RowIndex;
+                DataGridViewRow selectedRow = dgvClientes.Rows[selectedrowindex];
+                ClienteSeleccionado =Convert.ToDecimal(selectedRow.Cells["Cli_Dni"].Value);
+            }
         }
     }
 }

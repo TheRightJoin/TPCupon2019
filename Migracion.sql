@@ -49,7 +49,7 @@ begin
 --TABLA Clientes
 --LISTO
 insert
-into THE_RIGHT_JOIN.Cliente select distinct Cli_Dni,Cli_Nombre,Cli_Apellido,Cli_Mail,Cli_Direccion,Cli_Ciudad,Cli_Fecha_Nac,NULL,Cli_Telefono,NULL,NULL,NULL
+into THE_RIGHT_JOIN.Cliente select distinct Cli_Dni,Cli_Nombre,Cli_Apellido,Cli_Mail,Cli_Direccion,Cli_Ciudad,Cli_Fecha_Nac,NULL,Cli_Telefono,NULL,NULL,0
 from gd_esquema.Maestra
 
 
@@ -150,6 +150,7 @@ INSERT INTO THE_RIGHT_JOIN.FuncXRol VALUES(1,THE_RIGHT_JOIN.traerFunc('CONSUMIR 
 INSERT INTO THE_RIGHT_JOIN.FuncXRol VALUES(1,THE_RIGHT_JOIN.traerFunc('COMPRAR OFERTA'))
 INSERT INTO THE_RIGHT_JOIN.FuncXRol VALUES(1,THE_RIGHT_JOIN.traerFunc('ESTADISTICA'))
 INSERT INTO THE_RIGHT_JOIN.FuncXRol VALUES(1,THE_RIGHT_JOIN.traerFunc('MODIFICAR PASSWORD'))
+INSERT INTO THE_RIGHT_JOIN.FuncXRol VALUES(1,THE_RIGHT_JOIN.traerFunc('CARGAR CREDITO'))
 
 INSERT INTO THE_RIGHT_JOIN.FuncXRol VALUES(2,THE_RIGHT_JOIN.traerFunc('CARGAR CREDITO'))
 INSERT INTO THE_RIGHT_JOIN.FuncXRol VALUES(2,THE_RIGHT_JOIN.traerFunc('COMPRAR OFERTA'))
