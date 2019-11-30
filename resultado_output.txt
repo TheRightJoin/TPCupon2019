@@ -1,0 +1,97 @@
+Se cambió el contexto de la base de datos a 'GD2C2019'.
+Mensaje 2714, Nivel 16, Estado 6, Servidor DESKTOP-DCSBIK0\SQLSERVER2012, Línea 2
+Ya hay un objeto con el nombre 'THE_RIGHT_JOIN' en la base de datos.
+Mensaje 2759, Nivel 16, Estado 1, Servidor DESKTOP-DCSBIK0\SQLSERVER2012, Línea 2
+Error en CREATE SCHEMA provocado por los errores anteriores.
+Mensaje 2714, Nivel 16, Estado 6, Servidor DESKTOP-DCSBIK0\SQLSERVER2012, Línea 3
+Ya hay un objeto con el nombre 'THE_RIGHT_JOIN' en la base de datos.
+Mensaje 2759, Nivel 16, Estado 1, Servidor DESKTOP-DCSBIK0\SQLSERVER2012, Línea 3
+Error en CREATE SCHEMA provocado por los errores anteriores.
+
+(218 filas afectadas)
+
+(3 filas afectadas)
+
+(37 filas afectadas)
+
+(159475 filas afectadas)
+
+(218 filas afectadas)
+
+(84262 filas afectadas)
+
+(119678 filas afectadas)
+
+(218 filas afectadas)
+
+(119678 filas afectadas)
+
+(119678 filas afectadas)
+
+(481 filas afectadas)
+
+(82543 filas afectadas)
+
+(218 filas afectadas)
+
+(37 filas afectadas)
+
+(1 filas afectadas)
+
+(1 filas afectadas)
+
+(1 filas afectadas)
+
+(1 filas afectadas)
+
+(1 filas afectadas)
+
+(1 filas afectadas)
+
+(1 filas afectadas)
+
+(1 filas afectadas)
+
+(1 filas afectadas)
+
+(1 filas afectadas)
+
+(1 filas afectadas)
+
+(1 filas afectadas)
+
+(1 filas afectadas)
+
+(1 filas afectadas)
+
+(1 filas afectadas)
+
+(1 filas afectadas)
+
+(1 filas afectadas)
+
+(1 filas afectadas)
+
+(1 filas afectadas)
+
+(1 filas afectadas)
+
+(1 filas afectadas)
+
+(1 filas afectadas)
+
+(1 filas afectadas)
+
+(1 filas afectadas)
+
+(1 filas afectadas)
+
+(218 filas afectadas)
+
+(37 filas afectadas)
+
+(1 filas afectadas)
+
+(1 filas afectadas)
+Se cambió el contexto de la base de datos a 'GD2C2019'.
+Se cambió el contexto de la base de datos a 'GD2C2019'.
