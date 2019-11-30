@@ -32,10 +32,10 @@ namespace FrbaOfertas
                     cmd.Parameters.Add("@email", SqlDbType.VarChar).Value = miProveedor.email;
                     cmd.Parameters.Add("@postal", SqlDbType.VarChar).Value = miProveedor.postal;
                     cmd.Parameters.Add("@contacto", SqlDbType.VarChar).Value = miProveedor.contacto;
-                    cmd.Parameters.Add("@resultado", SqlDbType.Int).Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add("@retorno", SqlDbType.Int).Direction = ParameterDirection.Output;
                     conn.Open();
                     cmd.ExecuteNonQuery();
-                    resultado = Convert.ToInt32(cmd.Parameters["@resultado"].Value);
+                    resultado = Convert.ToInt32(cmd.Parameters["@retorno"].Value);
                     conn.Close();
                 }
             }

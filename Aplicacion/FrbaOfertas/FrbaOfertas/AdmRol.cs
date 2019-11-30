@@ -25,7 +25,7 @@ namespace FrbaOfertas
         public static DataSet cargarComboBoxRoles() {
             string connString = ConfigurationManager.ConnectionStrings["THE_RIGHT_JOIN"].ConnectionString;
             SqlConnection conn = new SqlConnection(connString);
-            String query = "SELECT [id_Rol],[rol_Name],[rol_habilitado] FROM [GD2C2019].[THE_RIGHT_JOIN].[Rol] WHERE [rol_Name] <> 'ADMIN'";
+            String query = "SELECT [id_Rol],[rol_Name],[rol_habilitado] FROM [GD2C2019].[THE_RIGHT_JOIN].[Rol] WHERE [rol_Name] <> 'ADMIN' and [rol_habilitado] = 1";
             SqlCommand cmd = new SqlCommand(query, conn);
             return ConectorBDD.cargarDataSet(conn, cmd);
         }

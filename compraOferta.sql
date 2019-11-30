@@ -28,9 +28,9 @@ begin
 			(select Oferta_Fecha_Ven from THE_RIGHT_JOIN.Oferta where Oferta_Codigo = @codOferta) > @fecha and 
 			@fecha > (select Oferta_Fecha from THE_RIGHT_JOIN.Oferta where Oferta_Codigo = @codOferta))
 			begin
-				update THE_RIGHT_JOIN.Oferta set Oferta_Cantidad = Oferta_Cantidad - @cantidad
+				update THE_RIGHT_JOIN.Oferta set Oferta_Cantidad = Oferta_Cantidad - @cantidad where Oferta_Codigo = @codOferta
 				insert into THE_RIGHT_JOIN.Compra_Oferta values (@dni,@codOferta,@cantidad,@fecha)
-				update THE_RIGHT_JOIN.Cliente set Cli_Saldo = Cli_Saldo - @precio
+				update THE_RIGHT_JOIN.Cliente set Cli_Saldo = Cli_Saldo - @precio where Cli_Dni = @dni
 				while(@cantidad > 0)
 				begin
 					insert into THE_RIGHT_JOIN.Cupon values (@codOferta,@dni,null)

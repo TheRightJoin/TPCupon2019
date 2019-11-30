@@ -58,12 +58,13 @@ namespace FrbaOfertas
         private void PublicarOferta_Load(object sender, EventArgs e)
         {
             this.Controls.Add(Form1.MainMenu);
-            if (ElegirRol.rolElegido == 3)
+            if (AdmRol.rolDerivaDe( ElegirRol.rolElegido) == 3)
             {
                 dgvProve.Hide();
                 lblSeleccioneProv.Hide();
             }
-            dgvProve.DataSource =  AdmProveedores.obtenerProveedoresRS().Tables[0];
+            else { dgvProve.DataSource = AdmProveedores.obtenerProveedoresRS().Tables[0]; }
+            
         }
 
         private void dgvProve_SelectionChanged(object sender, EventArgs e)

@@ -21,12 +21,22 @@ namespace FrbaOfertas.ConsumirOferta
 
         int dniElegido;
         int codigoCupon;
+        String cuit = "";
         DateTime fechaActual = Convert.ToDateTime(ConfigurationManager.AppSettings["Fecha"]);
 
         private void ConsumoOferta_Load(object sender, EventArgs e)
         {
-            dgvClientes.DataSource = AdmClientes.obtenerClientesNyA().Tables[0];
             this.Controls.Add(Form1.MainMenu);
+            if (AdmRol.rolDerivaDe(ElegirRol.rolElegido) == 1)
+            {
+                dgvClientes.DataSource = AdmClientes.obtenerClientesNyA().Tables[0];
+            }
+            else
+            {
+                cuit = AdmProveedores.obtenerCuitDelUsuario(Login.username);
+
+                dgvClientes.DataSource = AdmClientes.clientesDelProv(cuit).Tables[0];
+            }
         }
 
 
@@ -36,9 +46,18 @@ namespace FrbaOfertas.ConsumirOferta
             {
                 int selectedrowindex = dgvClientes.SelectedCells[0].RowIndex;
                 DataGridViewRow selectedRow = dgvClientes.Rows[selectedrowindex];
-                dniElegido = Convert.ToInt32(selectedRow.Cells["Cli_Dni"].Value);
+                if (selectedRow.Cells["Cli_Dni"].Value != DBNull.Value) {
+                    dniElegido = Convert.ToInt32(selectedRow.Cells["Cli_Dni"].Value);
+                    if (ElegirRol.rolElegido == 1)
+                    {
+                        dgvCupon.DataSource = admCupon.obtenerCuponesXCliente(dniElegido).Tables[0];
+                    }
+                    else
+                    {
+                        dgvCupon.DataSource = admCupon.obtenerCuponesXClienteYProv(dniElegido, cuit).Tables[0];
+                    }
+                }
                 
-                dgvCupon.DataSource = admCupon.obtenerCuponesXCliente(dniElegido).Tables[0];
             }
         }
 
@@ -49,7 +68,16 @@ namespace FrbaOfertas.ConsumirOferta
             {
                 MessageBox.Show("Oferta consumida");
 
-                dgvClientes.DataSource = AdmClientes.obtenerClientesNyA().Tables[0];
+                if (AdmRol.rolDerivaDe(ElegirRol.rolElegido) == 1)
+                {
+                    dgvClientes.DataSource = AdmClientes.obtenerClientesNyA().Tables[0];
+                }
+                else
+                {
+                    cuit = AdmProveedores.obtenerCuitDelUsuario(Login.username);
+
+                    dgvClientes.DataSource = AdmClientes.clientesDelProv(cuit).Tables[0];
+                }
 
             }
             else

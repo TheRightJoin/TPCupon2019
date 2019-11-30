@@ -23,6 +23,7 @@ namespace FrbaOfertas
 
         private void crearMenuStripPublico() 
         {
+            MainMenu = new MenuStrip();
             MainMenu.ForeColor = Color.Black;
             MainMenu.Text = "Main Menu";
             this.MainMenuStrip = MainMenu;
@@ -165,13 +166,13 @@ namespace FrbaOfertas
         private void Form1_Load_1(object sender, EventArgs e)
         {
             DateTime value = Convert.ToDateTime(ConfigurationManager.AppSettings["DateFormat"]);
-            if (MainMenu.Items.Count.ToString() == "0")
-            {
+            /*if (MainMenu.Items.Count.ToString() == "0")
+            {*/
                 crearMenuStripPublico();
-            }
+            /*}
             else {
                 this.Controls.Add(MainMenu);
-            }
+            }*/
             
            
         

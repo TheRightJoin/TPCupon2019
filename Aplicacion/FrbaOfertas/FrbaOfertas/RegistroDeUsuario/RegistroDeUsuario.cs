@@ -162,20 +162,23 @@ namespace FrbaOfertas
 
         private void cbxRol_SelectedIndexChanged(object sender, EventArgs e)
         {
-            switch (cbxRol.Text)
+            if (AdmRol.obtenerRoles(cbxRol.Text).Tables[0].Rows.Count != 0)
             {
-                case "CLIENTE":
-                    mostrarCliente();
-                    esconderProveedor();
-                    break;
-                case "PROVEEDOR":
-                    mostrarProveedor();
-                    esconderCliente();
-                    break;
-                case "ADMIN":
-                    esconderCliente();
-                    esconderProveedor();
-                    break;
+                switch (AdmRol.rolDerivaDe(Convert.ToInt32(AdmRol.obtenerRoles(cbxRol.Text).Tables[0].Rows[0]["id_Rol"].ToString())))
+                {
+                    case 2:
+                        mostrarCliente();
+                        esconderProveedor();
+                        break;
+                    case 3:
+                        mostrarProveedor();
+                        esconderCliente();
+                        break;
+                    case 1:
+                        esconderCliente();
+                        esconderProveedor();
+                        break;
+                }
             }
         }
 
@@ -183,22 +186,22 @@ namespace FrbaOfertas
         {
             int retorno;
             Usuario miUser;
-            switch (cbxRol.Text)
+            switch (AdmRol.rolDerivaDe(Convert.ToInt32(AdmRol.obtenerRoles(cbxRol.Text).Tables[0].Rows[0]["id_Rol"].ToString())))
             {     
-                case "CLIENTE":
+                case 2:
                     if (txtApellido.Text != "" && txtDNI.Text != "" && txtNombre.Text != "")
                     {
                         miUser = new Usuario(txtUsuario.Text, txtContrasenia.Text, Convert.ToDecimal(txtDNI.Text), null);
                         Cliente miClie = new Cliente(Convert.ToDecimal(txtDNI.Text),
                                                      txtNombre.Text,
                                                      txtApellido.Text,
-                                                     txtEmail.Text,
-                                                     txtDireccion.Text,
-                                                     txtCiudad.Text,
-                                                     Convert.ToDateTime(dtpNacimiento.Text),
-                                                     Convert.ToDecimal(txtTelefono.Text),
-                                                     txtPostal.Text,
-                                                     txtLocalidad.Text);
+                                                     (txtEmail.Text  ?? " "),
+                                                     txtDireccion.Text ?? " ",
+                                                     txtCiudad.Text ?? " ",
+                                                     Convert.ToDateTime(dtpNacimiento.Text ?? ""),
+                                                     Convert.ToDecimal(txtTelefono.Text ?? "0"),
+                                                     txtPostal.Text ?? " ",
+                                                     txtLocalidad.Text ?? " ");
 
                         int filas = AdmClientes.altaCliente(miClie);
                         if (filas > 0)
@@ -221,7 +224,7 @@ namespace FrbaOfertas
                     
 
                     break;
-                case "PROVEEDOR":
+                case 3:
                     String direccionTotal = txtPisoP.Text + "; " + txtPisoP.Text + "; " + txtDeptoP.Text + "; " + txtLocalidad.Text;
                     miUser = new Usuario(txtUsuario.Text, txtContrasenia.Text, Convert.ToDecimal(null), txtCUIT.Text);
                     Proveedor miProvee = new Proveedor(txtRS.Text,
@@ -241,7 +244,7 @@ namespace FrbaOfertas
                         MessageBox.Show("Ya existe el usuario: " + txtUsuario.Text);
                     }
                     break;
-                case "Administrador":
+                case 1:
                     miUser = new Usuario(txtUsuario.Text, txtContrasenia.Text, Convert.ToDecimal(null), null);
                    retorno = AdmUsuario.altaUsuario(miUser);
                    if (retorno == -1)

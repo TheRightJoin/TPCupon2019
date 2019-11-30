@@ -48,5 +48,18 @@ namespace FrbaOfertas
             return ConectorBDD.cargarDataSet(conn, cmd);
         
         }
+
+        public static DataSet obtenerCuponesXClienteYProv(int dni, String cuit)
+        {
+
+            string connString = ConfigurationManager.ConnectionStrings["THE_RIGHT_JOIN"].ConnectionString;
+            SqlConnection conn = new SqlConnection(connString);
+            String query = "select * from THE_RIGHT_JOIN.obtenerCuponesPorClienteYProv(@dni,@cuit)";
+            SqlCommand cmd = new SqlCommand(query, conn);
+            cmd.Parameters.Add("@dni", SqlDbType.Decimal).Value = Convert.ToDecimal(dni);
+            cmd.Parameters.Add("@cuit", SqlDbType.NVarChar).Value = cuit;
+            return ConectorBDD.cargarDataSet(conn, cmd);
+
+        }
     }
 }

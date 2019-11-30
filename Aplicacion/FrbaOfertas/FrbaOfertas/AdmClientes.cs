@@ -174,6 +174,17 @@ namespace FrbaOfertas
             }
 
             }
+        public static DataSet clientesDelProv(String cuit)
+        {
+            string connString = ConfigurationManager.ConnectionStrings["THE_RIGHT_JOIN"].ConnectionString;
+            SqlConnection conn = new SqlConnection(connString);
+            String query = "SELECT * FROM THE_RIGHT_JOIN.clientesDelProv(@cuit)";
+         
+            SqlCommand cmd = new SqlCommand(query, conn);
+            SqlParameter paramCuit = cmd.Parameters.Add("@cuit", SqlDbType.NVarChar);
+            paramCuit.Value = cuit;
+            return ConectorBDD.cargarDataSet(conn, cmd);
+        }
 
     }
 }

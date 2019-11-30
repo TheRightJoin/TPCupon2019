@@ -41,6 +41,7 @@ namespace FrbaOfertas
             else
             {
                dni = AdmClientes.obtenerDniDelUsuario(Login.username);
+                label2.Hide();
             }
         }
 

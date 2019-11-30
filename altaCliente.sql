@@ -23,9 +23,14 @@ if(not exists (select * from Cliente
 					 Cli_Localidad = @localidad and
 					 Cli_Activo = 1))
 begin
+begin try
 INSERT INTO THE_RIGHT_JOIN.Cliente (Cli_Dni,Cli_Nombre,Cli_Apellido,Cli_Mail,Cli_Direccion,Cli_Ciudad,Cli_Fecha_Nac,Cli_Telefono,Cli_CodPostal,Cli_Localidad,Cli_Activo,Cli_Saldo)
 VALUES (@dni,@nombre,@apellido,@mail,@direccion,@ciudad,@fechaNac,@telefono,@codpost,@localidad,1,200)
 set @retorno = @@ROWCOUNT
+end try
+begin catch
+set @retorno = -1
+end catch
 end
 else
 set @retorno = -1
