@@ -28,7 +28,7 @@ namespace FrbaOfertas
                     cmd.Parameters.Add("@telefono", SqlDbType.Decimal).Value = miProveedor.telefono;
                     cmd.Parameters.Add("@cuit", SqlDbType.VarChar).Value = miProveedor.CUIT;
                     cmd.Parameters.Add("@idRubro", SqlDbType.Int).Value = miProveedor.idRubro;
-                    cmd.Parameters.Add("@activo", SqlDbType.Decimal).Value = miProveedor.activo;
+                    cmd.Parameters.Add("@activo", SqlDbType.Decimal).Value = 1;
                     cmd.Parameters.Add("@email", SqlDbType.VarChar).Value = miProveedor.email;
                     cmd.Parameters.Add("@postal", SqlDbType.VarChar).Value = miProveedor.postal;
                     cmd.Parameters.Add("@contacto", SqlDbType.VarChar).Value = miProveedor.contacto;

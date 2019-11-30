@@ -22,6 +22,7 @@ namespace FrbaOfertas.AbmRol
             if(AdmRol.altaRol(textBox1.Text) == 1)
             {
                 MessageBox.Show("Alta realizada con exito");
+                VerRoles.idSeleccionado = Convert.ToInt32( AdmRol.obtenerRoles(textBox1.Text).Tables[0].Rows[0]["id_Rol"]);
                 AgregarFuncionalidades agregarFuncionalidades = new AgregarFuncionalidades();
                 agregarFuncionalidades.Show();
                 this.Hide();

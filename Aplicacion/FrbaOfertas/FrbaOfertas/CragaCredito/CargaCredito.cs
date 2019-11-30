@@ -114,7 +114,7 @@ namespace FrbaOfertas
         private void CargaCredito_Load(object sender, EventArgs e)
         {
             this.Controls.Add(Form1.MainMenu);
-            if (ElegirRol.rolElegido == 2)
+            if (AdmRol.rolDerivaDe( ElegirRol.rolElegido) == 2)
             {
                 dgvClientes.Hide();
                 lblCliente.Hide();

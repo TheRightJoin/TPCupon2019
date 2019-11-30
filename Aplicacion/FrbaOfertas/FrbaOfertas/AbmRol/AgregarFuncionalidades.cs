@@ -16,12 +16,15 @@ namespace FrbaOfertas.AbmRol
         public AgregarFuncionalidades()
         {
             InitializeComponent();
-            int derivado = AdmRol.rolDerivaDe(VerRoles.idSeleccionado);
-            if (derivado != 0)
+            if (VerRoles.idSeleccionado != 0)
             {
-                comboBox1.Hide();
-                label1.Hide();
-                dataGridView1.DataSource = AdmRol.obtenerFuncionalidadesRol(derivado).Tables[0];
+                int derivado = AdmRol.rolDerivaDe(VerRoles.idSeleccionado);
+                if (derivado != 0)
+                {
+                    comboBox1.Hide();
+                    label1.Hide();
+                    dataGridView1.DataSource = AdmRol.obtenerFuncionalidadesRol(derivado).Tables[0];
+                }
             }
         }
 

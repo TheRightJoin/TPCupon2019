@@ -11,7 +11,7 @@ namespace FrbaOfertas
 {
     class AdmUsuario
     {
-        public static int altaUsuario(Usuario user)
+        public static int altaUsuario(Usuario user, int idRol)
         {
             int retorno;
 
@@ -31,9 +31,9 @@ namespace FrbaOfertas
                         cmd.Parameters.Add("@dni", SqlDbType.Decimal).Value = null;
                     }
                     cmd.Parameters.Add("@cuit", SqlDbType.VarChar).Value = user.CUIT;
-
+                    cmd.Parameters.Add("@idRol", SqlDbType.Int).Value = idRol;
                     cmd.Parameters.Add("@retorno", SqlDbType.Int).Direction = ParameterDirection.Output;
-
+                    
                     conn.Open();
                     cmd.ExecuteNonQuery();
                     retorno = Convert.ToInt32(cmd.Parameters["@retorno"].Value);

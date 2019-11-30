@@ -207,7 +207,7 @@ namespace FrbaOfertas
                         if (filas > 0)
                         {
 
-                            retorno = AdmUsuario.altaUsuario(miUser);
+                            retorno = AdmUsuario.altaUsuario(miUser, (Convert.ToInt32(AdmRol.obtenerRoles(cbxRol.Text).Tables[0].Rows[0]["id_Rol"].ToString())));
                             if (retorno == -1)
                             {
                                 MessageBox.Show("Ya existe el usuario: " + txtUsuario.Text);
@@ -238,7 +238,7 @@ namespace FrbaOfertas
                                                        txtContacto.Text,
                                                        txtPostalP.Text);
                     AdmProveedores.AltaProveedor(miProvee);
-                    retorno = AdmUsuario.altaUsuario(miUser);
+                    retorno = AdmUsuario.altaUsuario(miUser, (Convert.ToInt32(AdmRol.obtenerRoles(cbxRol.Text).Tables[0].Rows[0]["id_Rol"].ToString())));
                     if (retorno == -1)
                     {
                         MessageBox.Show("Ya existe el usuario: " + txtUsuario.Text);
@@ -246,7 +246,7 @@ namespace FrbaOfertas
                     break;
                 case 1:
                     miUser = new Usuario(txtUsuario.Text, txtContrasenia.Text, Convert.ToDecimal(null), null);
-                   retorno = AdmUsuario.altaUsuario(miUser);
+                   retorno = AdmUsuario.altaUsuario(miUser, (Convert.ToInt32(AdmRol.obtenerRoles(cbxRol.Text).Tables[0].Rows[0]["id_Rol"].ToString())));
                    if (retorno == -1)
                    {
                        MessageBox.Show("Ya existe el usuario: " + txtUsuario.Text);

@@ -7,6 +7,7 @@ create procedure THE_RIGHT_JOIN.altaUsuario
 @pass nvarchar(255) = NULL,
 @dni numeric(18,0) = NULL,
 @cuit nvarchar(255) = NULL,
+@idRol int = null,
 @retorno numeric(18,0) out
 
 -- retorna 0 si ta todo joya
@@ -23,14 +24,15 @@ if(not exists (select * from THE_RIGHT_JOIN.Usuario where Usuari_Username = @usu
 		if(@dni IS NOT NULL)
 			begin
 			insert into THE_RIGHT_JOIN.RolXUsuario (idUser,idRol)
-			values ((select Usuari_idUser from THE_RIGHT_JOIN.Usuario WHERE Usuari_DNI = @dni),2)
+			values ((select Usuari_idUser from THE_RIGHT_JOIN.Usuario WHERE Usuari_DNI = @dni),@idRol)
 			end
 		else
 			begin
 			insert into THE_RIGHT_JOIN.RolXUsuario (idUser,idRol)
-			values ((select Usuari_idUser from THE_RIGHT_JOIN.Usuario WHERE Usuari_CUIT = @cuit),3)
+			values ((select Usuari_idUser from THE_RIGHT_JOIN.Usuario WHERE Usuari_CUIT = @cuit),@idRol)
 			end
 		end
 	else
 set @retorno = -1
 end
+

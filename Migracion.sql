@@ -61,7 +61,7 @@ insert into THE_RIGHT_JOIN.Rubro select distinct Provee_Rubro from gd_esquema.Ma
 --TABLA PROVEEDORES
 --LISTO
 insert into THE_RIGHT_JOIN.Proveedor select distinct Provee_RS,Provee_Dom,Provee_Ciudad,Provee_Telefono,Provee_CUIT, 
-    (select idRubro from THE_RIGHT_JOIN.Rubro R where R.Rubro_Descripcion = Provee_Rubro),NULL, null, null, null
+    (select idRubro from THE_RIGHT_JOIN.Rubro R where R.Rubro_Descripcion = Provee_Rubro),1, null, null, null
  from gd_esquema.Maestra WHERE Provee_CUIT IS NOT NULL
 
 
