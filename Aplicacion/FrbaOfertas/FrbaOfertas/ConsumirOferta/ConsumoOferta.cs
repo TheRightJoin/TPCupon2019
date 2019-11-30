@@ -56,6 +56,7 @@ namespace FrbaOfertas.ConsumirOferta
                     {
                         dgvCupon.DataSource = admCupon.obtenerCuponesXClienteYProv(dniElegido, cuit).Tables[0];
                     }
+                    textBox1.Text = dniElegido.ToString();
                 }
                 
             }
@@ -63,7 +64,7 @@ namespace FrbaOfertas.ConsumirOferta
 
         private void btnConsumir_Click(object sender, EventArgs e)
         {
-            int filas = admCupon.consumirOferta(dniElegido, fechaActual, codigoCupon);
+            int filas = admCupon.consumirOferta(Convert.ToInt32( textBox1.Text), fechaActual, codigoCupon);
             if (filas > 0)
             {
                 MessageBox.Show("Oferta consumida");
@@ -82,7 +83,14 @@ namespace FrbaOfertas.ConsumirOferta
             }
             else
             {
-                MessageBox.Show("Error al consumir oferta");
+                if (filas < 0)
+                {
+                    MessageBox.Show("El usuario no existe");
+                }
+                else
+                {
+                    MessageBox.Show("Error al consumir oferta");
+                }
             }
         }
 
@@ -96,6 +104,14 @@ namespace FrbaOfertas.ConsumirOferta
                 {
                     codigoCupon = Convert.ToInt32(selectedRow.Cells["idCupon"].Value);
                 }
+            }
+        }
+
+        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
             }
         }
     }

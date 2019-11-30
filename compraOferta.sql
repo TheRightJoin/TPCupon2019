@@ -33,7 +33,7 @@ begin
 				update THE_RIGHT_JOIN.Cliente set Cli_Saldo = Cli_Saldo - @precio where Cli_Dni = @dni
 				while(@cantidad > 0)
 				begin
-					insert into THE_RIGHT_JOIN.Cupon values (@codOferta,@dni,null)
+					insert into THE_RIGHT_JOIN.Cupon values (@codOferta,@dni,null,@fecha,null)
 					set @cantidad = @cantidad - 1
 				end
 			end

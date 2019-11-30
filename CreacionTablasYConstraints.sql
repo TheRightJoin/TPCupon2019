@@ -1,4 +1,6 @@
 
+create schema THE_RIGHT_JOIN;
+GO
 create procedure THE_RIGHT_JOIN.CREACION_TABLAS_CONSTRAINTS
 AS
 BEGIN
@@ -133,7 +135,9 @@ CREATE TABLE THE_RIGHT_JOIN.Cupon(
 idCupon INTEGER NOT NULL PRIMARY KEY IDENTITY(1,1),
 codOferta nvarchar(50) NOT NULL,
 cupon_dniCli numeric(18,0),
-cupon_FechaCanje date)
+cupon_FechaCanje date,
+cupon_FechaGen date,
+cupon_dniCons numeric(18,0))
 
 ALTER TABLE THE_RIGHT_JOIN.Cupon
 ADD CONSTRAINT FK_CuponOferta

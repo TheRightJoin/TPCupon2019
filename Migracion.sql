@@ -83,26 +83,41 @@ where Oferta_Codigo IS NOT NULL
 
 --TABLA Compra_Oferta
 --LISTO
-insert into THE_RIGHT_JOIN.Compra_Oferta select Cli_Dni,Oferta_Codigo,COUNT(*)as cant,Oferta_Fecha_Compra from gd_esquema.Maestra
-where Oferta_Codigo IS NOT NULL and Factura_Nro IS NULL
+insert into THE_RIGHT_JOIN.Compra_Oferta /*select Cli_Dni,Oferta_Codigo, Oferta_Cantidad ,Oferta_Fecha_Compra from gd_esquema.Maestra
+where Oferta_Codigo IS NOT NULL and Factura_Nro IS NULL and Oferta_Entregado_Fecha is null
+order by Cli_Dni,Oferta_Codigo*/ select Cli_Dni,Oferta_Codigo,COUNT(*)as cant,Oferta_Fecha_Compra from gd_esquema.Maestra
+where Oferta_Codigo IS NOT NULL and Factura_Nro IS NULL and Oferta_Entregado_Fecha is null
 GROUP BY Cli_Dni,Oferta_Codigo,Oferta_Fecha_Compra,Factura_Nro
-order by Cli_Dni,Oferta_Codigo,Factura_Nro
+order by count(*),Oferta_Codigo,Factura_Nro
 
+
+
+--119678
 update THE_RIGHT_JOIN.Cliente set Cli_Saldo = Cli_Saldo - 
 	(select SUM(CompraOferta_Cantidad*Oferta_Precio) from THE_RIGHT_JOIN.Compra_Oferta
 	 join THE_RIGHT_JOIN.Oferta on Oferta_Codigo = CompraOferta_oferCodigo where CompraOferta_dniClie = Cli_Dni)
 
 --TABLA Cupon
 --LISTO
-insert into THE_RIGHT_JOIN.Cupon select Oferta_Codigo,Cli_Dni, Oferta_Entregado_Fecha from gd_esquema.Maestra
-where Oferta_Codigo IS NOT NULL
+
+insert into THE_RIGHT_JOIN.Cupon select CompraOferta_oferCodigo,CompraOferta_dniClie,null,CompraOferta_Fecha,null
+	from THE_RIGHT_JOIN.Compra_Oferta 
+
+update THE_RIGHT_JOIN.Cupon set cupon_FechaCanje = 
+	(select distinct Oferta_Entregado_Fecha from gd_esquema.Maestra join THE_RIGHT_JOIN.Compra_Oferta on CompraOferta_dniClie = Cli_Dni and CompraOferta_oferCodigo = codOferta and Oferta_Fecha_Compra = CompraOferta_Fecha
+	where Oferta_Codigo = codOferta and cupon_dniCli = Cli_Dni and Oferta_Entregado_Fecha is not null
+	and  Oferta_Fecha_Compra = cupon_FechaGen)
+
+/*insert into THE_RIGHT_JOIN.Cupon select Oferta_Codigo,Cli_Dni, Oferta_Entregado_Fecha from gd_esquema.Maestra
+where Oferta_Codigo IS NOT NULL*/
+
 
 --TABLA Factura
 --LISTO
 set Identity_Insert THE_RIGHT_JOIN.Factura on
 
 insert into THE_RIGHT_JOIN.Factura (Factura_tipoFactura, Factura_numFactura, Factura_fecha, Factura_total, Factura_CUIT) select 'A',Factura_Nro,Factura_Fecha,sum(Oferta_Precio),Provee_CUIT from gd_esquema.Maestra
-where Factura_Nro IS NOT NULL
+where Factura_Nro IS NOT NULL and Oferta_Entregado_Fecha is null
 group by Factura_Nro,Factura_Fecha,Provee_CUIT
 
 set Identity_Insert THE_RIGHT_JOIN.Factura off
