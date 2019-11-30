@@ -5,8 +5,8 @@ create schema THE_RIGHT_JOIN;
 GO
 
 
-create schema THE_RIGHT_JOIN;
-GO
+/*create schema THE_RIGHT_JOIN;
+GO*/
 create procedure THE_RIGHT_JOIN.CREACION_TABLAS_CONSTRAINTS
 AS
 BEGIN
@@ -523,6 +523,7 @@ create procedure THE_RIGHT_JOIN.altaUsuario
 @pass nvarchar(255) = NULL,
 @dni numeric(18,0) = NULL,
 @cuit nvarchar(255) = NULL,
+@idRol int = null,
 @retorno numeric(18,0) out
 
 -- retorna 0 si ta todo joya
@@ -539,12 +540,12 @@ if(not exists (select * from THE_RIGHT_JOIN.Usuario where Usuari_Username = @usu
 		if(@dni IS NOT NULL)
 			begin
 			insert into THE_RIGHT_JOIN.RolXUsuario (idUser,idRol)
-			values ((select Usuari_idUser from THE_RIGHT_JOIN.Usuario WHERE Usuari_DNI = @dni),2)
+			values ((select Usuari_idUser from THE_RIGHT_JOIN.Usuario WHERE Usuari_DNI = @dni),@idRol)
 			end
 		else
 			begin
 			insert into THE_RIGHT_JOIN.RolXUsuario (idUser,idRol)
-			values ((select Usuari_idUser from THE_RIGHT_JOIN.Usuario WHERE Usuari_CUIT = @cuit),3)
+			values ((select Usuari_idUser from THE_RIGHT_JOIN.Usuario WHERE Usuari_CUIT = @cuit),@idRol)
 			end
 		end
 	else
@@ -894,10 +895,12 @@ declare @retorno int
 set @retorno = 0
 declare @idCliente int = (select r.id_Rol from THE_RIGHT_JOIN.Rol r where r.rol_Name = 'CLIENTE')
 declare @idProv int = (select r.id_Rol from THE_RIGHT_JOIN.Rol r where r.rol_Name = 'PROVEEDOR')
+if(not exists(select * from THE_RIGHT_JOIN.traerFuncDelRol(@idRol) where funcio_name <> 'MODIFICAR PASSWORD'))
+	return 0;
 if((select rol_Name from Rol where id_Rol = @idRol) = 'ADMIN')
 	return 1;
 if(exists (select funcio_name from THE_RIGHT_JOIN.traerFuncDelRol(@idRol) where funcio_name in (select funcio_name from THE_RIGHT_JOIN.Funcionalidad join THE_RIGHT_JOIN.FuncXRol on FuncXRol.idFunc = Funcionalidad.idFunc 
-where idRol = @idCliente and Funcionalidad.idFunc not in (select f.idFunc from THE_RIGHT_JOIN.FuncXRol  f where f.idRol <> FuncXRol.idRol and f.idRol<= @idProv))))
+where idRol = @idCliente and Funcionalidad.idFunc not in (select f.idFunc from THE_RIGHT_JOIN.FuncXRol  f where f.idRol <> FuncXRol.idRol and f.idRol<= @idProv and f.idRol >= @idCliente))))
 	set @retorno = @idCliente
 else
 	begin
@@ -905,6 +908,7 @@ else
 	end
 return @retorno;
 end
+
 
 GO
 
