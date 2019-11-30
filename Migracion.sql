@@ -71,6 +71,8 @@ insert into THE_RIGHT_JOIN.CargaCredito select Carga_Fecha,Cli_Dni,Carga_Credito
 from gd_esquema.Maestra
 where Carga_Credito IS NOT NULL
 
+update THE_RIGHT_JOIN.Cliente set Cli_Saldo = (select SUM(Carga_Credito) from THE_RIGHT_JOIN.CargaCredito where Carga_dniClie = Cli_Dni)
+
 --TABLA OFERTAS
 --LISTO
 insert into THE_RIGHT_JOIN.Oferta select distinct Oferta_Precio,Oferta_Precio_Ficticio,Oferta_Fecha,Oferta_Fecha_Venc,Oferta_Cantidad,Oferta_Descripcion,
@@ -86,6 +88,9 @@ where Oferta_Codigo IS NOT NULL and Factura_Nro IS NULL
 GROUP BY Cli_Dni,Oferta_Codigo,Oferta_Fecha_Compra,Factura_Nro
 order by Cli_Dni,Oferta_Codigo,Factura_Nro
 
+update THE_RIGHT_JOIN.Cliente set Cli_Saldo = Cli_Saldo - 
+	(select SUM(CompraOferta_Cantidad*Oferta_Precio) from THE_RIGHT_JOIN.Compra_Oferta
+	 join THE_RIGHT_JOIN.Oferta on Oferta_Codigo = CompraOferta_oferCodigo where CompraOferta_dniClie = Cli_Dni)
 
 --TABLA Cupon
 --LISTO
